@@ -5,5 +5,5 @@ A niosII and an SDRAM controller were added but have no function what so ever cu
 Block diagram of the top level entity (top.v):
 ![Top level block diagram](pictures/top_block.png)
 
-Block diagram of the QSys/platform designer system:
-![Top level block diagram](pictures/qsys_block.png)
+Block diagram of the QSys/"Platform Designer" system:
+![QSys block diagram](pictures/qsys_block.png)
