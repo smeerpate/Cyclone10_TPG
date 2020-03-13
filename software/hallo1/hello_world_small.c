@@ -92,18 +92,31 @@
 #define REG_MIX_IN0_LAYERPOSITION 	11* BYTESPERWORD
 #define REG_MIX_IN0_STATICALPHA 	12* BYTESPERWORD
 
+#define REG_SCAL_CONTROL			0* BYTESPERWORD
+#define REG_SCAL_STATUS		  		1* BYTESPERWORD
+#define REG_SCAL_WIDTH				3* BYTESPERWORD
+#define REG_SCAL_HEIGHT				4* BYTESPERWORD
+
 void waitWithLed(int ticks, int tickTimeMs);
 void setStartPosition(int x, int y);
+void printStatus();
+void setSize(int x, int y);
+
 
 int main()
 {
 	int x_pos = 0, y_pos = 0;
+	int width = 320, height = 448;
 	int max_pos = 50;
 
-	alt_putstr("\n\rInitializeren van mixer na LED geroffel...");
+	printStatus();
+
+	alt_putstr("\n\rInitializeren van mixer en scaler na LED geroffel...");
 	waitWithLed(60, 40);
 	IOWR(ALT_VIP_CL_MIXER_0_BASE, REG_MIX_CONTROL, 0x1);
+	IOWR(MAIN_SCALER_BASE, REG_SCAL_CONTROL, 0x1);
 	alt_putstr("-->Klaar met instellen.\n\r");
+	printStatus();
 
 	waitWithLed(4, 1000);
 
@@ -112,6 +125,16 @@ int main()
 	IOWR(ALT_VIP_CL_MIXER_0_BASE, REG_MIX_IN0_XOFFSET , 30);
 	IOWR(ALT_VIP_CL_MIXER_0_BASE, REG_MIX_IN0_YOFFSET , 30);
 	alt_putstr("-->Klaar met instellen.\n\r");
+	printStatus();
+
+	waitWithLed(5, 1000);
+
+	alt_putstr("scaler grootte instellen na LED geroffel...");
+	waitWithLed(60, 40);
+	IOWR(MAIN_SCALER_BASE, REG_SCAL_WIDTH , width);
+	IOWR(MAIN_SCALER_BASE, REG_SCAL_HEIGHT , height);
+	alt_putstr("-->Klaar met instellen.\n\r");
+	printStatus();
 
 	waitWithLed(5, 1000);
 /*
@@ -133,14 +156,24 @@ int main()
 	waitWithLed(60, 40);
 	IOWR(ALT_VIP_CL_MIXER_0_BASE, REG_MIX_IN0_INPUTCONTROL , 0x1);
 	alt_putstr("-->Klaar met instellen.\n\r");
+	printStatus();
 
 	alt_putstr("Dat was het.\n\r");
 
   /* Event loop never exits. */
   while (1)
   {
+	  int curr_width, curr_height;
+
   	  waitWithLed(1, 1000);
   	  setStartPosition(x_pos, y_pos);
+  	  curr_width = width + (x_pos * 5);
+  	  curr_height = height + (x_pos * 3);
+  	  setSize(curr_width, curr_height);
+
+  	  alt_printf("pos=(%x,%x), size=(%x,%x)\n\r", x_pos, y_pos, curr_width, curr_height);
+  	  printStatus();
+
   	  if (x_pos >= max_pos || y_pos >= max_pos)
   	  {
   		x_pos = 0;
@@ -172,4 +205,21 @@ void setStartPosition(int x, int y)
 {
 	IOWR(ALT_VIP_CL_MIXER_0_BASE, REG_MIX_IN0_XOFFSET , x);
 	IOWR(ALT_VIP_CL_MIXER_0_BASE, REG_MIX_IN0_YOFFSET , y);
+}
+
+void printStatus()
+{
+	int status;
+
+	status = IORD(ALT_VIP_CL_MIXER_0_BASE, REG_MIX_STATUS);
+	alt_printf("***  Mixer status is nu:  %x  ***\n\r", status);
+	status = IORD(MAIN_SCALER_BASE, REG_SCAL_STATUS);
+	alt_printf("***  Scaler status is nu: %x  ***\n\r", status);
+	return;
+}
+
+void setSize(int x, int y)
+{
+	IOWR(MAIN_SCALER_BASE, REG_SCAL_WIDTH , x);
+	IOWR(MAIN_SCALER_BASE, REG_SCAL_HEIGHT , y);
 }

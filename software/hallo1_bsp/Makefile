@@ -218,6 +218,18 @@ alt_vip_cl_mixer_driver_CPP_LIB_SRCS := \
 	$(alt_vip_cl_mixer_driver_SRCS_ROOT)/../../drivers/vip/src/Mixer.cpp \
 	$(alt_vip_cl_mixer_driver_SRCS_ROOT)/../../drivers/vip/src/MixerLayer.cpp
 
+# alt_vip_cl_scl_driver sources root 
+alt_vip_cl_scl_driver_SRCS_ROOT := drivers/vip
+
+# alt_vip_cl_scl_driver sources 
+alt_vip_cl_scl_driver_CPP_LIB_SRCS := \
+	$(alt_vip_cl_scl_driver_SRCS_ROOT)/../../drivers/vip/src/VipUtil.cpp \
+	$(alt_vip_cl_scl_driver_SRCS_ROOT)/../../drivers/vip/src/VipCore.cpp \
+	$(alt_vip_cl_scl_driver_SRCS_ROOT)/../../drivers/vip/src/VipMath.cpp \
+	$(alt_vip_cl_scl_driver_SRCS_ROOT)/../../drivers/vip/src/QuantizedCoefficients.cpp \
+	$(alt_vip_cl_scl_driver_SRCS_ROOT)/../../drivers/vip/src/Scaler.cpp \
+	$(alt_vip_cl_scl_driver_SRCS_ROOT)/../../drivers/vip/src/ScalerCoefficientsSet.cpp
+
 # altera_avalon_pio_driver sources root 
 altera_avalon_pio_driver_SRCS_ROOT := drivers
 
@@ -342,7 +354,8 @@ COMPONENT_ASM_LIB_SRCS += \
 
 # Assemble all component C++ source files 
 COMPONENT_CPP_LIB_SRCS += \
-	$(alt_vip_cl_mixer_driver_CPP_LIB_SRCS)
+	$(alt_vip_cl_mixer_driver_CPP_LIB_SRCS) \
+	$(alt_vip_cl_scl_driver_CPP_LIB_SRCS)
 
 #END MANAGED
 

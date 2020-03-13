@@ -67,7 +67,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   </table>
   <table class="blueBar">
    <tr>
-    <td class="l">2020.03.13.14:09:32</td>
+    <td class="l">2020.03.13.15:55:14</td>
     <td class="r">Datasheet</td>
    </tr>
   </table>
@@ -96,6 +96,9 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
      <br/>&#160;&#160;
      <a href="#module_alt_vip_cl_mixer_0"><b>alt_vip_cl_mixer_0</b>
      </a> alt_vip_cl_mixer 18.1
+     <br/>&#160;&#160;
+     <a href="#module_main_scaler"><b>main_scaler</b>
+     </a> alt_vip_cl_scl 18.1
      <br/>&#160;&#160;
      <a href="#module_nios2_gen2_0"><b>nios2_gen2_0</b>
      </a> altera_nios2_gen2 18.1
@@ -162,6 +165,23 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
     <td class="empty"></td>
     <td class="empty"></td>
     <td class="addr"><span style="color:#989898">0x</span>00000000</td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slavemodule">&#160;
+     <a href="#module_main_scaler"><b>main_scaler</b>
+     </a>
+    </td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slaveb">control&#160;</td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="addr"><span style="color:#989898">0x</span>00005000</td>
     <td class="empty"></td>
    </tr>
    <tr>
@@ -837,7 +857,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <td></td>
       <td class="from">dout&#160;&#160;</td>
       <td class="neighbor" rowspan="2">
-       <a href="#module_alt_vip_cl_vfb_0">alt_vip_cl_vfb_0</a>
+       <a href="#module_main_scaler">main_scaler</a>
       </td>
      </tr>
      <tr>
@@ -872,11 +892,11 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">MAX_WIDTH</td>
-        <td class="parametervalue">200</td>
+        <td class="parametervalue">1920</td>
        </tr>
        <tr>
         <td class="parametername">MAX_HEIGHT</td>
-        <td class="parametervalue">200</td>
+        <td class="parametervalue">1080</td>
        </tr>
        <tr>
         <td class="parametername">RUNTIME_CONTROL</td>
@@ -1022,7 +1042,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
     <table class="connectionboxes">
      <tr>
       <td class="neighbor" rowspan="2">
-       <a href="#module_alt_vip_cl_tpg_0">alt_vip_cl_tpg_0</a>
+       <a href="#module_main_scaler">main_scaler</a>
       </td>
       <td class="from">dout&#160;&#160;</td>
       <td class="main" rowspan="18">alt_vip_cl_vfb_0</td>
@@ -1342,6 +1362,278 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
     </tr>
    </table>
   </div>
+  <a name="module_main_scaler"> </a>
+  <div>
+   <hr/>
+   <h2>main_scaler</h2>alt_vip_cl_scl v18.1
+   <br/>
+   <div class="greydiv">
+    <table class="connectionboxes">
+     <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_nios2_gen2_0">nios2_gen2_0</a>
+      </td>
+      <td class="from">data_master&#160;&#160;</td>
+      <td class="main" rowspan="12">main_scaler</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;control</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_alt_vip_cl_tpg_0">alt_vip_cl_tpg_0</a>
+      </td>
+      <td class="from">dout&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;din</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="neighbor" rowspan="4">
+       <a href="#module_clk_0">clk_0</a>
+      </td>
+      <td class="from">clk&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;main_clock</td>
+     </tr>
+     <tr>
+      <td class="from">clk_reset&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;main_reset</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">dout&#160;&#160;</td>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_alt_vip_cl_vfb_0">alt_vip_cl_vfb_0</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;din</td>
+     </tr>
+    </table>
+   </div>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">SYMBOLS_IN_SEQ</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">SYMBOLS_IN_PAR</td>
+        <td class="parametervalue">3</td>
+       </tr>
+       <tr>
+        <td class="parametername">BITS_PER_SYMBOL</td>
+        <td class="parametervalue">8</td>
+       </tr>
+       <tr>
+        <td class="parametername">PIXELS_IN_PARALLEL</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">EXTRA_PIPELINING</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">IS_422</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">NO_BLANKING</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">MAX_IN_WIDTH</td>
+        <td class="parametervalue">1920</td>
+       </tr>
+       <tr>
+        <td class="parametername">MAX_IN_HEIGHT</td>
+        <td class="parametervalue">1080</td>
+       </tr>
+       <tr>
+        <td class="parametername">MAX_OUT_WIDTH</td>
+        <td class="parametervalue">640</td>
+       </tr>
+       <tr>
+        <td class="parametername">MAX_OUT_HEIGHT</td>
+        <td class="parametervalue">480</td>
+       </tr>
+       <tr>
+        <td class="parametername">RUNTIME_CONTROL</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ALGORITHM_NAME</td>
+        <td class="parametervalue">NEAREST_NEIGHBOUR</td>
+       </tr>
+       <tr>
+        <td class="parametername">DEFAULT_EDGE_THRESH</td>
+        <td class="parametervalue">7</td>
+       </tr>
+       <tr>
+        <td class="parametername">ARE_IDENTICAL</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">V_TAPS</td>
+        <td class="parametervalue">8</td>
+       </tr>
+       <tr>
+        <td class="parametername">V_PHASES</td>
+        <td class="parametervalue">16</td>
+       </tr>
+       <tr>
+        <td class="parametername">H_TAPS</td>
+        <td class="parametervalue">8</td>
+       </tr>
+       <tr>
+        <td class="parametername">H_PHASES</td>
+        <td class="parametervalue">16</td>
+       </tr>
+       <tr>
+        <td class="parametername">V_SIGNED</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">V_INTEGER_BITS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">V_FRACTION_BITS</td>
+        <td class="parametervalue">7</td>
+       </tr>
+       <tr>
+        <td class="parametername">H_SIGNED</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">H_INTEGER_BITS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">H_FRACTION_BITS</td>
+        <td class="parametervalue">7</td>
+       </tr>
+       <tr>
+        <td class="parametername">PRESERVE_BITS</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">LOAD_AT_RUNTIME</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">V_BANKS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">V_FUNCTION</td>
+        <td class="parametervalue">LANCZOS_2</td>
+       </tr>
+       <tr>
+        <td class="parametername">V_COEFF_FILE</td>
+        <td class="parametervalue">&lt;enter file name (including full path)&gt;</td>
+       </tr>
+       <tr>
+        <td class="parametername">H_BANKS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">H_FUNCTION</td>
+        <td class="parametervalue">LANCZOS_2</td>
+       </tr>
+       <tr>
+        <td class="parametername">H_COEFF_FILE</td>
+        <td class="parametervalue">&lt;enter file name (including full path)&gt;</td>
+       </tr>
+       <tr>
+        <td class="parametername">USER_PACKET_SUPPORT</td>
+        <td class="parametervalue">DISCARD</td>
+       </tr>
+       <tr>
+        <td class="parametername">USER_PACKET_FIFO_DEPTH</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">LIMITED_READBACK</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">IS_420</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ALWAYS_DOWNSCALE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">DEFAULT_UPPER_BLUR</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">DEFAULT_LOWER_BLUR</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ENABLE_FIR</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">V_SYMMETRIC</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">H_SYMMETRIC</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">FAMILY</td>
+        <td class="parametervalue">CYCLONE10LP</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_DEVICE</td>
+        <td class="parametervalue">10CL016YU484C8G</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_DEVICE_SPEEDGRADE</td>
+        <td class="parametervalue">8</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
   <a name="module_nios2_gen2_0"> </a>
   <div>
    <hr/>
@@ -1354,7 +1646,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        <a href="#module_clk_0">clk_0</a>
       </td>
       <td class="from">clk&#160;&#160;</td>
-      <td class="main" rowspan="19">nios2_gen2_0</td>
+      <td class="main" rowspan="22">nios2_gen2_0</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;clk</td>
@@ -1371,6 +1663,22 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <td class="from">data_master&#160;&#160;</td>
       <td class="neighbor" rowspan="2">
        <a href="#module_alt_vip_cl_mixer_0">alt_vip_cl_mixer_0</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;control</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">data_master&#160;&#160;</td>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_main_scaler">main_scaler</a>
       </td>
      </tr>
      <tr>
@@ -2145,7 +2453,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">dataSlaveMapParam</td>
-        <td class="parametervalue">&lt;address-map&gt;&lt;slave name='alt_vip_cl_mixer_0.control' start='0x0' end='0x200' type='alt_vip_cl_mixer.control' /&gt;&lt;slave name='onchip_memory2_0.s1' start='0x2000' end='0x4000' type='altera_avalon_onchip_memory2.s1' /&gt;&lt;slave name='pio_0.s1' start='0x4000' end='0x4010' type='altera_avalon_pio.s1' /&gt;&lt;slave name='uart_0.s1' start='0x4100' end='0x4120' type='altera_avalon_uart.s1' /&gt;&lt;slave name='nios2_gen2_0.debug_mem_slave' start='0x4800' end='0x5000' type='altera_nios2_gen2.debug_mem_slave' /&gt;&lt;/address-map&gt;</td>
+        <td class="parametervalue">&lt;address-map&gt;&lt;slave name='alt_vip_cl_mixer_0.control' start='0x0' end='0x200' type='alt_vip_cl_mixer.control' /&gt;&lt;slave name='onchip_memory2_0.s1' start='0x2000' end='0x4000' type='altera_avalon_onchip_memory2.s1' /&gt;&lt;slave name='pio_0.s1' start='0x4000' end='0x4010' type='altera_avalon_pio.s1' /&gt;&lt;slave name='uart_0.s1' start='0x4100' end='0x4120' type='altera_avalon_uart.s1' /&gt;&lt;slave name='nios2_gen2_0.debug_mem_slave' start='0x4800' end='0x5000' type='altera_nios2_gen2.debug_mem_slave' /&gt;&lt;slave name='main_scaler.control' start='0x5000' end='0x5200' type='alt_vip_cl_scl.control' /&gt;&lt;/address-map&gt;</td>
        </tr>
        <tr>
         <td class="parametername">tightlyCoupledDataMaster0MapParam</td>
@@ -3018,7 +3326,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   <table class="blueBar">
    <tr>
     <td class="l">generation took 0,01 seconds</td>
-    <td class="r">rendering took 0,05 seconds</td>
+    <td class="r">rendering took 0,06 seconds</td>
    </tr>
   </table>
  </body>

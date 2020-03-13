@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'mySystem'
  * SOPC Builder design path: ../../mySystem.sopcinfo
  *
- * Generated: Fri Mar 13 10:38:27 CET 2020
+ * Generated: Fri Mar 13 15:12:08 CET 2020
  */
 
 /*
@@ -138,6 +138,7 @@
 #define __ALTERA_AVALON_UART
 #define __ALTERA_NIOS2_GEN2
 #define __ALT_VIP_CL_MIXER
+#define __ALT_VIP_CL_SCL
 
 
 /*
@@ -199,6 +200,20 @@
 #define ALT_MAX_FD 4
 #define ALT_SYS_CLK none
 #define ALT_TIMESTAMP_CLK none
+
+
+/*
+ * main_scaler configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_main_scaler alt_vip_cl_scl
+#define MAIN_SCALER_BASE 0x5000
+#define MAIN_SCALER_IRQ -1
+#define MAIN_SCALER_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define MAIN_SCALER_NAME "/dev/main_scaler"
+#define MAIN_SCALER_SPAN 512
+#define MAIN_SCALER_TYPE "alt_vip_cl_scl"
 
 
 /*

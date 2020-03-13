@@ -34,11 +34,16 @@ module mySystem (
 	wire         alt_vip_cl_mixer_0_dout_ready;                                                         // alt_vip_cl_cvo_0:din_ready -> alt_vip_cl_mixer_0:dout_ready
 	wire         alt_vip_cl_mixer_0_dout_startofpacket;                                                 // alt_vip_cl_mixer_0:dout_startofpacket -> alt_vip_cl_cvo_0:din_startofpacket
 	wire         alt_vip_cl_mixer_0_dout_endofpacket;                                                   // alt_vip_cl_mixer_0:dout_endofpacket -> alt_vip_cl_cvo_0:din_endofpacket
-	wire         alt_vip_cl_tpg_0_dout_valid;                                                           // alt_vip_cl_tpg_0:dout_valid -> alt_vip_cl_vfb_0:din_valid
-	wire  [23:0] alt_vip_cl_tpg_0_dout_data;                                                            // alt_vip_cl_tpg_0:dout_data -> alt_vip_cl_vfb_0:din_data
-	wire         alt_vip_cl_tpg_0_dout_ready;                                                           // alt_vip_cl_vfb_0:din_ready -> alt_vip_cl_tpg_0:dout_ready
-	wire         alt_vip_cl_tpg_0_dout_startofpacket;                                                   // alt_vip_cl_tpg_0:dout_startofpacket -> alt_vip_cl_vfb_0:din_startofpacket
-	wire         alt_vip_cl_tpg_0_dout_endofpacket;                                                     // alt_vip_cl_tpg_0:dout_endofpacket -> alt_vip_cl_vfb_0:din_endofpacket
+	wire         alt_vip_cl_tpg_0_dout_valid;                                                           // alt_vip_cl_tpg_0:dout_valid -> main_scaler:din_valid
+	wire  [23:0] alt_vip_cl_tpg_0_dout_data;                                                            // alt_vip_cl_tpg_0:dout_data -> main_scaler:din_data
+	wire         alt_vip_cl_tpg_0_dout_ready;                                                           // main_scaler:din_ready -> alt_vip_cl_tpg_0:dout_ready
+	wire         alt_vip_cl_tpg_0_dout_startofpacket;                                                   // alt_vip_cl_tpg_0:dout_startofpacket -> main_scaler:din_startofpacket
+	wire         alt_vip_cl_tpg_0_dout_endofpacket;                                                     // alt_vip_cl_tpg_0:dout_endofpacket -> main_scaler:din_endofpacket
+	wire         main_scaler_dout_valid;                                                                // main_scaler:dout_valid -> alt_vip_cl_vfb_0:din_valid
+	wire  [23:0] main_scaler_dout_data;                                                                 // main_scaler:dout_data -> alt_vip_cl_vfb_0:din_data
+	wire         main_scaler_dout_ready;                                                                // alt_vip_cl_vfb_0:din_ready -> main_scaler:dout_ready
+	wire         main_scaler_dout_startofpacket;                                                        // main_scaler:dout_startofpacket -> alt_vip_cl_vfb_0:din_startofpacket
+	wire         main_scaler_dout_endofpacket;                                                          // main_scaler:dout_endofpacket -> alt_vip_cl_vfb_0:din_endofpacket
 	wire         alt_vip_cl_vfb_0_dout_valid;                                                           // alt_vip_cl_vfb_0:dout_valid -> alt_vip_cl_mixer_0:din0_valid
 	wire  [23:0] alt_vip_cl_vfb_0_dout_data;                                                            // alt_vip_cl_vfb_0:dout_data -> alt_vip_cl_mixer_0:din0_data
 	wire         alt_vip_cl_vfb_0_dout_ready;                                                           // alt_vip_cl_mixer_0:din0_ready -> alt_vip_cl_vfb_0:dout_ready
@@ -64,6 +69,14 @@ module mySystem (
 	wire         mm_interconnect_0_alt_vip_cl_mixer_0_control_readdatavalid;                            // alt_vip_cl_mixer_0:control_readdatavalid -> mm_interconnect_0:alt_vip_cl_mixer_0_control_readdatavalid
 	wire         mm_interconnect_0_alt_vip_cl_mixer_0_control_write;                                    // mm_interconnect_0:alt_vip_cl_mixer_0_control_write -> alt_vip_cl_mixer_0:control_write
 	wire  [31:0] mm_interconnect_0_alt_vip_cl_mixer_0_control_writedata;                                // mm_interconnect_0:alt_vip_cl_mixer_0_control_writedata -> alt_vip_cl_mixer_0:control_writedata
+	wire  [31:0] mm_interconnect_0_main_scaler_control_readdata;                                        // main_scaler:control_readdata -> mm_interconnect_0:main_scaler_control_readdata
+	wire         mm_interconnect_0_main_scaler_control_waitrequest;                                     // main_scaler:control_waitrequest -> mm_interconnect_0:main_scaler_control_waitrequest
+	wire   [6:0] mm_interconnect_0_main_scaler_control_address;                                         // mm_interconnect_0:main_scaler_control_address -> main_scaler:control_address
+	wire         mm_interconnect_0_main_scaler_control_read;                                            // mm_interconnect_0:main_scaler_control_read -> main_scaler:control_read
+	wire   [3:0] mm_interconnect_0_main_scaler_control_byteenable;                                      // mm_interconnect_0:main_scaler_control_byteenable -> main_scaler:control_byteenable
+	wire         mm_interconnect_0_main_scaler_control_readdatavalid;                                   // main_scaler:control_readdatavalid -> mm_interconnect_0:main_scaler_control_readdatavalid
+	wire         mm_interconnect_0_main_scaler_control_write;                                           // mm_interconnect_0:main_scaler_control_write -> main_scaler:control_write
+	wire  [31:0] mm_interconnect_0_main_scaler_control_writedata;                                       // mm_interconnect_0:main_scaler_control_writedata -> main_scaler:control_writedata
 	wire  [31:0] mm_interconnect_0_nios2_gen2_0_debug_mem_slave_readdata;                               // nios2_gen2_0:debug_mem_slave_readdata -> mm_interconnect_0:nios2_gen2_0_debug_mem_slave_readdata
 	wire         mm_interconnect_0_nios2_gen2_0_debug_mem_slave_waitrequest;                            // nios2_gen2_0:debug_mem_slave_waitrequest -> mm_interconnect_0:nios2_gen2_0_debug_mem_slave_waitrequest
 	wire         mm_interconnect_0_nios2_gen2_0_debug_mem_slave_debugaccess;                            // mm_interconnect_0:nios2_gen2_0_debug_mem_slave_debugaccess -> nios2_gen2_0:debug_mem_slave_debugaccess
@@ -114,7 +127,7 @@ module mySystem (
 	wire  [15:0] mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_writedata;     // mm_interconnect_1:W9825G6KH_SDRAMController_100MHz_CL3_0_avalon_slave_0_writedata -> W9825G6KH_SDRAMController_100MHz_CL3_0:az_data
 	wire         irq_mapper_receiver0_irq;                                                              // uart_0:irq -> irq_mapper:receiver0_irq
 	wire  [31:0] nios2_gen2_0_irq_irq;                                                                  // irq_mapper:sender_irq -> nios2_gen2_0:irq
-	wire         rst_controller_reset_out_reset;                                                        // rst_controller:reset_out -> [W9825G6KH_SDRAMController_100MHz_CL3_0:reset_n, alt_vip_cl_cvo_0:main_reset_reset, alt_vip_cl_mixer_0:main_reset_reset, alt_vip_cl_tpg_0:main_reset, alt_vip_cl_vfb_0:main_reset, alt_vip_cl_vfb_0:mem_reset, irq_mapper:reset, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, mm_interconnect_1:alt_vip_cl_vfb_0_mem_reset_reset_bridge_in_reset_reset, nios2_gen2_0:reset_n, onchip_memory2_0:reset, pio_0:reset_n, rst_translator:in_reset, uart_0:reset_n]
+	wire         rst_controller_reset_out_reset;                                                        // rst_controller:reset_out -> [W9825G6KH_SDRAMController_100MHz_CL3_0:reset_n, alt_vip_cl_cvo_0:main_reset_reset, alt_vip_cl_mixer_0:main_reset_reset, alt_vip_cl_tpg_0:main_reset, alt_vip_cl_vfb_0:main_reset, alt_vip_cl_vfb_0:mem_reset, irq_mapper:reset, main_scaler:main_reset, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, mm_interconnect_1:alt_vip_cl_vfb_0_mem_reset_reset_bridge_in_reset_reset, nios2_gen2_0:reset_n, onchip_memory2_0:reset, pio_0:reset_n, rst_translator:in_reset, uart_0:reset_n]
 	wire         rst_controller_reset_out_reset_req;                                                    // rst_controller:reset_req -> [nios2_gen2_0:reset_req, onchip_memory2_0:reset_req, rst_translator:reset_req_in]
 
 	W9825G6KH_SDRAMController_100MHz_CL3 w9825g6kh_sdramcontroller_100mhz_cl3_0 (
@@ -288,11 +301,11 @@ module mySystem (
 		.main_reset                  (rst_controller_reset_out_reset),               //    main_reset.reset
 		.mem_clock                   (clk_clk),                                      //     mem_clock.clk
 		.mem_reset                   (rst_controller_reset_out_reset),               //     mem_reset.reset
-		.din_data                    (alt_vip_cl_tpg_0_dout_data),                   //           din.data
-		.din_valid                   (alt_vip_cl_tpg_0_dout_valid),                  //              .valid
-		.din_startofpacket           (alt_vip_cl_tpg_0_dout_startofpacket),          //              .startofpacket
-		.din_endofpacket             (alt_vip_cl_tpg_0_dout_endofpacket),            //              .endofpacket
-		.din_ready                   (alt_vip_cl_tpg_0_dout_ready),                  //              .ready
+		.din_data                    (main_scaler_dout_data),                        //           din.data
+		.din_valid                   (main_scaler_dout_valid),                       //              .valid
+		.din_startofpacket           (main_scaler_dout_startofpacket),               //              .startofpacket
+		.din_endofpacket             (main_scaler_dout_endofpacket),                 //              .endofpacket
+		.din_ready                   (main_scaler_dout_ready),                       //              .ready
 		.mem_master_wr_address       (alt_vip_cl_vfb_0_mem_master_wr_address),       // mem_master_wr.address
 		.mem_master_wr_burstcount    (alt_vip_cl_vfb_0_mem_master_wr_burstcount),    //              .burstcount
 		.mem_master_wr_waitrequest   (alt_vip_cl_vfb_0_mem_master_wr_waitrequest),   //              .waitrequest
@@ -310,6 +323,29 @@ module mySystem (
 		.mem_master_rd_read          (alt_vip_cl_vfb_0_mem_master_rd_read),          //              .read
 		.mem_master_rd_readdata      (alt_vip_cl_vfb_0_mem_master_rd_readdata),      //              .readdata
 		.mem_master_rd_readdatavalid (alt_vip_cl_vfb_0_mem_master_rd_readdatavalid)  //              .readdatavalid
+	);
+
+	mySystem_main_scaler main_scaler (
+		.main_clock            (clk_clk),                                             // main_clock.clk
+		.main_reset            (rst_controller_reset_out_reset),                      // main_reset.reset
+		.din_data              (alt_vip_cl_tpg_0_dout_data),                          //        din.data
+		.din_valid             (alt_vip_cl_tpg_0_dout_valid),                         //           .valid
+		.din_startofpacket     (alt_vip_cl_tpg_0_dout_startofpacket),                 //           .startofpacket
+		.din_endofpacket       (alt_vip_cl_tpg_0_dout_endofpacket),                   //           .endofpacket
+		.din_ready             (alt_vip_cl_tpg_0_dout_ready),                         //           .ready
+		.dout_data             (main_scaler_dout_data),                               //       dout.data
+		.dout_valid            (main_scaler_dout_valid),                              //           .valid
+		.dout_startofpacket    (main_scaler_dout_startofpacket),                      //           .startofpacket
+		.dout_endofpacket      (main_scaler_dout_endofpacket),                        //           .endofpacket
+		.dout_ready            (main_scaler_dout_ready),                              //           .ready
+		.control_address       (mm_interconnect_0_main_scaler_control_address),       //    control.address
+		.control_byteenable    (mm_interconnect_0_main_scaler_control_byteenable),    //           .byteenable
+		.control_write         (mm_interconnect_0_main_scaler_control_write),         //           .write
+		.control_writedata     (mm_interconnect_0_main_scaler_control_writedata),     //           .writedata
+		.control_read          (mm_interconnect_0_main_scaler_control_read),          //           .read
+		.control_readdata      (mm_interconnect_0_main_scaler_control_readdata),      //           .readdata
+		.control_readdatavalid (mm_interconnect_0_main_scaler_control_readdatavalid), //           .readdatavalid
+		.control_waitrequest   (mm_interconnect_0_main_scaler_control_waitrequest)    //           .waitrequest
 	);
 
 	mySystem_nios2_gen2_0 nios2_gen2_0 (
@@ -404,6 +440,14 @@ module mySystem (
 		.alt_vip_cl_mixer_0_control_byteenable          (mm_interconnect_0_alt_vip_cl_mixer_0_control_byteenable),    //                                         .byteenable
 		.alt_vip_cl_mixer_0_control_readdatavalid       (mm_interconnect_0_alt_vip_cl_mixer_0_control_readdatavalid), //                                         .readdatavalid
 		.alt_vip_cl_mixer_0_control_waitrequest         (mm_interconnect_0_alt_vip_cl_mixer_0_control_waitrequest),   //                                         .waitrequest
+		.main_scaler_control_address                    (mm_interconnect_0_main_scaler_control_address),              //                      main_scaler_control.address
+		.main_scaler_control_write                      (mm_interconnect_0_main_scaler_control_write),                //                                         .write
+		.main_scaler_control_read                       (mm_interconnect_0_main_scaler_control_read),                 //                                         .read
+		.main_scaler_control_readdata                   (mm_interconnect_0_main_scaler_control_readdata),             //                                         .readdata
+		.main_scaler_control_writedata                  (mm_interconnect_0_main_scaler_control_writedata),            //                                         .writedata
+		.main_scaler_control_byteenable                 (mm_interconnect_0_main_scaler_control_byteenable),           //                                         .byteenable
+		.main_scaler_control_readdatavalid              (mm_interconnect_0_main_scaler_control_readdatavalid),        //                                         .readdatavalid
+		.main_scaler_control_waitrequest                (mm_interconnect_0_main_scaler_control_waitrequest),          //                                         .waitrequest
 		.nios2_gen2_0_debug_mem_slave_address           (mm_interconnect_0_nios2_gen2_0_debug_mem_slave_address),     //             nios2_gen2_0_debug_mem_slave.address
 		.nios2_gen2_0_debug_mem_slave_write             (mm_interconnect_0_nios2_gen2_0_debug_mem_slave_write),       //                                         .write
 		.nios2_gen2_0_debug_mem_slave_read              (mm_interconnect_0_nios2_gen2_0_debug_mem_slave_read),        //                                         .read
