@@ -108,7 +108,9 @@ mySystem with Nios2
       .uart_0_external_connection_txd                                 (UART_TX)
    );
    
-
+/*******************************************************************
+Seven segment display
+*******************************************************************/ 
 smg_interface smg_interface_inst(
       .CLK( CLOCK_50 ),
       .RSTn( RESET_N ),
@@ -117,13 +119,18 @@ smg_interface smg_interface_inst(
       .Scan_Sig( Scan_Sig )
    );
 
-// 150MHz clock generation
+/*******************************************************************
+125MHz clock generation
+*******************************************************************/ 
 pll0  pll0_inst (
       .inclk0 ( CLOCK_50 ),
       .c0 ( clk125 ),
       .c1 (DRAM_CLK) // DRAM clock is shifted 5ns from clk125.
    );
-   
+
+/*******************************************************************
+Clock network, 125MHz clock a global clock
+*******************************************************************/ 
 c10_clkctrl c10_clkctrl_inst (
       .inclk  (clk125),
       .outclk (clk125_g)
