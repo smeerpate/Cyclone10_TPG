@@ -1,0 +1,20 @@
+14:06:58 **** Build of configuration Nios II for project hallo1 ****
+make mem_init_generate 
+Info: Compiling hello_world_small.c to obj/default/hello_world_small.o
+nios2-elf-gcc -xc -MP -MMD -c -I../hallo1_bsp//drivers/vip/../../drivers/vip/inc -I../hallo1_bsp//drivers/vip/../../drivers/vip/src -I../hallo1_bsp//HAL/inc -I../hallo1_bsp/ -I../hallo1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world_small.o hello_world_small.c
+Info: Building ../hallo1_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../hallo1_bsp/
+[BSP build complete]
+Info: Linking hallo1.elf
+nios2-elf-g++  -T'../hallo1_bsp//linker.x' -msys-crt0='../hallo1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../hallo1_bsp/  -msmallc  -Wl,-Map=hallo1.map   -Os -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o hallo1.elf obj/default/hello_world_small.o -lm -msys-lib=m
+nios2-elf-insert hallo1.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --stderr_dev uart_0 --stdin_dev uart_0 --stdout_dev uart_0 --sopc_system_name mySystem --quartus_project_dir "D:/Users/Frederic/IntelFPGA/Sources/Cyclone10_TPG_speel" --jdi ../..//output_files/HDMI_Tpg.jdi --sopcinfo D:/Users/Frederic/IntelFPGA/Sources/Cyclone10_TPG_speel/software/hallo1_bsp/../../mySystem.sopcinfo
+Info: (hallo1.elf) 1872 Bytes program size (code + initialized data).
+Info:              6312 Bytes free for stack + heap.
+Post-processing to create mem_init/mySystem_onchip_memory2_0.hex...
+elf2hex hallo1.elf 0x00002000 0x00003fff --width=32 --little-endian-mem --create-lanes=0 mem_init/mySystem_onchip_memory2_0.hex
+Post-processing to create mem_init/hdl_sim/mySystem_onchip_memory2_0.dat...
+elf2dat --infile=hallo1.elf --outfile=mem_init/hdl_sim/mySystem_onchip_memory2_0.dat \
+		--base=0x00002000 --end=0x00003fff --width=32 \
+		--little-endian-mem --create-lanes=0 
+Post-processing to create mem_init/hdl_sim/mySystem_onchip_memory2_0.sym...
+nios2-elf-nm -n hallo1.elf > mem_init/hdl_sim/mySystem_onchip_memory2_0.sym

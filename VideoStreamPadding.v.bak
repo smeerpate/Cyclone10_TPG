@@ -1,0 +1,22 @@
+/*******************************************************************
+Module declaration
+*******************************************************************/
+module VideoStreamPadding (
+   input             clk,
+   input             reset,
+   // Avalon ST sink IF
+   input [23:0]      din_data,
+   input             din_endofpacket,
+   output            din_ready,
+   input             din_startofpacket,
+   input             din_valid, 
+   // Avalon ST source IF
+   output     [23:0] dout_data,
+   output            dout_endofpacket,
+   input             dout_ready,
+   output            dout_startofpacket,
+   output            dout_valid
+);
+
+
+reg [11:0] count; // maximum is 4k!

@@ -1,0 +1,6 @@
+12:01:37 **** Clean-only build of configuration Nios II for project hallo1_bsp ****
+make clean 
+[BSP clean complete]
+
+12:01:37 Build Finished (took 338ms)
+

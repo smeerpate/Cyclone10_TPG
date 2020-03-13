@@ -1,46 +1,50 @@
 
 module mySystem (
+	alt_vip_cl_cvo_0_clocked_video_vid_clk,
+	alt_vip_cl_cvo_0_clocked_video_vid_data,
+	alt_vip_cl_cvo_0_clocked_video_underflow,
+	alt_vip_cl_cvo_0_clocked_video_vid_datavalid,
+	alt_vip_cl_cvo_0_clocked_video_vid_v_sync,
+	alt_vip_cl_cvo_0_clocked_video_vid_h_sync,
+	alt_vip_cl_cvo_0_clocked_video_vid_f,
+	alt_vip_cl_cvo_0_clocked_video_vid_h,
+	alt_vip_cl_cvo_0_clocked_video_vid_v,
 	clk_clk,
+	pio_0_external_connection_export,
 	reset_reset_n,
-	new_sdram_controller_0_wire_addr,
-	new_sdram_controller_0_wire_ba,
-	new_sdram_controller_0_wire_cas_n,
-	new_sdram_controller_0_wire_cke,
-	new_sdram_controller_0_wire_cs_n,
-	new_sdram_controller_0_wire_dq,
-	new_sdram_controller_0_wire_dqm,
-	new_sdram_controller_0_wire_ras_n,
-	new_sdram_controller_0_wire_we_n,
-	altpll_0_c1_clk,
-	clock_bridge_0_in_clk_clk,
-	video_vga_controller_0_external_interface_CLK,
-	video_vga_controller_0_external_interface_HS,
-	video_vga_controller_0_external_interface_VS,
-	video_vga_controller_0_external_interface_BLANK,
-	video_vga_controller_0_external_interface_SYNC,
-	video_vga_controller_0_external_interface_R,
-	video_vga_controller_0_external_interface_G,
-	video_vga_controller_0_external_interface_B);	
+	uart_0_external_connection_rxd,
+	uart_0_external_connection_txd,
+	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_addr,
+	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_ba,
+	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cas_n,
+	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cke,
+	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cs_n,
+	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_dq,
+	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_dqm,
+	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_ras_n,
+	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_we_n);	
 
+	input		alt_vip_cl_cvo_0_clocked_video_vid_clk;
+	output	[23:0]	alt_vip_cl_cvo_0_clocked_video_vid_data;
+	output		alt_vip_cl_cvo_0_clocked_video_underflow;
+	output		alt_vip_cl_cvo_0_clocked_video_vid_datavalid;
+	output		alt_vip_cl_cvo_0_clocked_video_vid_v_sync;
+	output		alt_vip_cl_cvo_0_clocked_video_vid_h_sync;
+	output		alt_vip_cl_cvo_0_clocked_video_vid_f;
+	output		alt_vip_cl_cvo_0_clocked_video_vid_h;
+	output		alt_vip_cl_cvo_0_clocked_video_vid_v;
 	input		clk_clk;
+	output	[1:0]	pio_0_external_connection_export;
 	input		reset_reset_n;
-	output	[12:0]	new_sdram_controller_0_wire_addr;
-	output	[1:0]	new_sdram_controller_0_wire_ba;
-	output		new_sdram_controller_0_wire_cas_n;
-	output		new_sdram_controller_0_wire_cke;
-	output		new_sdram_controller_0_wire_cs_n;
-	inout	[15:0]	new_sdram_controller_0_wire_dq;
-	output	[1:0]	new_sdram_controller_0_wire_dqm;
-	output		new_sdram_controller_0_wire_ras_n;
-	output		new_sdram_controller_0_wire_we_n;
-	output		altpll_0_c1_clk;
-	input		clock_bridge_0_in_clk_clk;
-	output		video_vga_controller_0_external_interface_CLK;
-	output		video_vga_controller_0_external_interface_HS;
-	output		video_vga_controller_0_external_interface_VS;
-	output		video_vga_controller_0_external_interface_BLANK;
-	output		video_vga_controller_0_external_interface_SYNC;
-	output	[7:0]	video_vga_controller_0_external_interface_R;
-	output	[7:0]	video_vga_controller_0_external_interface_G;
-	output	[7:0]	video_vga_controller_0_external_interface_B;
+	input		uart_0_external_connection_rxd;
+	output		uart_0_external_connection_txd;
+	output	[12:0]	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_addr;
+	output	[1:0]	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_ba;
+	output		w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cas_n;
+	output		w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cke;
+	output		w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cs_n;
+	inout	[15:0]	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_dq;
+	output	[1:0]	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_dqm;
+	output		w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_ras_n;
+	output		w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_we_n;
 endmodule

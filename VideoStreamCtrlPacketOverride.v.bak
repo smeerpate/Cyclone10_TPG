@@ -1,0 +1,103 @@
+/*******************************************************************
+Module declaration
+*******************************************************************/
+module VideoStreamCtrlPacketOverride (
+   input             clk,
+   input             reset,
+   // Avalon ST sink IF
+   input [23:0]      din_data,
+   input             din_endofpacket,
+   output reg        din_ready,
+   input             din_startofpacket,  
+   input             din_valid, 
+   // Avalon ST source IF
+   output reg [23:0] dout_data,
+   output reg        dout_endofpacket,
+   input             dout_ready,
+   output reg        dout_startofpacket,  
+   output reg        dout_valid
+);
+
+
+reg [1:0] count;
+
+/*******************************************************************
+Data path
+*******************************************************************/
+always@(posedge clk or posedge reset)
+begin
+   if (reset)
+      count <= 2'b00;
+   else
+   begin
+      if (din_startofpacket == 1'b1 && din_data == 24'h000000F)
+      begin
+         case(count)
+            2'b00:
+            begin
+               dout_data <= 24'h00000F;
+               count <= count + 2'b01;
+            end
+            2'b01:
+            begin
+               dout_data <= 24'h080200;
+               count <= count + 2'b01;
+            end
+            2'b10:
+            begin
+               dout_data <= 24'h010000;
+               count <= count + 2'b01;
+            end
+            2'b11:
+            begin
+               dout_data <= 24'h03000E;
+               count <= 2'b00;
+            end
+            default:
+            begin
+               dout_data <= din_data;
+               count <= 2'b00;
+            end
+         endcase
+      end
+      else
+         dout_data <= din_data;
+   end
+end
+
+/*******************************************************************
+control signals in to out
+*******************************************************************/
+always@(posedge clk or posedge reset)
+begin
+   if (reset)
+      begin
+         dout_endofpacket <= 1'b0;
+         dout_startofpacket <= 1'b0;
+         dout_valid <= 1'b0;
+      end
+   else
+      begin
+         dout_endofpacket <= din_endofpacket;
+         dout_startofpacket <= din_startofpacket;
+         dout_valid <= din_valid;
+      end
+end
+
+/*******************************************************************
+control signals out to in
+*******************************************************************/
+always@(posedge clk or posedge reset)
+begin
+   if (reset)
+      begin
+         din_ready <= 1'b0;
+      end
+   else
+      begin
+         din_ready <= dout_ready;
+      end
+end
+
+
+endmodule
