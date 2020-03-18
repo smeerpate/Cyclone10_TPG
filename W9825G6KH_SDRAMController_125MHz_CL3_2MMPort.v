@@ -451,7 +451,7 @@ localparam CMD_LMR  = 3'b000, // load mode register
 
 
 // Mode register (MR) fields
-localparam MR_BURST_LENGTH       = 3'b011, // Burst length = 8.
+localparam MR_BURST_LENGTH       = 3'b000,
             MR_ADDRESSING_MODE   = 1'b0,
             MR_CAS_LATENCY       = 3'b011,
             MR_WRITE_MODE        = 1'b0;
@@ -540,7 +540,7 @@ always @(posedge clk or negedge reset_n)
                i_state <= INIT_WAIT_UNTIL_SAFE;
                i_cmd <= {1'b0, CMD_LMR}; // LMR "Load Mode Register". This command will be forwarded to m_cmd that will be forwarded to SDRAM pins.
                i_addr <= {3'b000, MR_WRITE_MODE, 2'b00, MR_CAS_LATENCY, MR_ADDRESSING_MODE, MR_BURST_LENGTH};
-               i_count <= 4; // wait 40ns
+               i_count <= 4; // wait 40ns. t_RSC = 2 T_CLK min => okay.
                i_next <= INIT_TERMINATED;
            end // 3'b111 
        
@@ -639,7 +639,7 @@ localparam MAIN_IDLE                         = 10'b0000000001,
                      begin
                         m_state <= MAIN_BANK_CLOSE_ALL;
                         m_next <= MAIN_AUTO_REFRESH;
-                        m_count <= 1;
+                        m_count <= 2; // Wait 2*8ns=16ns after closing banks t_RP = 15ns min. => okay.
                         active_cs_n <= 1'b1;
                      end
                      else if (!wr_f_empty)
@@ -673,7 +673,7 @@ localparam MAIN_IDLE                         = 10'b0000000001,
                      m_next <=  MAIN_IDLE;
                      m_cmd <= i_cmd;
                   end
-                        end // 9'b000000001 
+               end
           
               MAIN_BANK_ACTIVATE:
               begin
@@ -725,7 +725,7 @@ localparam MAIN_IDLE                         = 10'b0000000001,
                      begin
                        m_state <= MAIN_WAIT_UNTIL_SAFE;
                        m_next <=  MAIN_IDLE;
-                       m_count <= 1;
+                       m_count <= 3; // was 1 but 3 for MAIN_WRITE. Playing safe here.
                      end
                      else 
                      begin
@@ -786,7 +786,7 @@ localparam MAIN_IDLE                         = 10'b0000000001,
                     end
               end // 9'b000010000 
           
-              MAIN_PREPARE_BANK_CLOSE_ALL:
+              MAIN_PREPARE_BANK_CLOSE_ALL: // = Precharge all.
               begin
                   if (active_rnw == WRITING)
                      m_cmd <= {wr_csn_decode, CMD_NOP};
@@ -799,7 +799,7 @@ localparam MAIN_IDLE                         = 10'b0000000001,
                   else 
                   begin
                      m_state <= MAIN_BANK_CLOSE_ALL;
-                     m_count <= 1; // Wait 10ns after closing banks
+                     m_count <= 2; // Wait 16ns after closing banks t_RP = 15ns min. => okay.
                   end
               end
           
@@ -822,14 +822,14 @@ localparam MAIN_IDLE                         = 10'b0000000001,
                   ack_refresh_request <= 1'b1;
                   m_state <= MAIN_WAIT_UNTIL_SAFE;
                   m_cmd <= {1'b0, CMD_ARF};
-                  m_count <= 7; // wait 70ns
+                  m_count <= 9; // wait 9 * 8ns = 72ns. t_XSR = 72ns min. => okay.
                   m_next <=  MAIN_IDLE;
               end
           
               MAIN_SPIN_OFF_WRITE_CYCLE:
               begin
                   m_cmd <= {wr_csn_decode, CMD_NOP};
-                  // If we need to autorefresh, bail (=handle), else spin
+                  // If we need to autorefresh, bail (=handle), else spin. Banks are still open now.
                   if (refresh_request)
                   begin
                      m_state <= MAIN_WAIT_UNTIL_SAFE;
