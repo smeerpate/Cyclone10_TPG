@@ -9,20 +9,28 @@ module mySystem (
 	alt_vip_cl_cvo_0_clocked_video_vid_f,
 	alt_vip_cl_cvo_0_clocked_video_vid_h,
 	alt_vip_cl_cvo_0_clocked_video_vid_v,
+	alt_vip_cti_0_clocked_video_vid_clk,
+	alt_vip_cti_0_clocked_video_vid_data,
+	alt_vip_cti_0_clocked_video_overflow,
+	alt_vip_cti_0_clocked_video_vid_datavalid,
+	alt_vip_cti_0_clocked_video_vid_locked,
+	alt_vip_cti_0_clocked_video_vid_v_sync,
+	alt_vip_cti_0_clocked_video_vid_h_sync,
+	alt_vip_cti_0_clocked_video_vid_f,
 	clk_clk,
 	pio_0_external_connection_export,
 	reset_reset_n,
 	uart_0_external_connection_rxd,
 	uart_0_external_connection_txd,
-	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_addr,
-	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_ba,
-	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cas_n,
-	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cke,
-	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cs_n,
-	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_dq,
-	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_dqm,
-	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_ras_n,
-	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_we_n);	
+	w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_addr,
+	w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_ba,
+	w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_cas_n,
+	w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_cke,
+	w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_cs_n,
+	w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_dq,
+	w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_dqm,
+	w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_ras_n,
+	w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_we_n);	
 
 	input		alt_vip_cl_cvo_0_clocked_video_vid_clk;
 	output	[23:0]	alt_vip_cl_cvo_0_clocked_video_vid_data;
@@ -33,18 +41,26 @@ module mySystem (
 	output		alt_vip_cl_cvo_0_clocked_video_vid_f;
 	output		alt_vip_cl_cvo_0_clocked_video_vid_h;
 	output		alt_vip_cl_cvo_0_clocked_video_vid_v;
+	input		alt_vip_cti_0_clocked_video_vid_clk;
+	input	[23:0]	alt_vip_cti_0_clocked_video_vid_data;
+	output		alt_vip_cti_0_clocked_video_overflow;
+	input		alt_vip_cti_0_clocked_video_vid_datavalid;
+	input		alt_vip_cti_0_clocked_video_vid_locked;
+	input		alt_vip_cti_0_clocked_video_vid_v_sync;
+	input		alt_vip_cti_0_clocked_video_vid_h_sync;
+	input		alt_vip_cti_0_clocked_video_vid_f;
 	input		clk_clk;
 	output	[1:0]	pio_0_external_connection_export;
 	input		reset_reset_n;
 	input		uart_0_external_connection_rxd;
 	output		uart_0_external_connection_txd;
-	output	[12:0]	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_addr;
-	output	[1:0]	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_ba;
-	output		w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cas_n;
-	output		w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cke;
-	output		w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cs_n;
-	inout	[15:0]	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_dq;
-	output	[1:0]	w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_dqm;
-	output		w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_ras_n;
-	output		w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_we_n;
+	output	[12:0]	w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_addr;
+	output	[1:0]	w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_ba;
+	output		w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_cas_n;
+	output		w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_cke;
+	output		w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_cs_n;
+	inout	[15:0]	w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_dq;
+	output	[1:0]	w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_dqm;
+	output		w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_ras_n;
+	output		w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_we_n;
 endmodule

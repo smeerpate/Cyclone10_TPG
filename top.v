@@ -26,7 +26,13 @@ module top (
    output         DRAM_CLK,
    // TMDS outputs
    output         TMDS_CLK,
-   output [2:0]   TMDS_DATA
+   output [2:0]   TMDS_DATA,
+   // Video inputs
+   input          VID_CLK,
+   input  [23:0]  VID_DATA,
+   input          VID_HSYNC,
+   input          VID_VSYNC,
+   input          VID_DE
    );
 
 /*******************************************************************
@@ -82,30 +88,64 @@ TMDS_encoder encode_B(.clk(pixclk), .VD( vdata[7:0] ), .CD({vsync, hsync}), .VDE
 /*******************************************************************
 mySystem with Nios2
 *******************************************************************/ 
-   mySystem u0 (
-      .clk_clk                                                        (clk125),
-      .reset_reset_n                                                  (USER_PB),
-      .alt_vip_cl_cvo_0_clocked_video_vid_clk                         (pixclk),
-      .alt_vip_cl_cvo_0_clocked_video_vid_data                        (vdata),
-      .alt_vip_cl_cvo_0_clocked_video_underflow                       (USER_LED_D6),
-      .alt_vip_cl_cvo_0_clocked_video_vid_datavalid                   (blank),
-      .alt_vip_cl_cvo_0_clocked_video_vid_v_sync                      (vsync),
-      .alt_vip_cl_cvo_0_clocked_video_vid_h_sync                      (hsync),
-      .alt_vip_cl_cvo_0_clocked_video_vid_f                           (),
-      .alt_vip_cl_cvo_0_clocked_video_vid_h                           (),
-      .alt_vip_cl_cvo_0_clocked_video_vid_v                           (),
-      .w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_addr  (DRAM_ADDR),
-      .w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_ba    (DRAM_BA),
-      .w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cas_n (DRAM_CAS_N),
-      .w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cke   (DRAM_CKE),
-      .w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cs_n  (DRAM_CS_N),
-      .w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_dq    (DRAM_DQ),
-      .w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_dqm   (DRAM_DQM),
-      .w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_ras_n (DRAM_RAS_N),
-      .w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_we_n  (DRAM_WE_N),
-      .pio_0_external_connection_export                               (leds),
-      .uart_0_external_connection_rxd                                 (UART_RX),
-      .uart_0_external_connection_txd                                 (UART_TX)
+//   mySystem u0 (
+//      .clk_clk                                                        (clk125),
+//      .reset_reset_n                                                  (USER_PB),
+//      .alt_vip_cl_cvo_0_clocked_video_vid_clk                         (pixclk),
+//      .alt_vip_cl_cvo_0_clocked_video_vid_data                        (vdata),
+//      .alt_vip_cl_cvo_0_clocked_video_underflow                       (USER_LED_D6),
+//      .alt_vip_cl_cvo_0_clocked_video_vid_datavalid                   (blank),
+//      .alt_vip_cl_cvo_0_clocked_video_vid_v_sync                      (vsync),
+//      .alt_vip_cl_cvo_0_clocked_video_vid_h_sync                      (hsync),
+//      .alt_vip_cl_cvo_0_clocked_video_vid_f                           (),
+//      .alt_vip_cl_cvo_0_clocked_video_vid_h                           (),
+//      .alt_vip_cl_cvo_0_clocked_video_vid_v                           (),
+//      .w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_addr  (DRAM_ADDR),
+//      .w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_ba    (DRAM_BA),
+//      .w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cas_n (DRAM_CAS_N),
+//      .w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cke   (DRAM_CKE),
+//      .w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cs_n  (DRAM_CS_N),
+//      .w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_dq    (DRAM_DQ),
+//      .w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_dqm   (DRAM_DQM),
+//      .w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_ras_n (DRAM_RAS_N),
+//      .w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_we_n  (DRAM_WE_N),
+//      .pio_0_external_connection_export                               (leds),
+//      .uart_0_external_connection_rxd                                 (UART_RX),
+//      .uart_0_external_connection_txd                                 (UART_TX)
+//   );
+   
+      mySystem u0 (
+      .clk_clk                                                                (clk125),
+      .reset_reset_n                                                          (USER_PB),
+      .alt_vip_cl_cvo_0_clocked_video_vid_clk                                 (pixclk),
+      .alt_vip_cl_cvo_0_clocked_video_vid_data                                (vdata),
+      .alt_vip_cl_cvo_0_clocked_video_underflow                               (USER_LED_D6),
+      .alt_vip_cl_cvo_0_clocked_video_vid_datavalid                           (blank),
+      .alt_vip_cl_cvo_0_clocked_video_vid_v_sync                              (vsync),
+      .alt_vip_cl_cvo_0_clocked_video_vid_h_sync                              (hsync),
+      .alt_vip_cl_cvo_0_clocked_video_vid_f                                   (),
+      .alt_vip_cl_cvo_0_clocked_video_vid_h                                   (),
+      .alt_vip_cl_cvo_0_clocked_video_vid_v                                   (),
+      .w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_addr             (DRAM_ADDR),
+      .w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_ba               (DRAM_BA),
+      .w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_cas_n            (DRAM_CAS_N),
+      .w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_cke              (DRAM_CKE),
+      .w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_cs_n             (DRAM_CS_N),
+      .w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_dq               (DRAM_DQ),
+      .w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_dqm              (DRAM_DQM),
+      .w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_ras_n            (DRAM_RAS_N),
+      .w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_we_n             (DRAM_WE_N),
+      .pio_0_external_connection_export                                       (leds),
+      .uart_0_external_connection_rxd                                         (UART_RX),
+      .uart_0_external_connection_txd                                         (UART_TX),
+      .alt_vip_cti_0_clocked_video_vid_clk                                    (VID_CLK),
+      .alt_vip_cti_0_clocked_video_vid_data                                   (VID_DATA),
+      .alt_vip_cti_0_clocked_video_overflow                                   (),
+      .alt_vip_cti_0_clocked_video_vid_datavalid                              (VID_DE),
+      .alt_vip_cti_0_clocked_video_vid_locked                                 (),
+      .alt_vip_cti_0_clocked_video_vid_v_sync                                 (VID_VSYNC),
+      .alt_vip_cti_0_clocked_video_vid_h_sync                                 (VID_HSYNC),
+      .alt_vip_cti_0_clocked_video_vid_f                                      ()
    );
    
 /*******************************************************************
@@ -114,7 +154,7 @@ Seven segment display
 smg_interface smg_interface_inst(
       .CLK( CLOCK_50 ),
       .RSTn( RESET_N ),
-      .Number_Sig( USER_PB ? 12'h033  : 12'h000 ),
+      .Number_Sig( USER_PB ? 12'h042 : 12'h000 ),
       .SMG_Data( SMG_Data ),
       .Scan_Sig( Scan_Sig )
    );

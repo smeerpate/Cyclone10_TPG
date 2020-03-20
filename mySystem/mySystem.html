@@ -67,7 +67,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   </table>
   <table class="blueBar">
    <tr>
-    <td class="l">2020.03.13.15:55:14</td>
+    <td class="l">2020.03.20.15:01:42</td>
     <td class="r">Datasheet</td>
    </tr>
   </table>
@@ -91,11 +91,14 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
      </a> Nios II 18.1
      <br/>All Components
      <br/>&#160;&#160;
-     <a href="#module_W9825G6KH_SDRAMController_100MHz_CL3_0"><b>W9825G6KH_SDRAMController_100MHz_CL3_0</b>
-     </a> W9825G6KH_SDRAMController_100MHz_CL3 1.0
+     <a href="#module_W9825G6KH_SDRAMController_125MHz_CL3_0"><b>W9825G6KH_SDRAMController_125MHz_CL3_0</b>
+     </a> W9825G6KH_SDRAMController_125MHz_CL3 1.0
      <br/>&#160;&#160;
      <a href="#module_alt_vip_cl_mixer_0"><b>alt_vip_cl_mixer_0</b>
      </a> alt_vip_cl_mixer 18.1
+     <br/>&#160;&#160;
+     <a href="#module_alt_vip_cti_0"><b>alt_vip_cti_0</b>
+     </a> alt_vip_cti 14.0
      <br/>&#160;&#160;
      <a href="#module_main_scaler"><b>main_scaler</b>
      </a> alt_vip_cl_scl 18.1
@@ -135,7 +138,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
    </tr>
    <tr>
     <td class="slavemodule">&#160;
-     <a href="#module_W9825G6KH_SDRAMController_100MHz_CL3_0"><b>W9825G6KH_SDRAMController_100MHz_CL3_0</b>
+     <a href="#module_W9825G6KH_SDRAMController_125MHz_CL3_0"><b>W9825G6KH_SDRAMController_125MHz_CL3_0</b>
      </a>
     </td>
     <td class="empty"></td>
@@ -165,6 +168,23 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
     <td class="empty"></td>
     <td class="empty"></td>
     <td class="addr"><span style="color:#989898">0x</span>00000000</td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slavemodule">&#160;
+     <a href="#module_alt_vip_cti_0"><b>alt_vip_cti_0</b>
+     </a>
+    </td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slaveb">control&#160;</td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="addr"><span style="color:#989898">0x</span>00001000</td>
     <td class="empty"></td>
    </tr>
    <tr>
@@ -253,10 +273,10 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
     <td class="empty"></td>
    </tr>
   </table>
-  <a name="module_W9825G6KH_SDRAMController_100MHz_CL3_0"> </a>
+  <a name="module_W9825G6KH_SDRAMController_125MHz_CL3_0"> </a>
   <div>
    <hr/>
-   <h2>W9825G6KH_SDRAMController_100MHz_CL3_0</h2>W9825G6KH_SDRAMController_100MHz_CL3 v1.0
+   <h2>W9825G6KH_SDRAMController_125MHz_CL3_0</h2>W9825G6KH_SDRAMController_125MHz_CL3 v1.0
    <br/>
    <div class="greydiv">
     <table class="connectionboxes">
@@ -265,7 +285,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        <a href="#module_alt_vip_cl_vfb_0">alt_vip_cl_vfb_0</a>
       </td>
       <td class="from">mem_master_rd&#160;&#160;</td>
-      <td class="main" rowspan="9">W9825G6KH_SDRAMController_100MHz_CL3_0</td>
+      <td class="main" rowspan="9">W9825G6KH_SDRAMController_125MHz_CL3_0</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;avalon_slave_0</td>
@@ -577,7 +597,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        <a href="#module_nios2_gen2_0">nios2_gen2_0</a>
       </td>
       <td class="from">data_master&#160;&#160;</td>
-      <td class="main" rowspan="12">alt_vip_cl_mixer_0</td>
+      <td class="main" rowspan="15">alt_vip_cl_mixer_0</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;control</td>
@@ -593,6 +613,18 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
      </tr>
      <tr>
       <td class="to">&#160;&#160;din0</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_alt_vip_cti_0">alt_vip_cti_0</a>
+      </td>
+      <td class="from">dout&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;din1</td>
      </tr>
      <tr style="height:6px">
       <td></td>
@@ -652,7 +684,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">NO_OF_INPUTS</td>
-        <td class="parametervalue">1</td>
+        <td class="parametervalue">2</td>
        </tr>
        <tr>
         <td class="parametername">MAX_WIDTH</td>
@@ -1085,7 +1117,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <td></td>
       <td class="from">mem_master_rd&#160;&#160;</td>
       <td class="neighbor" rowspan="4">
-       <a href="#module_W9825G6KH_SDRAMController_100MHz_CL3_0">W9825G6KH_SDRAMController_100MHz_CL3_0</a>
+       <a href="#module_W9825G6KH_SDRAMController_125MHz_CL3_0">W9825G6KH_SDRAMController_125MHz_CL3_0</a>
       </td>
      </tr>
      <tr>
@@ -1295,6 +1327,164 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        <tr>
         <td class="parametername">AUTO_DEVICE_SPEEDGRADE</td>
         <td class="parametervalue">8</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a name="module_alt_vip_cti_0"> </a>
+  <div>
+   <hr/>
+   <h2>alt_vip_cti_0</h2>alt_vip_cti v14.0
+   <br/>
+   <div class="greydiv">
+    <table class="connectionboxes">
+     <tr>
+      <td class="neighbor" rowspan="4">
+       <a href="#module_nios2_gen2_0">nios2_gen2_0</a>
+      </td>
+      <td class="from">data_master&#160;&#160;</td>
+      <td class="main" rowspan="11">alt_vip_cti_0</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;control</td>
+     </tr>
+     <tr>
+      <td class="from">irq&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;status_update_irq</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="neighbor" rowspan="4">
+       <a href="#module_clk_0">clk_0</a>
+      </td>
+      <td class="from">clk&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;is_clk_rst</td>
+     </tr>
+     <tr>
+      <td class="from">clk_reset&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;is_clk_rst_reset</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">dout&#160;&#160;</td>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_alt_vip_cl_mixer_0">alt_vip_cl_mixer_0</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;din1</td>
+     </tr>
+    </table>
+   </div>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">FAMILY</td>
+        <td class="parametervalue">CYCLONE10LP</td>
+       </tr>
+       <tr>
+        <td class="parametername">BPS</td>
+        <td class="parametervalue">8</td>
+       </tr>
+       <tr>
+        <td class="parametername">NUMBER_OF_COLOUR_PLANES</td>
+        <td class="parametervalue">3</td>
+       </tr>
+       <tr>
+        <td class="parametername">COLOUR_PLANES_ARE_IN_PARALLEL</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">SYNC_TO</td>
+        <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_EMBEDDED_SYNCS</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ADD_DATA_ENABLE_SIGNAL</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACCEPT_COLOURS_IN_SEQ</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_STD</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">STD_WIDTH</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">GENERATE_ANC</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">INTERLACED</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">H_ACTIVE_PIXELS_F0</td>
+        <td class="parametervalue">1920</td>
+       </tr>
+       <tr>
+        <td class="parametername">V_ACTIVE_LINES_F0</td>
+        <td class="parametervalue">1080</td>
+       </tr>
+       <tr>
+        <td class="parametername">V_ACTIVE_LINES_F1</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">FIFO_DEPTH</td>
+        <td class="parametervalue">1920</td>
+       </tr>
+       <tr>
+        <td class="parametername">CLOCKS_ARE_SAME</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_CONTROL</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">GENERATE_SYNC</td>
+        <td class="parametervalue">0</td>
        </tr>
        <tr>
         <td class="parametername">deviceFamily</td>
@@ -1646,7 +1836,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        <a href="#module_clk_0">clk_0</a>
       </td>
       <td class="from">clk&#160;&#160;</td>
-      <td class="main" rowspan="22">nios2_gen2_0</td>
+      <td class="main" rowspan="27">nios2_gen2_0</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;clk</td>
@@ -1685,6 +1875,32 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <td></td>
       <td></td>
       <td class="to">&#160;&#160;control</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">data_master&#160;&#160;</td>
+      <td class="neighbor" rowspan="4">
+       <a href="#module_alt_vip_cti_0">alt_vip_cti_0</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;control</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">irq&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;status_update_irq</td>
      </tr>
      <tr style="height:6px">
       <td></td>
@@ -2453,7 +2669,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">dataSlaveMapParam</td>
-        <td class="parametervalue">&lt;address-map&gt;&lt;slave name='alt_vip_cl_mixer_0.control' start='0x0' end='0x200' type='alt_vip_cl_mixer.control' /&gt;&lt;slave name='onchip_memory2_0.s1' start='0x2000' end='0x4000' type='altera_avalon_onchip_memory2.s1' /&gt;&lt;slave name='pio_0.s1' start='0x4000' end='0x4010' type='altera_avalon_pio.s1' /&gt;&lt;slave name='uart_0.s1' start='0x4100' end='0x4120' type='altera_avalon_uart.s1' /&gt;&lt;slave name='nios2_gen2_0.debug_mem_slave' start='0x4800' end='0x5000' type='altera_nios2_gen2.debug_mem_slave' /&gt;&lt;slave name='main_scaler.control' start='0x5000' end='0x5200' type='alt_vip_cl_scl.control' /&gt;&lt;/address-map&gt;</td>
+        <td class="parametervalue">&lt;address-map&gt;&lt;slave name='alt_vip_cl_mixer_0.control' start='0x0' end='0x200' type='alt_vip_cl_mixer.control' /&gt;&lt;slave name='alt_vip_cti_0.control' start='0x1000' end='0x1040' type='alt_vip_cti.control' /&gt;&lt;slave name='onchip_memory2_0.s1' start='0x2000' end='0x4000' type='altera_avalon_onchip_memory2.s1' /&gt;&lt;slave name='pio_0.s1' start='0x4000' end='0x4010' type='altera_avalon_pio.s1' /&gt;&lt;slave name='uart_0.s1' start='0x4100' end='0x4120' type='altera_avalon_uart.s1' /&gt;&lt;slave name='nios2_gen2_0.debug_mem_slave' start='0x4800' end='0x5000' type='altera_nios2_gen2.debug_mem_slave' /&gt;&lt;slave name='main_scaler.control' start='0x5000' end='0x5200' type='alt_vip_cl_scl.control' /&gt;&lt;/address-map&gt;</td>
        </tr>
        <tr>
         <td class="parametername">tightlyCoupledDataMaster0MapParam</td>
@@ -2505,7 +2721,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">internalIrqMaskSystemInfo</td>
-        <td class="parametervalue">1</td>
+        <td class="parametervalue">3</td>
        </tr>
        <tr>
         <td class="parametername">customInstSlavesSystemInfo</td>
@@ -3326,7 +3542,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   <table class="blueBar">
    <tr>
     <td class="l">generation took 0,01 seconds</td>
-    <td class="r">rendering took 0,06 seconds</td>
+    <td class="r">rendering took 0,08 seconds</td>
    </tr>
   </table>
  </body>

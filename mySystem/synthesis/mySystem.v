@@ -4,29 +4,37 @@
 
 `timescale 1 ps / 1 ps
 module mySystem (
-		input  wire        alt_vip_cl_cvo_0_clocked_video_vid_clk,                         //                     alt_vip_cl_cvo_0_clocked_video.vid_clk
-		output wire [23:0] alt_vip_cl_cvo_0_clocked_video_vid_data,                        //                                                   .vid_data
-		output wire        alt_vip_cl_cvo_0_clocked_video_underflow,                       //                                                   .underflow
-		output wire        alt_vip_cl_cvo_0_clocked_video_vid_datavalid,                   //                                                   .vid_datavalid
-		output wire        alt_vip_cl_cvo_0_clocked_video_vid_v_sync,                      //                                                   .vid_v_sync
-		output wire        alt_vip_cl_cvo_0_clocked_video_vid_h_sync,                      //                                                   .vid_h_sync
-		output wire        alt_vip_cl_cvo_0_clocked_video_vid_f,                           //                                                   .vid_f
-		output wire        alt_vip_cl_cvo_0_clocked_video_vid_h,                           //                                                   .vid_h
-		output wire        alt_vip_cl_cvo_0_clocked_video_vid_v,                           //                                                   .vid_v
-		input  wire        clk_clk,                                                        //                                                clk.clk
-		output wire [1:0]  pio_0_external_connection_export,                               //                          pio_0_external_connection.export
-		input  wire        reset_reset_n,                                                  //                                              reset.reset_n
-		input  wire        uart_0_external_connection_rxd,                                 //                         uart_0_external_connection.rxd
-		output wire        uart_0_external_connection_txd,                                 //                                                   .txd
-		output wire [12:0] w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_addr,  // w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end.sdram_addr
-		output wire [1:0]  w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_ba,    //                                                   .sdram_ba
-		output wire        w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cas_n, //                                                   .sdram_cas_n
-		output wire        w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cke,   //                                                   .sdram_cke
-		output wire        w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cs_n,  //                                                   .sdram_cs_n
-		inout  wire [15:0] w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_dq,    //                                                   .sdram_dq
-		output wire [1:0]  w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_dqm,   //                                                   .sdram_dqm
-		output wire        w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_ras_n, //                                                   .sdram_ras_n
-		output wire        w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_we_n   //                                                   .sdram_we_n
+		input  wire        alt_vip_cl_cvo_0_clocked_video_vid_clk,                      //                  alt_vip_cl_cvo_0_clocked_video.vid_clk
+		output wire [23:0] alt_vip_cl_cvo_0_clocked_video_vid_data,                     //                                                .vid_data
+		output wire        alt_vip_cl_cvo_0_clocked_video_underflow,                    //                                                .underflow
+		output wire        alt_vip_cl_cvo_0_clocked_video_vid_datavalid,                //                                                .vid_datavalid
+		output wire        alt_vip_cl_cvo_0_clocked_video_vid_v_sync,                   //                                                .vid_v_sync
+		output wire        alt_vip_cl_cvo_0_clocked_video_vid_h_sync,                   //                                                .vid_h_sync
+		output wire        alt_vip_cl_cvo_0_clocked_video_vid_f,                        //                                                .vid_f
+		output wire        alt_vip_cl_cvo_0_clocked_video_vid_h,                        //                                                .vid_h
+		output wire        alt_vip_cl_cvo_0_clocked_video_vid_v,                        //                                                .vid_v
+		input  wire        alt_vip_cti_0_clocked_video_vid_clk,                         //                     alt_vip_cti_0_clocked_video.vid_clk
+		input  wire [23:0] alt_vip_cti_0_clocked_video_vid_data,                        //                                                .vid_data
+		output wire        alt_vip_cti_0_clocked_video_overflow,                        //                                                .overflow
+		input  wire        alt_vip_cti_0_clocked_video_vid_datavalid,                   //                                                .vid_datavalid
+		input  wire        alt_vip_cti_0_clocked_video_vid_locked,                      //                                                .vid_locked
+		input  wire        alt_vip_cti_0_clocked_video_vid_v_sync,                      //                                                .vid_v_sync
+		input  wire        alt_vip_cti_0_clocked_video_vid_h_sync,                      //                                                .vid_h_sync
+		input  wire        alt_vip_cti_0_clocked_video_vid_f,                           //                                                .vid_f
+		input  wire        clk_clk,                                                     //                                             clk.clk
+		output wire [1:0]  pio_0_external_connection_export,                            //                       pio_0_external_connection.export
+		input  wire        reset_reset_n,                                               //                                           reset.reset_n
+		input  wire        uart_0_external_connection_rxd,                              //                      uart_0_external_connection.rxd
+		output wire        uart_0_external_connection_txd,                              //                                                .txd
+		output wire [12:0] w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_addr,  // w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if.sdram_addr
+		output wire [1:0]  w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_ba,    //                                                .sdram_ba
+		output wire        w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_cas_n, //                                                .sdram_cas_n
+		output wire        w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_cke,   //                                                .sdram_cke
+		output wire        w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_cs_n,  //                                                .sdram_cs_n
+		inout  wire [15:0] w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_dq,    //                                                .sdram_dq
+		output wire [1:0]  w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_dqm,   //                                                .sdram_dqm
+		output wire        w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_ras_n, //                                                .sdram_ras_n
+		output wire        w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_we_n   //                                                .sdram_we_n
 	);
 
 	wire         alt_vip_cl_mixer_0_dout_valid;                                                         // alt_vip_cl_mixer_0:dout_valid -> alt_vip_cl_cvo_0:din_valid
@@ -49,6 +57,11 @@ module mySystem (
 	wire         alt_vip_cl_vfb_0_dout_ready;                                                           // alt_vip_cl_mixer_0:din0_ready -> alt_vip_cl_vfb_0:dout_ready
 	wire         alt_vip_cl_vfb_0_dout_startofpacket;                                                   // alt_vip_cl_vfb_0:dout_startofpacket -> alt_vip_cl_mixer_0:din0_startofpacket
 	wire         alt_vip_cl_vfb_0_dout_endofpacket;                                                     // alt_vip_cl_vfb_0:dout_endofpacket -> alt_vip_cl_mixer_0:din0_endofpacket
+	wire         alt_vip_cti_0_dout_valid;                                                              // alt_vip_cti_0:is_valid -> alt_vip_cl_mixer_0:din1_valid
+	wire  [23:0] alt_vip_cti_0_dout_data;                                                               // alt_vip_cti_0:is_data -> alt_vip_cl_mixer_0:din1_data
+	wire         alt_vip_cti_0_dout_ready;                                                              // alt_vip_cl_mixer_0:din1_ready -> alt_vip_cti_0:is_ready
+	wire         alt_vip_cti_0_dout_startofpacket;                                                      // alt_vip_cti_0:is_sop -> alt_vip_cl_mixer_0:din1_startofpacket
+	wire         alt_vip_cti_0_dout_endofpacket;                                                        // alt_vip_cti_0:is_eop -> alt_vip_cl_mixer_0:din1_endofpacket
 	wire  [31:0] nios2_gen2_0_data_master_readdata;                                                     // mm_interconnect_0:nios2_gen2_0_data_master_readdata -> nios2_gen2_0:d_readdata
 	wire         nios2_gen2_0_data_master_waitrequest;                                                  // mm_interconnect_0:nios2_gen2_0_data_master_waitrequest -> nios2_gen2_0:d_waitrequest
 	wire         nios2_gen2_0_data_master_debugaccess;                                                  // nios2_gen2_0:debug_mem_slave_debugaccess_to_roms -> mm_interconnect_0:nios2_gen2_0_data_master_debugaccess
@@ -77,6 +90,11 @@ module mySystem (
 	wire         mm_interconnect_0_main_scaler_control_readdatavalid;                                   // main_scaler:control_readdatavalid -> mm_interconnect_0:main_scaler_control_readdatavalid
 	wire         mm_interconnect_0_main_scaler_control_write;                                           // mm_interconnect_0:main_scaler_control_write -> main_scaler:control_write
 	wire  [31:0] mm_interconnect_0_main_scaler_control_writedata;                                       // mm_interconnect_0:main_scaler_control_writedata -> main_scaler:control_writedata
+	wire  [15:0] mm_interconnect_0_alt_vip_cti_0_control_readdata;                                      // alt_vip_cti_0:av_readdata -> mm_interconnect_0:alt_vip_cti_0_control_readdata
+	wire   [3:0] mm_interconnect_0_alt_vip_cti_0_control_address;                                       // mm_interconnect_0:alt_vip_cti_0_control_address -> alt_vip_cti_0:av_address
+	wire         mm_interconnect_0_alt_vip_cti_0_control_read;                                          // mm_interconnect_0:alt_vip_cti_0_control_read -> alt_vip_cti_0:av_read
+	wire         mm_interconnect_0_alt_vip_cti_0_control_write;                                         // mm_interconnect_0:alt_vip_cti_0_control_write -> alt_vip_cti_0:av_write
+	wire  [15:0] mm_interconnect_0_alt_vip_cti_0_control_writedata;                                     // mm_interconnect_0:alt_vip_cti_0_control_writedata -> alt_vip_cti_0:av_writedata
 	wire  [31:0] mm_interconnect_0_nios2_gen2_0_debug_mem_slave_readdata;                               // nios2_gen2_0:debug_mem_slave_readdata -> mm_interconnect_0:nios2_gen2_0_debug_mem_slave_readdata
 	wire         mm_interconnect_0_nios2_gen2_0_debug_mem_slave_waitrequest;                            // nios2_gen2_0:debug_mem_slave_waitrequest -> mm_interconnect_0:nios2_gen2_0_debug_mem_slave_waitrequest
 	wire         mm_interconnect_0_nios2_gen2_0_debug_mem_slave_debugaccess;                            // mm_interconnect_0:nios2_gen2_0_debug_mem_slave_debugaccess -> nios2_gen2_0:debug_mem_slave_debugaccess
@@ -116,41 +134,42 @@ module mySystem (
 	wire         alt_vip_cl_vfb_0_mem_master_wr_write;                                                  // alt_vip_cl_vfb_0:mem_master_wr_write -> mm_interconnect_1:alt_vip_cl_vfb_0_mem_master_wr_write
 	wire  [31:0] alt_vip_cl_vfb_0_mem_master_wr_writedata;                                              // alt_vip_cl_vfb_0:mem_master_wr_writedata -> mm_interconnect_1:alt_vip_cl_vfb_0_mem_master_wr_writedata
 	wire   [5:0] alt_vip_cl_vfb_0_mem_master_wr_burstcount;                                             // alt_vip_cl_vfb_0:mem_master_wr_burstcount -> mm_interconnect_1:alt_vip_cl_vfb_0_mem_master_wr_burstcount
-	wire         mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_chipselect;    // mm_interconnect_1:W9825G6KH_SDRAMController_100MHz_CL3_0_avalon_slave_0_chipselect -> W9825G6KH_SDRAMController_100MHz_CL3_0:az_cs
-	wire  [15:0] mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_readdata;      // W9825G6KH_SDRAMController_100MHz_CL3_0:za_data -> mm_interconnect_1:W9825G6KH_SDRAMController_100MHz_CL3_0_avalon_slave_0_readdata
-	wire         mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_waitrequest;   // W9825G6KH_SDRAMController_100MHz_CL3_0:za_waitrequest -> mm_interconnect_1:W9825G6KH_SDRAMController_100MHz_CL3_0_avalon_slave_0_waitrequest
-	wire  [23:0] mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_address;       // mm_interconnect_1:W9825G6KH_SDRAMController_100MHz_CL3_0_avalon_slave_0_address -> W9825G6KH_SDRAMController_100MHz_CL3_0:az_addr
-	wire         mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_read;          // mm_interconnect_1:W9825G6KH_SDRAMController_100MHz_CL3_0_avalon_slave_0_read -> W9825G6KH_SDRAMController_100MHz_CL3_0:az_rd_n
-	wire   [1:0] mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_byteenable;    // mm_interconnect_1:W9825G6KH_SDRAMController_100MHz_CL3_0_avalon_slave_0_byteenable -> W9825G6KH_SDRAMController_100MHz_CL3_0:az_be_n
-	wire         mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_readdatavalid; // W9825G6KH_SDRAMController_100MHz_CL3_0:za_valid -> mm_interconnect_1:W9825G6KH_SDRAMController_100MHz_CL3_0_avalon_slave_0_readdatavalid
-	wire         mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_write;         // mm_interconnect_1:W9825G6KH_SDRAMController_100MHz_CL3_0_avalon_slave_0_write -> W9825G6KH_SDRAMController_100MHz_CL3_0:az_wr_n
-	wire  [15:0] mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_writedata;     // mm_interconnect_1:W9825G6KH_SDRAMController_100MHz_CL3_0_avalon_slave_0_writedata -> W9825G6KH_SDRAMController_100MHz_CL3_0:az_data
+	wire         mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_chipselect;    // mm_interconnect_1:W9825G6KH_SDRAMController_125MHz_CL3_0_avalon_slave_0_chipselect -> W9825G6KH_SDRAMController_125MHz_CL3_0:az_cs
+	wire  [15:0] mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_readdata;      // W9825G6KH_SDRAMController_125MHz_CL3_0:za_data -> mm_interconnect_1:W9825G6KH_SDRAMController_125MHz_CL3_0_avalon_slave_0_readdata
+	wire         mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_waitrequest;   // W9825G6KH_SDRAMController_125MHz_CL3_0:za_waitrequest -> mm_interconnect_1:W9825G6KH_SDRAMController_125MHz_CL3_0_avalon_slave_0_waitrequest
+	wire  [23:0] mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_address;       // mm_interconnect_1:W9825G6KH_SDRAMController_125MHz_CL3_0_avalon_slave_0_address -> W9825G6KH_SDRAMController_125MHz_CL3_0:az_addr
+	wire         mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_read;          // mm_interconnect_1:W9825G6KH_SDRAMController_125MHz_CL3_0_avalon_slave_0_read -> W9825G6KH_SDRAMController_125MHz_CL3_0:az_rd_n
+	wire   [1:0] mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_byteenable;    // mm_interconnect_1:W9825G6KH_SDRAMController_125MHz_CL3_0_avalon_slave_0_byteenable -> W9825G6KH_SDRAMController_125MHz_CL3_0:az_be_n
+	wire         mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_readdatavalid; // W9825G6KH_SDRAMController_125MHz_CL3_0:za_valid -> mm_interconnect_1:W9825G6KH_SDRAMController_125MHz_CL3_0_avalon_slave_0_readdatavalid
+	wire         mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_write;         // mm_interconnect_1:W9825G6KH_SDRAMController_125MHz_CL3_0_avalon_slave_0_write -> W9825G6KH_SDRAMController_125MHz_CL3_0:az_wr_n
+	wire  [15:0] mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_writedata;     // mm_interconnect_1:W9825G6KH_SDRAMController_125MHz_CL3_0_avalon_slave_0_writedata -> W9825G6KH_SDRAMController_125MHz_CL3_0:az_data
 	wire         irq_mapper_receiver0_irq;                                                              // uart_0:irq -> irq_mapper:receiver0_irq
+	wire         irq_mapper_receiver1_irq;                                                              // alt_vip_cti_0:status_update_int -> irq_mapper:receiver1_irq
 	wire  [31:0] nios2_gen2_0_irq_irq;                                                                  // irq_mapper:sender_irq -> nios2_gen2_0:irq
-	wire         rst_controller_reset_out_reset;                                                        // rst_controller:reset_out -> [W9825G6KH_SDRAMController_100MHz_CL3_0:reset_n, alt_vip_cl_cvo_0:main_reset_reset, alt_vip_cl_mixer_0:main_reset_reset, alt_vip_cl_tpg_0:main_reset, alt_vip_cl_vfb_0:main_reset, alt_vip_cl_vfb_0:mem_reset, irq_mapper:reset, main_scaler:main_reset, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, mm_interconnect_1:alt_vip_cl_vfb_0_mem_reset_reset_bridge_in_reset_reset, nios2_gen2_0:reset_n, onchip_memory2_0:reset, pio_0:reset_n, rst_translator:in_reset, uart_0:reset_n]
+	wire         rst_controller_reset_out_reset;                                                        // rst_controller:reset_out -> [W9825G6KH_SDRAMController_125MHz_CL3_0:reset_n, alt_vip_cl_cvo_0:main_reset_reset, alt_vip_cl_mixer_0:main_reset_reset, alt_vip_cl_tpg_0:main_reset, alt_vip_cl_vfb_0:main_reset, alt_vip_cl_vfb_0:mem_reset, alt_vip_cti_0:rst, irq_mapper:reset, main_scaler:main_reset, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, mm_interconnect_1:alt_vip_cl_vfb_0_mem_reset_reset_bridge_in_reset_reset, nios2_gen2_0:reset_n, onchip_memory2_0:reset, pio_0:reset_n, rst_translator:in_reset, uart_0:reset_n]
 	wire         rst_controller_reset_out_reset_req;                                                    // rst_controller:reset_req -> [nios2_gen2_0:reset_req, onchip_memory2_0:reset_req, rst_translator:reset_req_in]
 
-	W9825G6KH_SDRAMController_100MHz_CL3 w9825g6kh_sdramcontroller_100mhz_cl3_0 (
-		.az_addr        (mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_address),       // avalon_slave_0.address
-		.az_be_n        (~mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_byteenable),   //               .byteenable_n
-		.az_cs          (mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_chipselect),    //               .chipselect
-		.az_data        (mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_writedata),     //               .writedata
-		.az_rd_n        (~mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_read),         //               .read_n
-		.az_wr_n        (~mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_write),        //               .write_n
-		.za_data        (mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_readdata),      //               .readdata
-		.za_valid       (mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_readdatavalid), //               .readdatavalid
-		.za_waitrequest (mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_waitrequest),   //               .waitrequest
+	W9825G6KH_SDRAMController_125MHz_CL3 w9825g6kh_sdramcontroller_125mhz_cl3_0 (
+		.az_addr        (mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_address),       // avalon_slave_0.address
+		.az_be_n        (~mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_byteenable),   //               .byteenable_n
+		.az_cs          (mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_chipselect),    //               .chipselect
+		.az_data        (mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_writedata),     //               .writedata
+		.az_rd_n        (~mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_read),         //               .read_n
+		.az_wr_n        (~mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_write),        //               .write_n
+		.za_data        (mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_readdata),      //               .readdata
+		.za_valid       (mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_readdatavalid), //               .readdatavalid
+		.za_waitrequest (mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_waitrequest),   //               .waitrequest
 		.clk            (clk_clk),                                                                               //          clock.clk
 		.reset_n        (~rst_controller_reset_out_reset),                                                       //          reset.reset_n
-		.zs_addr        (w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_addr),                         //    conduit_end.sdram_addr
-		.zs_ba          (w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_ba),                           //               .sdram_ba
-		.zs_cas_n       (w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cas_n),                        //               .sdram_cas_n
-		.zs_cke         (w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cke),                          //               .sdram_cke
-		.zs_cs_n        (w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_cs_n),                         //               .sdram_cs_n
-		.zs_dq          (w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_dq),                           //               .sdram_dq
-		.zs_dqm         (w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_dqm),                          //               .sdram_dqm
-		.zs_ras_n       (w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_ras_n),                        //               .sdram_ras_n
-		.zs_we_n        (w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end_sdram_we_n)                          //               .sdram_we_n
+		.zs_addr        (w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_addr),                            //       sdram_if.sdram_addr
+		.zs_ba          (w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_ba),                              //               .sdram_ba
+		.zs_cas_n       (w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_cas_n),                           //               .sdram_cas_n
+		.zs_cke         (w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_cke),                             //               .sdram_cke
+		.zs_cs_n        (w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_cs_n),                            //               .sdram_cs_n
+		.zs_dq          (w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_dq),                              //               .sdram_dq
+		.zs_dqm         (w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_dqm),                             //               .sdram_dqm
+		.zs_ras_n       (w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_ras_n),                           //               .sdram_ras_n
+		.zs_we_n        (w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_we_n)                             //               .sdram_we_n
 	);
 
 	mySystem_alt_vip_cl_cvo_0 #(
@@ -235,6 +254,11 @@ module mySystem (
 		.din0_startofpacket    (alt_vip_cl_vfb_0_dout_startofpacket),                        //           .startofpacket
 		.din0_endofpacket      (alt_vip_cl_vfb_0_dout_endofpacket),                          //           .endofpacket
 		.din0_ready            (alt_vip_cl_vfb_0_dout_ready),                                //           .ready
+		.din1_data             (alt_vip_cti_0_dout_data),                                    //       din1.data
+		.din1_valid            (alt_vip_cti_0_dout_valid),                                   //           .valid
+		.din1_startofpacket    (alt_vip_cti_0_dout_startofpacket),                           //           .startofpacket
+		.din1_endofpacket      (alt_vip_cti_0_dout_endofpacket),                             //           .endofpacket
+		.din1_ready            (alt_vip_cti_0_dout_ready),                                   //           .ready
 		.dout_data             (alt_vip_cl_mixer_0_dout_data),                               //       dout.data
 		.dout_valid            (alt_vip_cl_mixer_0_dout_valid),                              //           .valid
 		.dout_startofpacket    (alt_vip_cl_mixer_0_dout_startofpacket),                      //           .startofpacket
@@ -323,6 +347,49 @@ module mySystem (
 		.mem_master_rd_read          (alt_vip_cl_vfb_0_mem_master_rd_read),          //              .read
 		.mem_master_rd_readdata      (alt_vip_cl_vfb_0_mem_master_rd_readdata),      //              .readdata
 		.mem_master_rd_readdatavalid (alt_vip_cl_vfb_0_mem_master_rd_readdatavalid)  //              .readdatavalid
+	);
+
+	alt_vipcti131_Vid2IS #(
+		.BPS                           (8),
+		.NUMBER_OF_COLOUR_PLANES       (3),
+		.COLOUR_PLANES_ARE_IN_PARALLEL (1),
+		.SYNC_TO                       (2),
+		.USE_EMBEDDED_SYNCS            (0),
+		.ADD_DATA_ENABLE_SIGNAL        (0),
+		.ACCEPT_COLOURS_IN_SEQ         (0),
+		.USE_STD                       (0),
+		.STD_WIDTH                     (1),
+		.GENERATE_ANC                  (0),
+		.INTERLACED                    (0),
+		.H_ACTIVE_PIXELS_F0            (1920),
+		.V_ACTIVE_LINES_F0             (1080),
+		.V_ACTIVE_LINES_F1             (32),
+		.FIFO_DEPTH                    (1920),
+		.CLOCKS_ARE_SAME               (0),
+		.USE_CONTROL                   (1),
+		.GENERATE_SYNC                 (0)
+	) alt_vip_cti_0 (
+		.is_clk            (clk_clk),                                           //        is_clk_rst.clk
+		.rst               (rst_controller_reset_out_reset),                    //  is_clk_rst_reset.reset
+		.av_address        (mm_interconnect_0_alt_vip_cti_0_control_address),   //           control.address
+		.av_read           (mm_interconnect_0_alt_vip_cti_0_control_read),      //                  .read
+		.av_readdata       (mm_interconnect_0_alt_vip_cti_0_control_readdata),  //                  .readdata
+		.av_write          (mm_interconnect_0_alt_vip_cti_0_control_write),     //                  .write
+		.av_writedata      (mm_interconnect_0_alt_vip_cti_0_control_writedata), //                  .writedata
+		.status_update_int (irq_mapper_receiver1_irq),                          // status_update_irq.irq
+		.is_data           (alt_vip_cti_0_dout_data),                           //              dout.data
+		.is_valid          (alt_vip_cti_0_dout_valid),                          //                  .valid
+		.is_ready          (alt_vip_cti_0_dout_ready),                          //                  .ready
+		.is_sop            (alt_vip_cti_0_dout_startofpacket),                  //                  .startofpacket
+		.is_eop            (alt_vip_cti_0_dout_endofpacket),                    //                  .endofpacket
+		.vid_clk           (alt_vip_cti_0_clocked_video_vid_clk),               //     clocked_video.export
+		.vid_data          (alt_vip_cti_0_clocked_video_vid_data),              //                  .export
+		.overflow          (alt_vip_cti_0_clocked_video_overflow),              //                  .export
+		.vid_datavalid     (alt_vip_cti_0_clocked_video_vid_datavalid),         //                  .export
+		.vid_locked        (alt_vip_cti_0_clocked_video_vid_locked),            //                  .export
+		.vid_v_sync        (alt_vip_cti_0_clocked_video_vid_v_sync),            //                  .export
+		.vid_h_sync        (alt_vip_cti_0_clocked_video_vid_h_sync),            //                  .export
+		.vid_f             (alt_vip_cti_0_clocked_video_vid_f)                  //                  .export
 	);
 
 	mySystem_main_scaler main_scaler (
@@ -440,6 +507,11 @@ module mySystem (
 		.alt_vip_cl_mixer_0_control_byteenable          (mm_interconnect_0_alt_vip_cl_mixer_0_control_byteenable),    //                                         .byteenable
 		.alt_vip_cl_mixer_0_control_readdatavalid       (mm_interconnect_0_alt_vip_cl_mixer_0_control_readdatavalid), //                                         .readdatavalid
 		.alt_vip_cl_mixer_0_control_waitrequest         (mm_interconnect_0_alt_vip_cl_mixer_0_control_waitrequest),   //                                         .waitrequest
+		.alt_vip_cti_0_control_address                  (mm_interconnect_0_alt_vip_cti_0_control_address),            //                    alt_vip_cti_0_control.address
+		.alt_vip_cti_0_control_write                    (mm_interconnect_0_alt_vip_cti_0_control_write),              //                                         .write
+		.alt_vip_cti_0_control_read                     (mm_interconnect_0_alt_vip_cti_0_control_read),               //                                         .read
+		.alt_vip_cti_0_control_readdata                 (mm_interconnect_0_alt_vip_cti_0_control_readdata),           //                                         .readdata
+		.alt_vip_cti_0_control_writedata                (mm_interconnect_0_alt_vip_cti_0_control_writedata),          //                                         .writedata
 		.main_scaler_control_address                    (mm_interconnect_0_main_scaler_control_address),              //                      main_scaler_control.address
 		.main_scaler_control_write                      (mm_interconnect_0_main_scaler_control_write),                //                                         .write
 		.main_scaler_control_read                       (mm_interconnect_0_main_scaler_control_read),                 //                                         .read
@@ -492,21 +564,22 @@ module mySystem (
 		.alt_vip_cl_vfb_0_mem_master_wr_byteenable                           (alt_vip_cl_vfb_0_mem_master_wr_byteenable),                                             //                                                      .byteenable
 		.alt_vip_cl_vfb_0_mem_master_wr_write                                (alt_vip_cl_vfb_0_mem_master_wr_write),                                                  //                                                      .write
 		.alt_vip_cl_vfb_0_mem_master_wr_writedata                            (alt_vip_cl_vfb_0_mem_master_wr_writedata),                                              //                                                      .writedata
-		.W9825G6KH_SDRAMController_100MHz_CL3_0_avalon_slave_0_address       (mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_address),       // W9825G6KH_SDRAMController_100MHz_CL3_0_avalon_slave_0.address
-		.W9825G6KH_SDRAMController_100MHz_CL3_0_avalon_slave_0_write         (mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_write),         //                                                      .write
-		.W9825G6KH_SDRAMController_100MHz_CL3_0_avalon_slave_0_read          (mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_read),          //                                                      .read
-		.W9825G6KH_SDRAMController_100MHz_CL3_0_avalon_slave_0_readdata      (mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_readdata),      //                                                      .readdata
-		.W9825G6KH_SDRAMController_100MHz_CL3_0_avalon_slave_0_writedata     (mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_writedata),     //                                                      .writedata
-		.W9825G6KH_SDRAMController_100MHz_CL3_0_avalon_slave_0_byteenable    (mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_byteenable),    //                                                      .byteenable
-		.W9825G6KH_SDRAMController_100MHz_CL3_0_avalon_slave_0_readdatavalid (mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_readdatavalid), //                                                      .readdatavalid
-		.W9825G6KH_SDRAMController_100MHz_CL3_0_avalon_slave_0_waitrequest   (mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_waitrequest),   //                                                      .waitrequest
-		.W9825G6KH_SDRAMController_100MHz_CL3_0_avalon_slave_0_chipselect    (mm_interconnect_1_w9825g6kh_sdramcontroller_100mhz_cl3_0_avalon_slave_0_chipselect)     //                                                      .chipselect
+		.W9825G6KH_SDRAMController_125MHz_CL3_0_avalon_slave_0_address       (mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_address),       // W9825G6KH_SDRAMController_125MHz_CL3_0_avalon_slave_0.address
+		.W9825G6KH_SDRAMController_125MHz_CL3_0_avalon_slave_0_write         (mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_write),         //                                                      .write
+		.W9825G6KH_SDRAMController_125MHz_CL3_0_avalon_slave_0_read          (mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_read),          //                                                      .read
+		.W9825G6KH_SDRAMController_125MHz_CL3_0_avalon_slave_0_readdata      (mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_readdata),      //                                                      .readdata
+		.W9825G6KH_SDRAMController_125MHz_CL3_0_avalon_slave_0_writedata     (mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_writedata),     //                                                      .writedata
+		.W9825G6KH_SDRAMController_125MHz_CL3_0_avalon_slave_0_byteenable    (mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_byteenable),    //                                                      .byteenable
+		.W9825G6KH_SDRAMController_125MHz_CL3_0_avalon_slave_0_readdatavalid (mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_readdatavalid), //                                                      .readdatavalid
+		.W9825G6KH_SDRAMController_125MHz_CL3_0_avalon_slave_0_waitrequest   (mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_waitrequest),   //                                                      .waitrequest
+		.W9825G6KH_SDRAMController_125MHz_CL3_0_avalon_slave_0_chipselect    (mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_chipselect)     //                                                      .chipselect
 	);
 
 	mySystem_irq_mapper irq_mapper (
 		.clk           (clk_clk),                        //       clk.clk
 		.reset         (rst_controller_reset_out_reset), // clk_reset.reset
 		.receiver0_irq (irq_mapper_receiver0_irq),       // receiver0.irq
+		.receiver1_irq (irq_mapper_receiver1_irq),       // receiver1.irq
 		.sender_irq    (nios2_gen2_0_irq_irq)            //    sender.irq
 	);
 

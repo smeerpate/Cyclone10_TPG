@@ -9,11 +9,11 @@
    categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
-   element W9825G6KH_SDRAMController_100MHz_CL3_0
+   element W9825G6KH_SDRAMController_125MHz_CL3_0
    {
       datum _sortIndex
       {
-         value = "8";
+         value = "11";
          type = "int";
       }
    }
@@ -47,6 +47,22 @@
       {
          value = "7";
          type = "int";
+      }
+   }
+   element alt_vip_cti_0
+   {
+      datum _sortIndex
+      {
+         value = "10";
+         type = "int";
+      }
+   }
+   element alt_vip_cti_0.control
+   {
+      datum baseAddress
+      {
+         value = "4096";
+         type = "String";
       }
    }
    element clk_0
@@ -125,7 +141,7 @@
    {
       datum _sortIndex
       {
-         value = "9";
+         value = "8";
          type = "int";
       }
    }
@@ -149,7 +165,7 @@
    {
       datum _sortIndex
       {
-         value = "10";
+         value = "9";
          type = "int";
       }
    }
@@ -194,6 +210,11 @@
    internal="alt_vip_cl_cvo_0.clocked_video"
    type="conduit"
    dir="end" />
+ <interface
+   name="alt_vip_cti_0_clocked_video"
+   internal="alt_vip_cti_0.clocked_video"
+   type="conduit"
+   dir="end" />
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
  <interface
    name="pio_0_external_connection"
@@ -207,13 +228,13 @@
    type="conduit"
    dir="end" />
  <interface
-   name="w9825g6kh_sdramcontroller_100mhz_cl3_0_conduit_end"
-   internal="W9825G6KH_SDRAMController_100MHz_CL3_0.conduit_end"
+   name="w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if"
+   internal="W9825G6KH_SDRAMController_125MHz_CL3_0.sdram_if"
    type="conduit"
    dir="end" />
  <module
-   name="W9825G6KH_SDRAMController_100MHz_CL3_0"
-   kind="W9825G6KH_SDRAMController_100MHz_CL3"
+   name="W9825G6KH_SDRAMController_125MHz_CL3_0"
+   kind="W9825G6KH_SDRAMController_125MHz_CL3"
    version="1.0"
    enabled="1" />
  <module
@@ -306,7 +327,7 @@
   <parameter name="LOW_LATENCY_MODE" value="0" />
   <parameter name="MAX_HEIGHT" value="480" />
   <parameter name="MAX_WIDTH" value="640" />
-  <parameter name="NO_OF_INPUTS" value="1" />
+  <parameter name="NO_OF_INPUTS" value="2" />
   <parameter name="NUMBER_OF_COLOR_PLANES" value="2" />
   <parameter name="PATTERN" value="colorbars" />
   <parameter name="PIPELINE_READY" value="0" />
@@ -402,6 +423,27 @@
   <parameter name="WRITE_BURST_TARGET" value="32" />
   <parameter name="WRITE_FIFO_DEPTH" value="64" />
  </module>
+ <module name="alt_vip_cti_0" kind="alt_vip_cti" version="14.0" enabled="1">
+  <parameter name="ACCEPT_COLOURS_IN_SEQ" value="0" />
+  <parameter name="ADD_DATA_ENABLE_SIGNAL" value="0" />
+  <parameter name="BPS" value="8" />
+  <parameter name="CLOCKS_ARE_SAME" value="0" />
+  <parameter name="COLOUR_PLANES_ARE_IN_PARALLEL" value="1" />
+  <parameter name="FAMILY" value="Cyclone 10 LP" />
+  <parameter name="FIFO_DEPTH" value="1920" />
+  <parameter name="GENERATE_ANC" value="0" />
+  <parameter name="GENERATE_SYNC" value="0" />
+  <parameter name="H_ACTIVE_PIXELS_F0" value="1920" />
+  <parameter name="INTERLACED" value="0" />
+  <parameter name="NUMBER_OF_COLOUR_PLANES" value="3" />
+  <parameter name="STD_WIDTH" value="1" />
+  <parameter name="SYNC_TO" value="2" />
+  <parameter name="USE_CONTROL" value="1" />
+  <parameter name="USE_EMBEDDED_SYNCS" value="0" />
+  <parameter name="USE_STD" value="0" />
+  <parameter name="V_ACTIVE_LINES_F0" value="1080" />
+  <parameter name="V_ACTIVE_LINES_F1" value="32" />
+ </module>
  <module name="clk_0" kind="clock_source" version="18.1" enabled="1">
   <parameter name="clockFrequency" value="125000000" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -480,7 +522,7 @@
   <parameter name="dataAddrWidth" value="15" />
   <parameter name="dataMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="dataMasterHighPerformanceMapParam" value="" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='alt_vip_cl_mixer_0.control' start='0x0' end='0x200' type='alt_vip_cl_mixer.control' /><slave name='onchip_memory2_0.s1' start='0x2000' end='0x4000' type='altera_avalon_onchip_memory2.s1' /><slave name='pio_0.s1' start='0x4000' end='0x4010' type='altera_avalon_pio.s1' /><slave name='uart_0.s1' start='0x4100' end='0x4120' type='altera_avalon_uart.s1' /><slave name='nios2_gen2_0.debug_mem_slave' start='0x4800' end='0x5000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='main_scaler.control' start='0x5000' end='0x5200' type='alt_vip_cl_scl.control' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='alt_vip_cl_mixer_0.control' start='0x0' end='0x200' type='alt_vip_cl_mixer.control' /><slave name='alt_vip_cti_0.control' start='0x1000' end='0x1040' type='alt_vip_cti.control' /><slave name='onchip_memory2_0.s1' start='0x2000' end='0x4000' type='altera_avalon_onchip_memory2.s1' /><slave name='pio_0.s1' start='0x4000' end='0x4010' type='altera_avalon_pio.s1' /><slave name='uart_0.s1' start='0x4100' end='0x4120' type='altera_avalon_uart.s1' /><slave name='nios2_gen2_0.debug_mem_slave' start='0x4800' end='0x5000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='main_scaler.control' start='0x5000' end='0x5200' type='alt_vip_cl_scl.control' /></address-map>]]></parameter>
   <parameter name="data_master_high_performance_paddr_base" value="0" />
   <parameter name="data_master_high_performance_paddr_size" value="0" />
   <parameter name="data_master_paddr_base" value="0" />
@@ -526,7 +568,7 @@
   <parameter name="instruction_master_high_performance_paddr_size" value="0" />
   <parameter name="instruction_master_paddr_base" value="0" />
   <parameter name="instruction_master_paddr_size" value="0" />
-  <parameter name="internalIrqMaskSystemInfo" value="1" />
+  <parameter name="internalIrqMaskSystemInfo" value="3" />
   <parameter name="io_regionbase" value="0" />
   <parameter name="io_regionsize" value="0" />
   <parameter name="master_addr_map" value="false" />
@@ -722,6 +764,15 @@
    kind="avalon"
    version="18.1"
    start="nios2_gen2_0.data_master"
+   end="alt_vip_cti_0.control">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x1000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="nios2_gen2_0.data_master"
    end="nios2_gen2_0.debug_mem_slave">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x4800" />
@@ -776,7 +827,7 @@
    kind="avalon"
    version="18.1"
    start="alt_vip_cl_vfb_0.mem_master_rd"
-   end="W9825G6KH_SDRAMController_100MHz_CL3_0.avalon_slave_0">
+   end="W9825G6KH_SDRAMController_125MHz_CL3_0.avalon_slave_0">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
@@ -785,7 +836,7 @@
    kind="avalon"
    version="18.1"
    start="alt_vip_cl_vfb_0.mem_master_wr"
-   end="W9825G6KH_SDRAMController_100MHz_CL3_0.avalon_slave_0">
+   end="W9825G6KH_SDRAMController_125MHz_CL3_0.avalon_slave_0">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
@@ -810,6 +861,11 @@
    version="18.1"
    start="alt_vip_cl_vfb_0.dout"
    end="alt_vip_cl_mixer_0.din0" />
+ <connection
+   kind="avalon_streaming"
+   version="18.1"
+   start="alt_vip_cti_0.dout"
+   end="alt_vip_cl_mixer_0.din1" />
  <connection kind="clock" version="18.1" start="clk_0.clk" end="nios2_gen2_0.clk" />
  <connection kind="clock" version="18.1" start="clk_0.clk" end="pio_0.clk" />
  <connection kind="clock" version="18.1" start="clk_0.clk" end="uart_0.clk" />
@@ -822,7 +878,12 @@
    kind="clock"
    version="18.1"
    start="clk_0.clk"
-   end="W9825G6KH_SDRAMController_100MHz_CL3_0.clock" />
+   end="W9825G6KH_SDRAMController_125MHz_CL3_0.clock" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="clk_0.clk"
+   end="alt_vip_cti_0.is_clk_rst" />
  <connection
    kind="clock"
    version="18.1"
@@ -860,6 +921,18 @@
    end="uart_0.irq">
   <parameter name="irqNumber" value="0" />
  </connection>
+ <connection
+   kind="interrupt"
+   version="18.1"
+   start="nios2_gen2_0.irq"
+   end="alt_vip_cti_0.status_update_irq">
+  <parameter name="irqNumber" value="1" />
+ </connection>
+ <connection
+   kind="reset"
+   version="18.1"
+   start="clk_0.clk_reset"
+   end="alt_vip_cti_0.is_clk_rst_reset" />
  <connection
    kind="reset"
    version="18.1"
@@ -900,12 +973,12 @@
    kind="reset"
    version="18.1"
    start="clk_0.clk_reset"
-   end="W9825G6KH_SDRAMController_100MHz_CL3_0.reset" />
+   end="uart_0.reset" />
  <connection
    kind="reset"
    version="18.1"
    start="clk_0.clk_reset"
-   end="uart_0.reset" />
+   end="W9825G6KH_SDRAMController_125MHz_CL3_0.reset" />
  <connection
    kind="reset"
    version="18.1"
