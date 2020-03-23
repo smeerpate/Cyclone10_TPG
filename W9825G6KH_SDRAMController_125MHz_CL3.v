@@ -313,7 +313,22 @@ assign f_addr = fifo_read_data[41:18];
 assign f_dqm = fifo_read_data[17:16];
 assign f_data = fifo_read_data[15:0];
 
-controller_new_sdram_controller_0_input_efifo_module the_controller_new_sdram_controller_0_input_efifo_module
+//controller_new_sdram_controller_0_input_efifo_module the_controller_new_sdram_controller_0_input_efifo_module
+//(
+//   .almost_empty (),
+//   .almost_full  (),
+//   .clk          (clk),
+//   .empty        (f_empty),
+//   .full         (za_waitrequest),
+//   .rd           (f_select),
+//   .rd_data      (fifo_read_data), // Data to the SDRAM controller logic.
+//   .reset_n      (reset_n),
+//   .wr           ((~az_wr_n | ~az_rd_n) & !za_waitrequest),
+//   .wr_data      ({az_wr_n, az_addr, (az_wr_n ? 2'b00 : az_be_n), az_data}) // Data from the Avalon bus.
+//);
+
+
+deep_dram_fifo the_controller_new_sdram_controller_0_input_efifo_module
 (
    .almost_empty (),
    .almost_full  (),
@@ -326,7 +341,6 @@ controller_new_sdram_controller_0_input_efifo_module the_controller_new_sdram_co
    .wr           ((~az_wr_n | ~az_rd_n) & !za_waitrequest),
    .wr_data      ({az_wr_n, az_addr, (az_wr_n ? 2'b00 : az_be_n), az_data}) // Data from the Avalon bus.
 );
-
 
 // tristate FPGA output. This is different to the original SDRAM controller!!
 RAMdataIF RAMdataIF_inst (

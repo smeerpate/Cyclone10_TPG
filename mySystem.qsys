@@ -17,12 +17,30 @@
          type = "int";
       }
    }
+   element W9825G6KH_SDRAMController_125MHz_CL3_32bit_0
+   {
+      datum _sortIndex
+      {
+         value = "12";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "1";
+         type = "boolean";
+      }
+   }
    element alt_vip_cl_cvo_0
    {
       datum _sortIndex
       {
          value = "1";
          type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
       }
    }
    element alt_vip_cl_mixer_0
@@ -32,6 +50,11 @@
          value = "6";
          type = "int";
       }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
    }
    element alt_vip_cl_tpg_0
    {
@@ -39,6 +62,11 @@
       {
          value = "2";
          type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
       }
    }
    element alt_vip_cl_vfb_0
@@ -55,6 +83,11 @@
       {
          value = "10";
          type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
       }
    }
    element alt_vip_cti_0.control
@@ -79,6 +112,11 @@
       {
          value = "3";
          type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
       }
    }
    element main_scaler.control
@@ -112,6 +150,11 @@
          value = "4";
          type = "int";
       }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
    }
    element nios2_gen2_0.debug_mem_slave
    {
@@ -128,6 +171,11 @@
          value = "5";
          type = "int";
       }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
    }
    element onchip_memory2_0.s1
    {
@@ -143,6 +191,11 @@
       {
          value = "8";
          type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
       }
    }
    element pio_0.s1
@@ -167,6 +220,11 @@
       {
          value = "9";
          type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
       }
    }
    element uart_0.s1
@@ -232,11 +290,19 @@
    internal="W9825G6KH_SDRAMController_125MHz_CL3_0.sdram_if"
    type="conduit"
    dir="end" />
+ <interface
+   name="w9825g6kh_sdramcontroller_125mhz_cl3_32bit_0_sdram_if"
+   internal="W9825G6KH_SDRAMController_125MHz_CL3_32bit_0.sdram_if" />
  <module
    name="W9825G6KH_SDRAMController_125MHz_CL3_0"
    kind="W9825G6KH_SDRAMController_125MHz_CL3"
    version="1.0"
    enabled="1" />
+ <module
+   name="W9825G6KH_SDRAMController_125MHz_CL3_32bit_0"
+   kind="W9825G6KH_SDRAMController_125MHz_CL3_32bit"
+   version="1.0"
+   enabled="0" />
  <module
    name="alt_vip_cl_cvo_0"
    kind="alt_vip_cl_cvo"
@@ -827,7 +893,25 @@
    kind="avalon"
    version="18.1"
    start="alt_vip_cl_vfb_0.mem_master_rd"
+   end="W9825G6KH_SDRAMController_125MHz_CL3_32bit_0.avalon_slave_0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="alt_vip_cl_vfb_0.mem_master_rd"
    end="W9825G6KH_SDRAMController_125MHz_CL3_0.avalon_slave_0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="alt_vip_cl_vfb_0.mem_master_wr"
+   end="W9825G6KH_SDRAMController_125MHz_CL3_32bit_0.avalon_slave_0">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
@@ -874,6 +958,11 @@
    version="18.1"
    start="clk_0.clk"
    end="onchip_memory2_0.clk1" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="clk_0.clk"
+   end="W9825G6KH_SDRAMController_125MHz_CL3_32bit_0.clock" />
  <connection
    kind="clock"
    version="18.1"
@@ -974,6 +1063,11 @@
    version="18.1"
    start="clk_0.clk_reset"
    end="uart_0.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="clk_0.clk_reset"
+   end="W9825G6KH_SDRAMController_125MHz_CL3_32bit_0.reset" />
  <connection
    kind="reset"
    version="18.1"

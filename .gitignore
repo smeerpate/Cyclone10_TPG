@@ -5,3 +5,4 @@ db/
 .qsys_edit/
 mySystem/synthesis/submodules/
 mySystem/*.rpt
+Quarantine/
