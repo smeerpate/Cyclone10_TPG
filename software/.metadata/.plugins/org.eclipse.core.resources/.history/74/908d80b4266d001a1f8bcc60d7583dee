@@ -184,10 +184,7 @@ int main()
 		curr_height = 448;
 		setSize(curr_width, curr_height);
   		waitWithLed(5, 1000);
-  		setStartPosition(250, 20);
-  		waitWithLed(5, 1000);
   		// test triptiek nPixels
-  		setStartPosition(x_pos, y_pos);
   		curr_width = 600;
 		curr_height = 415;
 		setSize(curr_width, curr_height);

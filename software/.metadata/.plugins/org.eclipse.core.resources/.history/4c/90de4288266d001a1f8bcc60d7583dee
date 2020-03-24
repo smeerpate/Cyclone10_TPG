@@ -118,7 +118,7 @@ int main()
 	alt_putstr("-->Klaar met instellen.\n\r");
 	printStatus();
 
-	waitWithLed(2, 1000);
+	waitWithLed(4, 1000);
 
 	alt_putstr("beginpositie instellen na LED geroffel...");
 	waitWithLed(60, 40);
@@ -127,7 +127,7 @@ int main()
 	alt_putstr("-->Klaar met instellen.\n\r");
 	printStatus();
 
-	waitWithLed(2, 1000);
+	waitWithLed(5, 1000);
 
 	alt_putstr("scaler grootte instellen na LED geroffel...");
 	waitWithLed(60, 40);
@@ -136,7 +136,7 @@ int main()
 	alt_putstr("-->Klaar met instellen.\n\r");
 	printStatus();
 
-	waitWithLed(2, 1000);
+	waitWithLed(5, 1000);
 /*
 	alt_putstr("consume input 0 na LED geroffel...");
 	waitWithLed(60, 40);
@@ -184,10 +184,7 @@ int main()
 		curr_height = 448;
 		setSize(curr_width, curr_height);
   		waitWithLed(5, 1000);
-  		setStartPosition(250, 20);
-  		waitWithLed(5, 1000);
   		// test triptiek nPixels
-  		setStartPosition(x_pos, y_pos);
   		curr_width = 600;
 		curr_height = 415;
 		setSize(curr_width, curr_height);

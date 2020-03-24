@@ -154,7 +154,7 @@ Seven segment display
 smg_interface smg_interface_inst(
       .CLK( CLOCK_50 ),
       .RSTn( RESET_N ),
-      .Number_Sig( USER_PB ? 12'h047 : 12'h000 ),
+      .Number_Sig( USER_PB ? 12'h048 : 12'h000 ),
       .SMG_Data( SMG_Data ),
       .Scan_Sig( Scan_Sig )
    );

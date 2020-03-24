@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>13-mrt-2020 16:12:24</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1584112344945</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>23-mrt-2020 17:00:46</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1584979246744</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>D:\Users\Frederic\IntelFPGA\Sources\Cyclone10_TPG_speel\software\hallo1_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\mySystem.sopcinfo</SopcDesignFile>
@@ -902,6 +902,12 @@
                 <slaveDescriptor>alt_vip_cl_mixer_0</slaveDescriptor>
                 <addressRange>0x00000000 - 0x000001FF</addressRange>
                 <addressSpan>512</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>alt_vip_cti_0</slaveDescriptor>
+                <addressRange>0x00001000 - 0x0000103F</addressRange>
+                <addressSpan>64</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>

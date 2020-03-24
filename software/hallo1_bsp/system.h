@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'mySystem'
  * SOPC Builder design path: ../../mySystem.sopcinfo
  *
- * Generated: Fri Mar 13 15:12:08 CET 2020
+ * Generated: Mon Mar 23 17:00:47 CET 2020
  */
 
 /*
@@ -139,6 +139,7 @@
 #define __ALTERA_NIOS2_GEN2
 #define __ALT_VIP_CL_MIXER
 #define __ALT_VIP_CL_SCL
+#define __ALT_VIP_CTI
 
 
 /*
@@ -189,6 +190,20 @@
 #define ALT_VIP_CL_MIXER_0_NAME "/dev/alt_vip_cl_mixer_0"
 #define ALT_VIP_CL_MIXER_0_SPAN 512
 #define ALT_VIP_CL_MIXER_0_TYPE "alt_vip_cl_mixer"
+
+
+/*
+ * alt_vip_cti_0 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_alt_vip_cti_0 alt_vip_cti
+#define ALT_VIP_CTI_0_BASE 0x1000
+#define ALT_VIP_CTI_0_IRQ 1
+#define ALT_VIP_CTI_0_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define ALT_VIP_CTI_0_NAME "/dev/alt_vip_cti_0"
+#define ALT_VIP_CTI_0_SPAN 64
+#define ALT_VIP_CTI_0_TYPE "alt_vip_cti"
 
 
 /*
