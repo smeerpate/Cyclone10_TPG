@@ -117,15 +117,15 @@ mySystem with Nios2
       mySystem u0 (
       .clk_clk                                                                (clk125),
       .reset_reset_n                                                          (USER_PB),
-      .alt_vip_cl_cvo_0_clocked_video_vid_clk                                 (pixclk),
-      .alt_vip_cl_cvo_0_clocked_video_vid_data                                (vdata),
-      .alt_vip_cl_cvo_0_clocked_video_underflow                               (USER_LED_D6),
-      .alt_vip_cl_cvo_0_clocked_video_vid_datavalid                           (blank),
-      .alt_vip_cl_cvo_0_clocked_video_vid_v_sync                              (vsync),
-      .alt_vip_cl_cvo_0_clocked_video_vid_h_sync                              (hsync),
-      .alt_vip_cl_cvo_0_clocked_video_vid_f                                   (),
-      .alt_vip_cl_cvo_0_clocked_video_vid_h                                   (),
-      .alt_vip_cl_cvo_0_clocked_video_vid_v                                   (),
+      .alt_vip_cl_cvo_0_clocked_video_1_vid_clk                                 (pixclk),
+      .alt_vip_cl_cvo_0_clocked_video_1_vid_data                                (vdata),
+      .alt_vip_cl_cvo_0_clocked_video_1_underflow                               (USER_LED_D6),
+      .alt_vip_cl_cvo_0_clocked_video_1_vid_datavalid                           (blank),
+      .alt_vip_cl_cvo_0_clocked_video_1_vid_v_sync                              (vsync),
+      .alt_vip_cl_cvo_0_clocked_video_1_vid_h_sync                              (hsync),
+      .alt_vip_cl_cvo_0_clocked_video_1_vid_f                                   (),
+      .alt_vip_cl_cvo_0_clocked_video_1_vid_h                                   (),
+      .alt_vip_cl_cvo_0_clocked_video_1_vid_v                                   (),
       .w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_addr             (DRAM_ADDR),
       .w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_ba               (DRAM_BA),
       .w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_cas_n            (DRAM_CAS_N),
@@ -154,7 +154,7 @@ Seven segment display
 smg_interface smg_interface_inst(
       .CLK( CLOCK_50 ),
       .RSTn( RESET_N ),
-      .Number_Sig( USER_PB ? 12'h051 : 12'h000 ),
+      .Number_Sig( USER_PB ? 12'h052 : 12'h000 ),
       .SMG_Data( SMG_Data ),
       .Scan_Sig( Scan_Sig )
    );

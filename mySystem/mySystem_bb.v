@@ -1,14 +1,14 @@
 
 module mySystem (
-	alt_vip_cl_cvo_0_clocked_video_vid_clk,
-	alt_vip_cl_cvo_0_clocked_video_vid_data,
-	alt_vip_cl_cvo_0_clocked_video_underflow,
-	alt_vip_cl_cvo_0_clocked_video_vid_datavalid,
-	alt_vip_cl_cvo_0_clocked_video_vid_v_sync,
-	alt_vip_cl_cvo_0_clocked_video_vid_h_sync,
-	alt_vip_cl_cvo_0_clocked_video_vid_f,
-	alt_vip_cl_cvo_0_clocked_video_vid_h,
-	alt_vip_cl_cvo_0_clocked_video_vid_v,
+	alt_vip_cl_cvo_0_clocked_video_1_vid_clk,
+	alt_vip_cl_cvo_0_clocked_video_1_vid_data,
+	alt_vip_cl_cvo_0_clocked_video_1_underflow,
+	alt_vip_cl_cvo_0_clocked_video_1_vid_datavalid,
+	alt_vip_cl_cvo_0_clocked_video_1_vid_v_sync,
+	alt_vip_cl_cvo_0_clocked_video_1_vid_h_sync,
+	alt_vip_cl_cvo_0_clocked_video_1_vid_f,
+	alt_vip_cl_cvo_0_clocked_video_1_vid_h,
+	alt_vip_cl_cvo_0_clocked_video_1_vid_v,
 	alt_vip_cti_0_clocked_video_vid_clk,
 	alt_vip_cti_0_clocked_video_vid_data,
 	alt_vip_cti_0_clocked_video_overflow,
@@ -32,15 +32,15 @@ module mySystem (
 	w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_ras_n,
 	w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_we_n);	
 
-	input		alt_vip_cl_cvo_0_clocked_video_vid_clk;
-	output	[23:0]	alt_vip_cl_cvo_0_clocked_video_vid_data;
-	output		alt_vip_cl_cvo_0_clocked_video_underflow;
-	output		alt_vip_cl_cvo_0_clocked_video_vid_datavalid;
-	output		alt_vip_cl_cvo_0_clocked_video_vid_v_sync;
-	output		alt_vip_cl_cvo_0_clocked_video_vid_h_sync;
-	output		alt_vip_cl_cvo_0_clocked_video_vid_f;
-	output		alt_vip_cl_cvo_0_clocked_video_vid_h;
-	output		alt_vip_cl_cvo_0_clocked_video_vid_v;
+	input		alt_vip_cl_cvo_0_clocked_video_1_vid_clk;
+	output	[23:0]	alt_vip_cl_cvo_0_clocked_video_1_vid_data;
+	output		alt_vip_cl_cvo_0_clocked_video_1_underflow;
+	output		alt_vip_cl_cvo_0_clocked_video_1_vid_datavalid;
+	output		alt_vip_cl_cvo_0_clocked_video_1_vid_v_sync;
+	output		alt_vip_cl_cvo_0_clocked_video_1_vid_h_sync;
+	output		alt_vip_cl_cvo_0_clocked_video_1_vid_f;
+	output		alt_vip_cl_cvo_0_clocked_video_1_vid_h;
+	output		alt_vip_cl_cvo_0_clocked_video_1_vid_v;
 	input		alt_vip_cti_0_clocked_video_vid_clk;
 	input	[23:0]	alt_vip_cti_0_clocked_video_vid_data;
 	output		alt_vip_cti_0_clocked_video_overflow;

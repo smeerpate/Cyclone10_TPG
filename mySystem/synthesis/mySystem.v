@@ -4,15 +4,15 @@
 
 `timescale 1 ps / 1 ps
 module mySystem (
-		input  wire        alt_vip_cl_cvo_0_clocked_video_vid_clk,                      //                  alt_vip_cl_cvo_0_clocked_video.vid_clk
-		output wire [23:0] alt_vip_cl_cvo_0_clocked_video_vid_data,                     //                                                .vid_data
-		output wire        alt_vip_cl_cvo_0_clocked_video_underflow,                    //                                                .underflow
-		output wire        alt_vip_cl_cvo_0_clocked_video_vid_datavalid,                //                                                .vid_datavalid
-		output wire        alt_vip_cl_cvo_0_clocked_video_vid_v_sync,                   //                                                .vid_v_sync
-		output wire        alt_vip_cl_cvo_0_clocked_video_vid_h_sync,                   //                                                .vid_h_sync
-		output wire        alt_vip_cl_cvo_0_clocked_video_vid_f,                        //                                                .vid_f
-		output wire        alt_vip_cl_cvo_0_clocked_video_vid_h,                        //                                                .vid_h
-		output wire        alt_vip_cl_cvo_0_clocked_video_vid_v,                        //                                                .vid_v
+		input  wire        alt_vip_cl_cvo_0_clocked_video_1_vid_clk,                    //                alt_vip_cl_cvo_0_clocked_video_1.vid_clk
+		output wire [23:0] alt_vip_cl_cvo_0_clocked_video_1_vid_data,                   //                                                .vid_data
+		output wire        alt_vip_cl_cvo_0_clocked_video_1_underflow,                  //                                                .underflow
+		output wire        alt_vip_cl_cvo_0_clocked_video_1_vid_datavalid,              //                                                .vid_datavalid
+		output wire        alt_vip_cl_cvo_0_clocked_video_1_vid_v_sync,                 //                                                .vid_v_sync
+		output wire        alt_vip_cl_cvo_0_clocked_video_1_vid_h_sync,                 //                                                .vid_h_sync
+		output wire        alt_vip_cl_cvo_0_clocked_video_1_vid_f,                      //                                                .vid_f
+		output wire        alt_vip_cl_cvo_0_clocked_video_1_vid_h,                      //                                                .vid_h
+		output wire        alt_vip_cl_cvo_0_clocked_video_1_vid_v,                      //                                                .vid_v
 		input  wire        alt_vip_cti_0_clocked_video_vid_clk,                         //                     alt_vip_cti_0_clocked_video.vid_clk
 		input  wire [23:0] alt_vip_cti_0_clocked_video_vid_data,                        //                                                .vid_data
 		output wire        alt_vip_cti_0_clocked_video_overflow,                        //                                                .overflow
@@ -42,11 +42,6 @@ module mySystem (
 	wire         videostreamtpg_0_avalon_streaming_source_ready;                                        // alt_vip_cl_2dfir_0:din_ready -> VideoStreamTPG_0:dout_ready
 	wire         videostreamtpg_0_avalon_streaming_source_startofpacket;                                // VideoStreamTPG_0:dout_startofpacket -> alt_vip_cl_2dfir_0:din_startofpacket
 	wire         videostreamtpg_0_avalon_streaming_source_endofpacket;                                  // VideoStreamTPG_0:dout_endofpacket -> alt_vip_cl_2dfir_0:din_endofpacket
-	wire         alt_vip_cl_mixer_0_dout_valid;                                                         // alt_vip_cl_mixer_0:dout_valid -> alt_vip_cl_cvo_0:din_valid
-	wire  [23:0] alt_vip_cl_mixer_0_dout_data;                                                          // alt_vip_cl_mixer_0:dout_data -> alt_vip_cl_cvo_0:din_data
-	wire         alt_vip_cl_mixer_0_dout_ready;                                                         // alt_vip_cl_cvo_0:din_ready -> alt_vip_cl_mixer_0:dout_ready
-	wire         alt_vip_cl_mixer_0_dout_startofpacket;                                                 // alt_vip_cl_mixer_0:dout_startofpacket -> alt_vip_cl_cvo_0:din_startofpacket
-	wire         alt_vip_cl_mixer_0_dout_endofpacket;                                                   // alt_vip_cl_mixer_0:dout_endofpacket -> alt_vip_cl_cvo_0:din_endofpacket
 	wire         main_scaler_dout_valid;                                                                // main_scaler:dout_valid -> alt_vip_cl_vfb_0:din_valid
 	wire  [23:0] main_scaler_dout_data;                                                                 // main_scaler:dout_data -> alt_vip_cl_vfb_0:din_data
 	wire         main_scaler_dout_ready;                                                                // alt_vip_cl_vfb_0:din_ready -> main_scaler:dout_ready
@@ -57,6 +52,11 @@ module mySystem (
 	wire         alt_vip_cl_2dfir_0_dout_ready;                                                         // main_scaler:din_ready -> alt_vip_cl_2dfir_0:dout_ready
 	wire         alt_vip_cl_2dfir_0_dout_startofpacket;                                                 // alt_vip_cl_2dfir_0:dout_startofpacket -> main_scaler:din_startofpacket
 	wire         alt_vip_cl_2dfir_0_dout_endofpacket;                                                   // alt_vip_cl_2dfir_0:dout_endofpacket -> main_scaler:din_endofpacket
+	wire         alt_vip_cl_mixer_0_dout_valid;                                                         // alt_vip_cl_mixer_0:dout_valid -> alt_vip_cl_cvo_0_1:is_valid
+	wire  [23:0] alt_vip_cl_mixer_0_dout_data;                                                          // alt_vip_cl_mixer_0:dout_data -> alt_vip_cl_cvo_0_1:is_data
+	wire         alt_vip_cl_mixer_0_dout_ready;                                                         // alt_vip_cl_cvo_0_1:is_ready -> alt_vip_cl_mixer_0:dout_ready
+	wire         alt_vip_cl_mixer_0_dout_startofpacket;                                                 // alt_vip_cl_mixer_0:dout_startofpacket -> alt_vip_cl_cvo_0_1:is_sop
+	wire         alt_vip_cl_mixer_0_dout_endofpacket;                                                   // alt_vip_cl_mixer_0:dout_endofpacket -> alt_vip_cl_cvo_0_1:is_eop
 	wire         alt_vip_cl_vfb_0_dout_valid;                                                           // alt_vip_cl_vfb_0:dout_valid -> alt_vip_cl_mixer_0:din0_valid
 	wire  [23:0] alt_vip_cl_vfb_0_dout_data;                                                            // alt_vip_cl_vfb_0:dout_data -> alt_vip_cl_mixer_0:din0_data
 	wire         alt_vip_cl_vfb_0_dout_ready;                                                           // alt_vip_cl_mixer_0:din0_ready -> alt_vip_cl_vfb_0:dout_ready
@@ -151,7 +151,7 @@ module mySystem (
 	wire         irq_mapper_receiver0_irq;                                                              // uart_0:irq -> irq_mapper:receiver0_irq
 	wire         irq_mapper_receiver1_irq;                                                              // alt_vip_cti_0:status_update_int -> irq_mapper:receiver1_irq
 	wire  [31:0] nios2_gen2_0_irq_irq;                                                                  // irq_mapper:sender_irq -> nios2_gen2_0:irq
-	wire         rst_controller_reset_out_reset;                                                        // rst_controller:reset_out -> [VideoStreamTPG_0:reset, W9825G6KH_SDRAMController_125MHz_CL3_0:reset_n, alt_vip_cl_2dfir_0:main_reset, alt_vip_cl_cvo_0:main_reset_reset, alt_vip_cl_mixer_0:main_reset_reset, alt_vip_cl_vfb_0:main_reset, alt_vip_cl_vfb_0:mem_reset, alt_vip_cti_0:rst, irq_mapper:reset, main_scaler:main_reset, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, mm_interconnect_1:alt_vip_cl_vfb_0_mem_reset_reset_bridge_in_reset_reset, nios2_gen2_0:reset_n, onchip_memory2_0:reset, pio_0:reset_n, rst_translator:in_reset, uart_0:reset_n]
+	wire         rst_controller_reset_out_reset;                                                        // rst_controller:reset_out -> [VideoStreamTPG_0:reset, W9825G6KH_SDRAMController_125MHz_CL3_0:reset_n, alt_vip_cl_2dfir_0:main_reset, alt_vip_cl_cvo_0_1:rst, alt_vip_cl_mixer_0:main_reset_reset, alt_vip_cl_vfb_0:main_reset, alt_vip_cl_vfb_0:mem_reset, alt_vip_cti_0:rst, irq_mapper:reset, main_scaler:main_reset, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, mm_interconnect_1:alt_vip_cl_vfb_0_mem_reset_reset_bridge_in_reset_reset, nios2_gen2_0:reset_n, onchip_memory2_0:reset, pio_0:reset_n, rst_translator:in_reset, uart_0:reset_n]
 	wire         rst_controller_reset_out_reset_req;                                                    // rst_controller:reset_req -> [nios2_gen2_0:reset_req, onchip_memory2_0:reset_req, rst_translator:reset_req_in]
 
 	VideoStreamTPG #(
@@ -205,10 +205,10 @@ module mySystem (
 		.dout_ready         (alt_vip_cl_2dfir_0_dout_ready)                           //           .ready
 	);
 
-	mySystem_alt_vip_cl_cvo_0 #(
-		.BPS                           (8),
+	alt_vipitc131_IS2Vid #(
 		.NUMBER_OF_COLOUR_PLANES       (3),
 		.COLOUR_PLANES_ARE_IN_PARALLEL (1),
+		.BPS                           (8),
 		.INTERLACED                    (0),
 		.H_ACTIVE_PIXELS               (640),
 		.V_ACTIVE_LINES                (480),
@@ -220,9 +220,6 @@ module mySystem (
 		.THRESHOLD                     (639),
 		.STD_WIDTH                     (1),
 		.GENERATE_SYNC                 (0),
-		.ACCEPT_SYNC                   (0),
-		.COUNT_STEP_IS_PIP_VALUE       (0),
-		.LOW_LATENCY                   (0),
 		.USE_EMBEDDED_SYNCS            (0),
 		.AP_LINE                       (0),
 		.V_BLANK                       (0),
@@ -241,29 +238,24 @@ module mySystem (
 		.FIELD0_V_FRONT_PORCH          (0),
 		.FIELD0_V_BACK_PORCH           (0),
 		.ANC_LINE                      (0),
-		.FIELD0_ANC_LINE               (0),
-		.PIXELS_IN_PARALLEL            (1),
-		.SRC_WIDTH                     (8),
-		.DST_WIDTH                     (8),
-		.CONTEXT_WIDTH                 (8),
-		.TASK_WIDTH                    (8)
-	) alt_vip_cl_cvo_0 (
-		.clocked_video_vid_clk       (alt_vip_cl_cvo_0_clocked_video_vid_clk),       // clocked_video.vid_clk
-		.clocked_video_vid_data      (alt_vip_cl_cvo_0_clocked_video_vid_data),      //              .vid_data
-		.clocked_video_underflow     (alt_vip_cl_cvo_0_clocked_video_underflow),     //              .underflow
-		.clocked_video_vid_datavalid (alt_vip_cl_cvo_0_clocked_video_vid_datavalid), //              .vid_datavalid
-		.clocked_video_vid_v_sync    (alt_vip_cl_cvo_0_clocked_video_vid_v_sync),    //              .vid_v_sync
-		.clocked_video_vid_h_sync    (alt_vip_cl_cvo_0_clocked_video_vid_h_sync),    //              .vid_h_sync
-		.clocked_video_vid_f         (alt_vip_cl_cvo_0_clocked_video_vid_f),         //              .vid_f
-		.clocked_video_vid_h         (alt_vip_cl_cvo_0_clocked_video_vid_h),         //              .vid_h
-		.clocked_video_vid_v         (alt_vip_cl_cvo_0_clocked_video_vid_v),         //              .vid_v
-		.main_clock_clk              (clk_clk),                                      //    main_clock.clk
-		.main_reset_reset            (rst_controller_reset_out_reset),               //    main_reset.reset
-		.din_data                    (alt_vip_cl_mixer_0_dout_data),                 //           din.data
-		.din_valid                   (alt_vip_cl_mixer_0_dout_valid),                //              .valid
-		.din_startofpacket           (alt_vip_cl_mixer_0_dout_startofpacket),        //              .startofpacket
-		.din_endofpacket             (alt_vip_cl_mixer_0_dout_endofpacket),          //              .endofpacket
-		.din_ready                   (alt_vip_cl_mixer_0_dout_ready)                 //              .ready
+		.FIELD0_ANC_LINE               (0)
+	) alt_vip_cl_cvo_0_1 (
+		.is_clk        (clk_clk),                                        //       is_clk_rst.clk
+		.rst           (rst_controller_reset_out_reset),                 // is_clk_rst_reset.reset
+		.is_data       (alt_vip_cl_mixer_0_dout_data),                   //              din.data
+		.is_valid      (alt_vip_cl_mixer_0_dout_valid),                  //                 .valid
+		.is_ready      (alt_vip_cl_mixer_0_dout_ready),                  //                 .ready
+		.is_sop        (alt_vip_cl_mixer_0_dout_startofpacket),          //                 .startofpacket
+		.is_eop        (alt_vip_cl_mixer_0_dout_endofpacket),            //                 .endofpacket
+		.vid_clk       (alt_vip_cl_cvo_0_clocked_video_1_vid_clk),       //    clocked_video.export
+		.vid_data      (alt_vip_cl_cvo_0_clocked_video_1_vid_data),      //                 .export
+		.underflow     (alt_vip_cl_cvo_0_clocked_video_1_underflow),     //                 .export
+		.vid_datavalid (alt_vip_cl_cvo_0_clocked_video_1_vid_datavalid), //                 .export
+		.vid_v_sync    (alt_vip_cl_cvo_0_clocked_video_1_vid_v_sync),    //                 .export
+		.vid_h_sync    (alt_vip_cl_cvo_0_clocked_video_1_vid_h_sync),    //                 .export
+		.vid_f         (alt_vip_cl_cvo_0_clocked_video_1_vid_f),         //                 .export
+		.vid_h         (alt_vip_cl_cvo_0_clocked_video_1_vid_h),         //                 .export
+		.vid_v         (alt_vip_cl_cvo_0_clocked_video_1_vid_v)          //                 .export
 	);
 
 	mySystem_alt_vip_cl_mixer_0 #(

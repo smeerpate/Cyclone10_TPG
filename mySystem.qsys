@@ -13,12 +13,12 @@
    {
       datum _sortIndex
       {
-         value = "12";
+         value = "10";
          type = "int";
       }
       datum sopceditor_expanded
       {
-         value = "1";
+         value = "0";
          type = "boolean";
       }
    }
@@ -26,7 +26,7 @@
    {
       datum _sortIndex
       {
-         value = "11";
+         value = "9";
          type = "int";
       }
       datum sopceditor_expanded
@@ -39,41 +39,23 @@
    {
       datum _sortIndex
       {
-         value = "13";
+         value = "11";
          type = "int";
       }
    }
-   element alt_vip_cl_cvo_0
+   element alt_vip_cl_cvo_0_1
    {
       datum _sortIndex
       {
-         value = "1";
+         value = "12";
          type = "int";
-      }
-      datum sopceditor_expanded
-      {
-         value = "0";
-         type = "boolean";
       }
    }
    element alt_vip_cl_mixer_0
    {
       datum _sortIndex
       {
-         value = "6";
-         type = "int";
-      }
-      datum sopceditor_expanded
-      {
-         value = "0";
-         type = "boolean";
-      }
-   }
-   element alt_vip_cl_tpg_0
-   {
-      datum _sortIndex
-      {
-         value = "2";
+         value = "4";
          type = "int";
       }
       datum sopceditor_expanded
@@ -86,7 +68,7 @@
    {
       datum _sortIndex
       {
-         value = "7";
+         value = "5";
          type = "int";
       }
       datum sopceditor_expanded
@@ -99,7 +81,7 @@
    {
       datum _sortIndex
       {
-         value = "10";
+         value = "8";
          type = "int";
       }
       datum sopceditor_expanded
@@ -128,12 +110,12 @@
    {
       datum _sortIndex
       {
-         value = "3";
+         value = "1";
          type = "int";
       }
       datum sopceditor_expanded
       {
-         value = "1";
+         value = "0";
          type = "boolean";
       }
    }
@@ -161,11 +143,19 @@
          type = "String";
       }
    }
+   element mySystem
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone 10 LP";
+         type = "String";
+      }
+   }
    element nios2_gen2_0
    {
       datum _sortIndex
       {
-         value = "4";
+         value = "2";
          type = "int";
       }
       datum sopceditor_expanded
@@ -186,7 +176,7 @@
    {
       datum _sortIndex
       {
-         value = "5";
+         value = "3";
          type = "int";
       }
       datum sopceditor_expanded
@@ -207,7 +197,7 @@
    {
       datum _sortIndex
       {
-         value = "8";
+         value = "6";
          type = "int";
       }
       datum sopceditor_expanded
@@ -236,7 +226,7 @@
    {
       datum _sortIndex
       {
-         value = "9";
+         value = "7";
          type = "int";
       }
       datum sopceditor_expanded
@@ -282,8 +272,8 @@
    description="" />
  <instanceScript></instanceScript>
  <interface
-   name="alt_vip_cl_cvo_0_clocked_video"
-   internal="alt_vip_cl_cvo_0.clocked_video"
+   name="alt_vip_cl_cvo_0_clocked_video_1"
+   internal="alt_vip_cl_cvo_0_1.clocked_video"
    type="conduit"
    dir="end" />
  <interface
@@ -366,23 +356,17 @@
   <parameter name="V_TAPS" value="3" />
  </module>
  <module
-   name="alt_vip_cl_cvo_0"
-   kind="alt_vip_cl_cvo"
-   version="18.1"
+   name="alt_vip_cl_cvo_0_1"
+   kind="alt_vip_itc"
+   version="14.0"
    enabled="1">
   <parameter name="ACCEPT_COLOURS_IN_SEQ" value="0" />
-  <parameter name="ACCEPT_SYNC" value="0" />
   <parameter name="ANC_LINE" value="0" />
   <parameter name="AP_LINE" value="0" />
-  <parameter name="AUTO_DEVICE" value="10CL016YU484C8G" />
-  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone 10 LP" />
-  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="8" />
   <parameter name="BPS" value="8" />
   <parameter name="CLOCKS_ARE_SAME" value="0" />
   <parameter name="COLOUR_PLANES_ARE_IN_PARALLEL" value="1" />
-  <parameter name="CONTEXT_WIDTH" value="8" />
-  <parameter name="COUNT_STEP_IS_PIP_VALUE" value="0" />
-  <parameter name="DST_WIDTH" value="8" />
+  <parameter name="FAMILY" value="Cyclone 10 LP" />
   <parameter name="FIELD0_ANC_LINE" value="0" />
   <parameter name="FIELD0_V_BACK_PORCH" value="0" />
   <parameter name="FIELD0_V_BLANK" value="0" />
@@ -399,14 +383,9 @@
   <parameter name="H_FRONT_PORCH" value="16" />
   <parameter name="H_SYNC_LENGTH" value="96" />
   <parameter name="INTERLACED" value="0" />
-  <parameter name="LOW_LATENCY" value="0" />
-  <parameter name="NO_OF_CHANNELS" value="1" />
   <parameter name="NO_OF_MODES" value="1" />
   <parameter name="NUMBER_OF_COLOUR_PLANES" value="3" />
-  <parameter name="PIXELS_IN_PARALLEL" value="1" />
-  <parameter name="SRC_WIDTH" value="8" />
   <parameter name="STD_WIDTH" value="1" />
-  <parameter name="TASK_WIDTH" value="8" />
   <parameter name="THRESHOLD" value="639" />
   <parameter name="USE_CONTROL" value="0" />
   <parameter name="USE_EMBEDDED_SYNCS" value="0" />
@@ -465,47 +444,6 @@
   <parameter name="UNIFORM_VALUE_RY" value="0" />
   <parameter name="USER_PACKET_FIFO_DEPTH" value="0" />
   <parameter name="USER_PACKET_SUPPORT" value="DISCARD" />
- </module>
- <module
-   name="alt_vip_cl_tpg_0"
-   kind="alt_vip_cl_tpg"
-   version="18.1"
-   enabled="0">
-  <parameter name="AUTO_DEVICE" value="10CL016YU484C8G" />
-  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="8" />
-  <parameter name="BITS_PER_SYMBOL" value="8" />
-  <parameter name="COLOR_PLANES_ARE_IN_PARALLEL" value="1" />
-  <parameter name="COLOR_SPACE_0" value="RGB_444" />
-  <parameter name="COLOR_SPACE_1" value="RGB_444" />
-  <parameter name="COLOR_SPACE_2" value="RGB_444" />
-  <parameter name="COLOR_SPACE_3" value="RGB_444" />
-  <parameter name="COLOR_SPACE_4" value="RGB_444" />
-  <parameter name="COLOR_SPACE_5" value="RGB_444" />
-  <parameter name="COLOR_SPACE_6" value="RGB_444" />
-  <parameter name="COLOR_SPACE_7" value="RGB_444" />
-  <parameter name="DEFAULT_BOARDER" value="1" />
-  <parameter name="FAMILY" value="Cyclone 10 LP" />
-  <parameter name="INTERLACING" value="PROGRESSIVE" />
-  <parameter name="LIMITED_READBACK" value="0" />
-  <parameter name="MAX_HEIGHT" value="1080" />
-  <parameter name="MAX_WIDTH" value="1920" />
-  <parameter name="NUMBER_OF_COLOR_PLANES" value="2" />
-  <parameter name="NUM_CORES" value="1" />
-  <parameter name="OUTPUT_FORMAT" value="4.4.4" />
-  <parameter name="PATTERN_0" value="colorbars" />
-  <parameter name="PATTERN_1" value="colorbars" />
-  <parameter name="PATTERN_2" value="colorbars" />
-  <parameter name="PATTERN_3" value="colorbars" />
-  <parameter name="PATTERN_4" value="colorbars" />
-  <parameter name="PATTERN_5" value="colorbars" />
-  <parameter name="PATTERN_6" value="colorbars" />
-  <parameter name="PATTERN_7" value="colorbars" />
-  <parameter name="PIPELINE_READY" value="0" />
-  <parameter name="PIXELS_IN_PARALLEL" value="1" />
-  <parameter name="RUNTIME_CONTROL" value="0" />
-  <parameter name="UNIFORM_VALUE_BCR" value="16" />
-  <parameter name="UNIFORM_VALUE_GCB" value="16" />
-  <parameter name="UNIFORM_VALUE_RY" value="16" />
  </module>
  <module
    name="alt_vip_cl_vfb_0"
@@ -977,11 +915,6 @@
  <connection
    kind="avalon_streaming"
    version="18.1"
-   start="alt_vip_cl_mixer_0.dout"
-   end="alt_vip_cl_cvo_0.din" />
- <connection
-   kind="avalon_streaming"
-   version="18.1"
    start="main_scaler.dout"
    end="alt_vip_cl_vfb_0.din" />
  <connection
@@ -989,6 +922,11 @@
    version="18.1"
    start="alt_vip_cl_2dfir_0.dout"
    end="main_scaler.din" />
+ <connection
+   kind="avalon_streaming"
+   version="18.1"
+   start="alt_vip_cl_mixer_0.dout"
+   end="alt_vip_cl_cvo_0_1.din" />
  <connection
    kind="avalon_streaming"
    version="18.1"
@@ -1026,12 +964,7 @@
    kind="clock"
    version="18.1"
    start="clk_0.clk"
-   end="alt_vip_cl_cvo_0.main_clock" />
- <connection
-   kind="clock"
-   version="18.1"
-   start="clk_0.clk"
-   end="alt_vip_cl_tpg_0.main_clock" />
+   end="alt_vip_cl_cvo_0_1.is_clk_rst" />
  <connection
    kind="clock"
    version="18.1"
@@ -1080,12 +1013,7 @@
    kind="reset"
    version="18.1"
    start="clk_0.clk_reset"
-   end="alt_vip_cl_cvo_0.main_reset" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="clk_0.clk_reset"
-   end="alt_vip_cl_tpg_0.main_reset" />
+   end="alt_vip_cl_cvo_0_1.is_clk_rst_reset" />
  <connection
    kind="reset"
    version="18.1"

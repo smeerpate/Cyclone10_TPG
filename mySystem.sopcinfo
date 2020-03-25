@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="mySystem" kind="mySystem" version="1.0" fabric="QSYS">
  <!-- Format version 18.1 625 (Future versions may contain additional information.) -->
- <!-- 2020.03.25.09:46:27 -->
+ <!-- 2020.03.25.10:53:54 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1585125987</value>
+  <value>1585130034</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -1733,19 +1733,20 @@ parameters are a RESULT of the module parameters. -->
   </interface>
  </module>
  <module
-   name="alt_vip_cl_cvo_0"
-   kind="alt_vip_cl_cvo"
-   version="18.1"
-   path="alt_vip_cl_cvo_0">
+   name="alt_vip_cl_cvo_0_1"
+   kind="alt_vip_itc"
+   version="14.0"
+   path="alt_vip_cl_cvo_0_1">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
-  <parameter name="BPS">
-   <type>int</type>
-   <value>8</value>
+  <parameter name="FAMILY">
+   <type>java.lang.String</type>
+   <value>CYCLONE10LP</value>
    <derived>false</derived>
    <enabled>true</enabled>
-   <visible>true</visible>
+   <visible>false</visible>
    <valid>true</valid>
+   <sysinfo_type>DEVICE_FAMILY</sysinfo_type>
   </parameter>
   <parameter name="NUMBER_OF_COLOUR_PLANES">
    <type>int</type>
@@ -1758,6 +1759,14 @@ the requested settings for a module instance. -->
   <parameter name="COLOUR_PLANES_ARE_IN_PARALLEL">
    <type>int</type>
    <value>1</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="BPS">
+   <type>int</type>
+   <value>8</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -1844,30 +1853,6 @@ the requested settings for a module instance. -->
    <valid>true</valid>
   </parameter>
   <parameter name="GENERATE_SYNC">
-   <type>int</type>
-   <value>0</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="ACCEPT_SYNC">
-   <type>int</type>
-   <value>0</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="COUNT_STEP_IS_PIP_VALUE">
-   <type>int</type>
-   <value>0</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="LOW_LATENCY">
    <type>int</type>
    <value>0</value>
    <derived>false</derived>
@@ -1975,7 +1960,7 @@ the requested settings for a module instance. -->
    <type>int</type>
    <value>0</value>
    <derived>false</derived>
-   <enabled>false</enabled>
+   <enabled>true</enabled>
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
@@ -1983,7 +1968,7 @@ the requested settings for a module instance. -->
    <type>int</type>
    <value>0</value>
    <derived>false</derived>
-   <enabled>false</enabled>
+   <enabled>true</enabled>
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
@@ -1991,7 +1976,7 @@ the requested settings for a module instance. -->
    <type>int</type>
    <value>0</value>
    <derived>false</derived>
-   <enabled>false</enabled>
+   <enabled>true</enabled>
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
@@ -1999,7 +1984,7 @@ the requested settings for a module instance. -->
    <type>int</type>
    <value>0</value>
    <derived>false</derived>
-   <enabled>false</enabled>
+   <enabled>true</enabled>
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
@@ -2007,7 +1992,7 @@ the requested settings for a module instance. -->
    <type>int</type>
    <value>0</value>
    <derived>false</derived>
-   <enabled>false</enabled>
+   <enabled>true</enabled>
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
@@ -2023,93 +2008,17 @@ the requested settings for a module instance. -->
    <type>int</type>
    <value>0</value>
    <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="PIXELS_IN_PARALLEL">
-   <type>int</type>
-   <value>1</value>
-   <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
    <valid>true</valid>
-  </parameter>
-  <parameter name="NO_OF_CHANNELS">
-   <type>int</type>
-   <value>1</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>false</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="SRC_WIDTH">
-   <type>int</type>
-   <value>8</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>false</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="DST_WIDTH">
-   <type>int</type>
-   <value>8</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>false</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="CONTEXT_WIDTH">
-   <type>int</type>
-   <value>8</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>false</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="TASK_WIDTH">
-   <type>int</type>
-   <value>8</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>false</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="AUTO_DEVICE_FAMILY">
-   <type>java.lang.String</type>
-   <value>CYCLONE10LP</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>false</visible>
-   <valid>true</valid>
-   <sysinfo_type>DEVICE_FAMILY</sysinfo_type>
-  </parameter>
-  <parameter name="AUTO_DEVICE">
-   <type>java.lang.String</type>
-   <value>10CL016YU484C8G</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>false</visible>
-   <valid>true</valid>
-   <sysinfo_type>DEVICE</sysinfo_type>
-  </parameter>
-  <parameter name="AUTO_DEVICE_SPEEDGRADE">
-   <type>java.lang.String</type>
-   <value>8</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>false</visible>
-   <valid>true</valid>
-   <sysinfo_type>DEVICE_SPEEDGRADE</sysinfo_type>
   </parameter>
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
-   <value>Cyclone 10 LP</value>
+   <value>UNKNOWN</value>
    <derived>false</derived>
    <enabled>true</enabled>
-   <visible>false</visible>
+   <visible>true</visible>
    <valid>true</valid>
-   <sysinfo_type>DEVICE_FAMILY</sysinfo_type>
   </parameter>
   <parameter name="generateLegacySim">
    <type>boolean</type>
@@ -2119,100 +2028,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="clocked_video" kind="conduit_end" version="18.1">
-   <!-- The connection points exposed by a module instance for the
-particular module parameters. Connection points and their
-parameters are a RESULT of the module parameters. -->
-   <parameter name="associatedClock">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="associatedReset">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="deviceFamily">
-    <type>java.lang.String</type>
-    <value>UNKNOWN</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="generateLegacySim">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <type>conduit</type>
-   <isStart>false</isStart>
-   <port>
-    <name>clocked_video_vid_clk</name>
-    <direction>Input</direction>
-    <width>1</width>
-    <role>vid_clk</role>
-   </port>
-   <port>
-    <name>clocked_video_vid_data</name>
-    <direction>Output</direction>
-    <width>24</width>
-    <role>vid_data</role>
-   </port>
-   <port>
-    <name>clocked_video_underflow</name>
-    <direction>Output</direction>
-    <width>1</width>
-    <role>underflow</role>
-   </port>
-   <port>
-    <name>clocked_video_vid_datavalid</name>
-    <direction>Output</direction>
-    <width>1</width>
-    <role>vid_datavalid</role>
-   </port>
-   <port>
-    <name>clocked_video_vid_v_sync</name>
-    <direction>Output</direction>
-    <width>1</width>
-    <role>vid_v_sync</role>
-   </port>
-   <port>
-    <name>clocked_video_vid_h_sync</name>
-    <direction>Output</direction>
-    <width>1</width>
-    <role>vid_h_sync</role>
-   </port>
-   <port>
-    <name>clocked_video_vid_f</name>
-    <direction>Output</direction>
-    <width>1</width>
-    <role>vid_f</role>
-   </port>
-   <port>
-    <name>clocked_video_vid_h</name>
-    <direction>Output</direction>
-    <width>1</width>
-    <role>vid_h</role>
-   </port>
-   <port>
-    <name>clocked_video_vid_v</name>
-    <direction>Output</direction>
-    <width>1</width>
-    <role>vid_v</role>
-   </port>
-  </interface>
-  <interface name="main_clock" kind="clock_sink" version="18.1">
+  <interface name="is_clk_rst" kind="clock_sink" version="18.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -2251,19 +2067,19 @@ parameters are a RESULT of the module parameters. -->
    <type>clock</type>
    <isStart>false</isStart>
    <port>
-    <name>main_clock_clk</name>
+    <name>is_clk</name>
     <direction>Input</direction>
     <width>1</width>
     <role>clk</role>
    </port>
   </interface>
-  <interface name="main_reset" kind="reset_sink" version="18.1">
+  <interface name="is_clk_rst_reset" kind="reset_sink" version="18.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
    <parameter name="associatedClock">
     <type>java.lang.String</type>
-    <value>main_clock</value>
+    <value>is_clk_rst</value>
     <derived>false</derived>
     <enabled>true</enabled>
     <visible>true</visible>
@@ -2296,7 +2112,7 @@ parameters are a RESULT of the module parameters. -->
    <type>reset</type>
    <isStart>false</isStart>
    <port>
-    <name>main_reset_reset</name>
+    <name>rst</name>
     <direction>Input</direction>
     <width>1</width>
     <role>reset</role>
@@ -2306,25 +2122,9 @@ parameters are a RESULT of the module parameters. -->
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
-   <assignment>
-    <name>alt_vip_av_st_video_format.COLOR_PLANES_ARE_IN_PARALLEL</name>
-    <value>1</value>
-   </assignment>
-   <assignment>
-    <name>alt_vip_av_st_video_format.NUMBER_OF_COLOR_PLANES</name>
-    <value>3</value>
-   </assignment>
-   <assignment>
-    <name>alt_vip_av_st_video_format.PIXELS_IN_PARALLEL</name>
-    <value>1</value>
-   </assignment>
-   <assignment>
-    <name>alt_vip_av_st_video_format.version</name>
-    <value>1.0</value>
-   </assignment>
    <parameter name="associatedClock">
     <type>java.lang.String</type>
-    <value>main_clock</value>
+    <value>is_clk_rst</value>
     <derived>false</derived>
     <enabled>true</enabled>
     <visible>false</visible>
@@ -2332,7 +2132,7 @@ parameters are a RESULT of the module parameters. -->
    </parameter>
    <parameter name="associatedReset">
     <type>java.lang.String</type>
-    <value>main_reset</value>
+    <value>is_clk_rst_reset</value>
     <derived>false</derived>
     <enabled>true</enabled>
     <visible>false</visible>
@@ -2437,34 +2237,127 @@ parameters are a RESULT of the module parameters. -->
    <type>avalon_streaming</type>
    <isStart>false</isStart>
    <port>
-    <name>din_data</name>
+    <name>is_data</name>
     <direction>Input</direction>
     <width>24</width>
     <role>data</role>
    </port>
    <port>
-    <name>din_valid</name>
+    <name>is_valid</name>
     <direction>Input</direction>
     <width>1</width>
     <role>valid</role>
    </port>
    <port>
-    <name>din_startofpacket</name>
+    <name>is_ready</name>
+    <direction>Output</direction>
+    <width>1</width>
+    <role>ready</role>
+   </port>
+   <port>
+    <name>is_sop</name>
     <direction>Input</direction>
     <width>1</width>
     <role>startofpacket</role>
    </port>
    <port>
-    <name>din_endofpacket</name>
+    <name>is_eop</name>
     <direction>Input</direction>
     <width>1</width>
     <role>endofpacket</role>
    </port>
+  </interface>
+  <interface name="clocked_video" kind="conduit_end" version="18.1">
+   <!-- The connection points exposed by a module instance for the
+particular module parameters. Connection points and their
+parameters are a RESULT of the module parameters. -->
+   <parameter name="associatedClock">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="associatedReset">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="deviceFamily">
+    <type>java.lang.String</type>
+    <value>UNKNOWN</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="generateLegacySim">
+    <type>boolean</type>
+    <value>false</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <type>conduit</type>
+   <isStart>false</isStart>
    <port>
-    <name>din_ready</name>
+    <name>vid_clk</name>
+    <direction>Input</direction>
+    <width>1</width>
+    <role>export</role>
+   </port>
+   <port>
+    <name>vid_data</name>
+    <direction>Output</direction>
+    <width>24</width>
+    <role>export</role>
+   </port>
+   <port>
+    <name>underflow</name>
     <direction>Output</direction>
     <width>1</width>
-    <role>ready</role>
+    <role>export</role>
+   </port>
+   <port>
+    <name>vid_datavalid</name>
+    <direction>Output</direction>
+    <width>1</width>
+    <role>export</role>
+   </port>
+   <port>
+    <name>vid_v_sync</name>
+    <direction>Output</direction>
+    <width>1</width>
+    <role>export</role>
+   </port>
+   <port>
+    <name>vid_h_sync</name>
+    <direction>Output</direction>
+    <width>1</width>
+    <role>export</role>
+   </port>
+   <port>
+    <name>vid_f</name>
+    <direction>Output</direction>
+    <width>1</width>
+    <role>export</role>
+   </port>
+   <port>
+    <name>vid_h</name>
+    <direction>Output</direction>
+    <width>1</width>
+    <role>export</role>
+   </port>
+   <port>
+    <name>vid_v</name>
+    <direction>Output</direction>
+    <width>1</width>
+    <role>export</role>
    </port>
   </interface>
  </module>
@@ -6546,9 +6439,9 @@ parameters are a RESULT of the module parameters. -->
    </clockDomainMember>
    <clockDomainMember>
     <isBridge>false</isBridge>
-    <moduleName>alt_vip_cl_cvo_0</moduleName>
-    <slaveName>main_clock</slaveName>
-    <name>alt_vip_cl_cvo_0.main_clock</name>
+    <moduleName>alt_vip_cl_cvo_0_1</moduleName>
+    <slaveName>is_clk_rst</slaveName>
+    <name>alt_vip_cl_cvo_0_1.is_clk_rst</name>
    </clockDomainMember>
    <clockDomainMember>
     <isBridge>false</isBridge>
@@ -14150,33 +14043,6 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>din</endConnectionPoint>
  </connection>
  <connection
-   name="alt_vip_cl_mixer_0.dout/alt_vip_cl_cvo_0.din"
-   kind="avalon_streaming"
-   version="18.1"
-   start="alt_vip_cl_mixer_0.dout"
-   end="alt_vip_cl_cvo_0.din">
-  <parameter name="deviceFamily">
-   <type>java.lang.String</type>
-   <value>UNKNOWN</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="generateLegacySim">
-   <type>boolean</type>
-   <value>false</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <startModule>alt_vip_cl_mixer_0</startModule>
-  <startConnectionPoint>dout</startConnectionPoint>
-  <endModule>alt_vip_cl_cvo_0</endModule>
-  <endConnectionPoint>din</endConnectionPoint>
- </connection>
- <connection
    name="main_scaler.dout/alt_vip_cl_vfb_0.din"
    kind="avalon_streaming"
    version="18.1"
@@ -14228,6 +14094,33 @@ parameters are a RESULT of the module parameters. -->
   <startModule>alt_vip_cl_2dfir_0</startModule>
   <startConnectionPoint>dout</startConnectionPoint>
   <endModule>main_scaler</endModule>
+  <endConnectionPoint>din</endConnectionPoint>
+ </connection>
+ <connection
+   name="alt_vip_cl_mixer_0.dout/alt_vip_cl_cvo_0_1.din"
+   kind="avalon_streaming"
+   version="18.1"
+   start="alt_vip_cl_mixer_0.dout"
+   end="alt_vip_cl_cvo_0_1.din">
+  <parameter name="deviceFamily">
+   <type>java.lang.String</type>
+   <value>UNKNOWN</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="generateLegacySim">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <startModule>alt_vip_cl_mixer_0</startModule>
+  <startConnectionPoint>dout</startConnectionPoint>
+  <endModule>alt_vip_cl_cvo_0_1</endModule>
   <endConnectionPoint>din</endConnectionPoint>
  </connection>
  <connection
@@ -14474,11 +14367,11 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>is_clk_rst</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/alt_vip_cl_cvo_0.main_clock"
+   name="clk_0.clk/alt_vip_cl_cvo_0_1.is_clk_rst"
    kind="clock"
    version="18.1"
    start="clk_0.clk"
-   end="alt_vip_cl_cvo_0.main_clock">
+   end="alt_vip_cl_cvo_0_1.is_clk_rst">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
    <value>UNKNOWN</value>
@@ -14497,8 +14390,8 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <startModule>clk_0</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
-  <endModule>alt_vip_cl_cvo_0</endModule>
-  <endConnectionPoint>main_clock</endConnectionPoint>
+  <endModule>alt_vip_cl_cvo_0_1</endModule>
+  <endConnectionPoint>is_clk_rst</endConnectionPoint>
  </connection>
  <connection
    name="clk_0.clk/alt_vip_cl_mixer_0.main_clock"
@@ -14733,11 +14626,11 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>is_clk_rst_reset</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk_reset/alt_vip_cl_cvo_0.main_reset"
+   name="clk_0.clk_reset/alt_vip_cl_cvo_0_1.is_clk_rst_reset"
    kind="reset"
    version="18.1"
    start="clk_0.clk_reset"
-   end="alt_vip_cl_cvo_0.main_reset">
+   end="alt_vip_cl_cvo_0_1.is_clk_rst_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
    <value>UNKNOWN</value>
@@ -14756,8 +14649,8 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <startModule>clk_0</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
-  <endModule>alt_vip_cl_cvo_0</endModule>
-  <endConnectionPoint>main_reset</endConnectionPoint>
+  <endModule>alt_vip_cl_cvo_0_1</endModule>
+  <endConnectionPoint>is_clk_rst_reset</endConnectionPoint>
  </connection>
  <connection
    name="clk_0.clk_reset/alt_vip_cl_mixer_0.main_reset"
@@ -15130,11 +15023,11 @@ parameters are a RESULT of the module parameters. -->
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
-  <name>alt_vip_cl_cvo</name>
+  <name>alt_vip_itc</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Clocked Video Output II (4K Ready) Intel FPGA IP</displayName>
-  <version>18.1</version>
+  <displayName>Clocked Video Output Intel FPGA IP</displayName>
+  <version>14.0</version>
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>

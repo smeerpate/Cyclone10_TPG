@@ -1,13 +1,13 @@
 	mySystem u0 (
-		.alt_vip_cl_cvo_0_clocked_video_vid_clk                      (<connected-to-alt_vip_cl_cvo_0_clocked_video_vid_clk>),                      //                  alt_vip_cl_cvo_0_clocked_video.vid_clk
-		.alt_vip_cl_cvo_0_clocked_video_vid_data                     (<connected-to-alt_vip_cl_cvo_0_clocked_video_vid_data>),                     //                                                .vid_data
-		.alt_vip_cl_cvo_0_clocked_video_underflow                    (<connected-to-alt_vip_cl_cvo_0_clocked_video_underflow>),                    //                                                .underflow
-		.alt_vip_cl_cvo_0_clocked_video_vid_datavalid                (<connected-to-alt_vip_cl_cvo_0_clocked_video_vid_datavalid>),                //                                                .vid_datavalid
-		.alt_vip_cl_cvo_0_clocked_video_vid_v_sync                   (<connected-to-alt_vip_cl_cvo_0_clocked_video_vid_v_sync>),                   //                                                .vid_v_sync
-		.alt_vip_cl_cvo_0_clocked_video_vid_h_sync                   (<connected-to-alt_vip_cl_cvo_0_clocked_video_vid_h_sync>),                   //                                                .vid_h_sync
-		.alt_vip_cl_cvo_0_clocked_video_vid_f                        (<connected-to-alt_vip_cl_cvo_0_clocked_video_vid_f>),                        //                                                .vid_f
-		.alt_vip_cl_cvo_0_clocked_video_vid_h                        (<connected-to-alt_vip_cl_cvo_0_clocked_video_vid_h>),                        //                                                .vid_h
-		.alt_vip_cl_cvo_0_clocked_video_vid_v                        (<connected-to-alt_vip_cl_cvo_0_clocked_video_vid_v>),                        //                                                .vid_v
+		.alt_vip_cl_cvo_0_clocked_video_1_vid_clk                    (<connected-to-alt_vip_cl_cvo_0_clocked_video_1_vid_clk>),                    //                alt_vip_cl_cvo_0_clocked_video_1.vid_clk
+		.alt_vip_cl_cvo_0_clocked_video_1_vid_data                   (<connected-to-alt_vip_cl_cvo_0_clocked_video_1_vid_data>),                   //                                                .vid_data
+		.alt_vip_cl_cvo_0_clocked_video_1_underflow                  (<connected-to-alt_vip_cl_cvo_0_clocked_video_1_underflow>),                  //                                                .underflow
+		.alt_vip_cl_cvo_0_clocked_video_1_vid_datavalid              (<connected-to-alt_vip_cl_cvo_0_clocked_video_1_vid_datavalid>),              //                                                .vid_datavalid
+		.alt_vip_cl_cvo_0_clocked_video_1_vid_v_sync                 (<connected-to-alt_vip_cl_cvo_0_clocked_video_1_vid_v_sync>),                 //                                                .vid_v_sync
+		.alt_vip_cl_cvo_0_clocked_video_1_vid_h_sync                 (<connected-to-alt_vip_cl_cvo_0_clocked_video_1_vid_h_sync>),                 //                                                .vid_h_sync
+		.alt_vip_cl_cvo_0_clocked_video_1_vid_f                      (<connected-to-alt_vip_cl_cvo_0_clocked_video_1_vid_f>),                      //                                                .vid_f
+		.alt_vip_cl_cvo_0_clocked_video_1_vid_h                      (<connected-to-alt_vip_cl_cvo_0_clocked_video_1_vid_h>),                      //                                                .vid_h
+		.alt_vip_cl_cvo_0_clocked_video_1_vid_v                      (<connected-to-alt_vip_cl_cvo_0_clocked_video_1_vid_v>),                      //                                                .vid_v
 		.alt_vip_cti_0_clocked_video_vid_clk                         (<connected-to-alt_vip_cti_0_clocked_video_vid_clk>),                         //                     alt_vip_cti_0_clocked_video.vid_clk
 		.alt_vip_cti_0_clocked_video_vid_data                        (<connected-to-alt_vip_cti_0_clocked_video_vid_data>),                        //                                                .vid_data
 		.alt_vip_cti_0_clocked_video_overflow                        (<connected-to-alt_vip_cti_0_clocked_video_overflow>),                        //                                                .overflow
