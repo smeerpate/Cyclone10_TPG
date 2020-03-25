@@ -266,12 +266,7 @@ end
 
 assign lastpixelout = ((houtcnt >= (OUTPUT_WIDTH - 1)) && (voutcnt >= (OUTPUT_HEIGHT - 1))) ? 1'b1 : 1'b0;
 assign startsourcing = 1'b1; // signal to start sourcing pixels to the output
-
-// assign video data
-//assign outdata = (houtcnt > (OUTPUT_WIDTH >> 1)) ? 24'hF000F0 : 24'h00F000;
-wire [7:0] vcompvalue = voutcnt[7:0] + imageoffset;
-wire [7:0] hcompvalue = houtcnt[7:0] + imageoffset;
-assign outdata = (vcompvalue[7:2] == 6'b100000) ? 24'hFFFFFF : ((hcompvalue[7:2] == 6'b100000) ? 24'hFFFFFF : 24'h000000);
+assign outdata = (houtcnt > (OUTPUT_WIDTH >> 1)) ? 24'hF000F0 : 24'h00F000;
 
 // Output line and pixel counter voutcnt and houtcnt can be controlled with outcntmode.
 always@(posedge clk or posedge reset)
@@ -315,30 +310,5 @@ begin
       endcase
    end
 end
-
-
-// Slow counter, ticks every 20ms
-reg [23:0] slowcount;
-
-always@(posedge clk)
-begin
-   if(slowcount > 0)
-   begin
-      slowcount <= slowcount - 24'h1;
-   end
-   else
-   begin
-      slowcount <= 24'd7500000;
-   end
-end
-
-// Offset for movement
-reg [7:0] imageoffset;
-always@(posedge clk)
-begin
-   if(slowcount == 0)
-      imageoffset <= imageoffset + 8'h1;
-end
-
 
 endmodule

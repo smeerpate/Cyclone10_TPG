@@ -9,15 +9,7 @@
    categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
-   element W9825G6KH_SDRAMController_125MHz_CL3_0
-   {
-      datum _sortIndex
-      {
-         value = "11";
-         type = "int";
-      }
-   }
-   element W9825G6KH_SDRAMController_125MHz_CL3_32bit_0
+   element VideoStreamTPG_0
    {
       datum _sortIndex
       {
@@ -28,6 +20,27 @@
       {
          value = "1";
          type = "boolean";
+      }
+   }
+   element W9825G6KH_SDRAMController_125MHz_CL3_0
+   {
+      datum _sortIndex
+      {
+         value = "11";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
+   }
+   element alt_vip_cl_2dfir_0
+   {
+      datum _sortIndex
+      {
+         value = "13";
+         type = "int";
       }
    }
    element alt_vip_cl_cvo_0
@@ -76,6 +89,11 @@
          value = "7";
          type = "int";
       }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
    }
    element alt_vip_cti_0
    {
@@ -115,7 +133,7 @@
       }
       datum sopceditor_expanded
       {
-         value = "0";
+         value = "1";
          type = "boolean";
       }
    }
@@ -290,19 +308,63 @@
    internal="W9825G6KH_SDRAMController_125MHz_CL3_0.sdram_if"
    type="conduit"
    dir="end" />
- <interface
-   name="w9825g6kh_sdramcontroller_125mhz_cl3_32bit_0_sdram_if"
-   internal="W9825G6KH_SDRAMController_125MHz_CL3_32bit_0.sdram_if" />
+ <module
+   name="VideoStreamTPG_0"
+   kind="VideoStreamTPG"
+   version="1.0"
+   enabled="1">
+  <parameter name="OUTPUT_HEIGHT" value="1080" />
+  <parameter name="OUTPUT_WIDTH" value="1920" />
+ </module>
  <module
    name="W9825G6KH_SDRAMController_125MHz_CL3_0"
    kind="W9825G6KH_SDRAMController_125MHz_CL3"
    version="1.0"
    enabled="1" />
  <module
-   name="W9825G6KH_SDRAMController_125MHz_CL3_32bit_0"
-   kind="W9825G6KH_SDRAMController_125MHz_CL3_32bit"
-   version="1.0"
-   enabled="0" />
+   name="alt_vip_cl_2dfir_0"
+   kind="alt_vip_cl_2dfir"
+   version="18.1"
+   enabled="1">
+  <parameter name="ALGORITHM_NAME" value="STANDARD_FIR" />
+  <parameter name="AUTO_DEVICE" value="10CL016YU484C8G" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="8" />
+  <parameter name="BITS_PER_SYMBOL_IN" value="8" />
+  <parameter name="BITS_PER_SYMBOL_OUT" value="8" />
+  <parameter name="COEFF_FRACTION_BITS" value="7" />
+  <parameter name="COEFF_INTEGER_BITS" value="1" />
+  <parameter name="COEFF_SIGNED" value="0" />
+  <parameter name="COLOR_PLANES_ARE_IN_PARALLEL" value="1" />
+  <parameter name="DEFAULT_LOWER_BLUR" value="0" />
+  <parameter name="DEFAULT_UPPER_BLUR" value="15" />
+  <parameter name="DIAG_SYMMETRIC" value="0" />
+  <parameter name="DO_MIRRORING" value="0" />
+  <parameter name="ENABLE_WIDE_BLUR_SHARPEN" value="1" />
+  <parameter name="EXTRA_PIPELINING" value="0" />
+  <parameter name="FAMILY" value="Cyclone 10 LP" />
+  <parameter name="FIXED_COEFF_FILE">D:\Users\Frederic\IntelFPGA\Sources\Cyclone10_TPG_speel\4x4Kernel.csv</parameter>
+  <parameter name="H_SYMMETRIC" value="0" />
+  <parameter name="H_TAPS" value="3" />
+  <parameter name="INPUT_GUARD_BANDS_ENABLE" value="0" />
+  <parameter name="INPUT_GUARD_BAND_LOWER" value="0" />
+  <parameter name="INPUT_GUARD_BAND_UPPER" value="255" />
+  <parameter name="IS_422" value="0" />
+  <parameter name="LIMITED_READBACK" value="0" />
+  <parameter name="MAX_HEIGHT" value="1080" />
+  <parameter name="MAX_WIDTH" value="1920" />
+  <parameter name="MOVE_BINARY_POINT_RIGHT" value="0" />
+  <parameter name="NO_BLANKING" value="0" />
+  <parameter name="NUMBER_OF_COLOR_PLANES" value="3" />
+  <parameter name="OUTPUT_GUARD_BANDS_ENABLE" value="0" />
+  <parameter name="OUTPUT_GUARD_BAND_LOWER" value="0" />
+  <parameter name="OUTPUT_GUARD_BAND_UPPER" value="255" />
+  <parameter name="PIXELS_IN_PARALLEL" value="1" />
+  <parameter name="ROUNDING_METHOD" value="TRUNCATE" />
+  <parameter name="RUNTIME_CONTROL" value="0" />
+  <parameter name="USER_PACKET_SUPPORT" value="NONE_ALLOWED" />
+  <parameter name="V_SYMMETRIC" value="0" />
+  <parameter name="V_TAPS" value="3" />
+ </module>
  <module
    name="alt_vip_cl_cvo_0"
    kind="alt_vip_cl_cvo"
@@ -408,7 +470,7 @@
    name="alt_vip_cl_tpg_0"
    kind="alt_vip_cl_tpg"
    version="18.1"
-   enabled="1">
+   enabled="0">
   <parameter name="AUTO_DEVICE" value="10CL016YU484C8G" />
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="8" />
   <parameter name="BITS_PER_SYMBOL" value="8" />
@@ -519,7 +581,7 @@
  <module name="main_scaler" kind="alt_vip_cl_scl" version="18.1" enabled="1">
   <parameter name="ALGORITHM_NAME" value="NEAREST_NEIGHBOUR" />
   <parameter name="ALWAYS_DOWNSCALE" value="0" />
-  <parameter name="ARE_IDENTICAL" value="0" />
+  <parameter name="ARE_IDENTICAL" value="1" />
   <parameter name="AUTO_DEVICE" value="10CL016YU484C8G" />
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="8" />
   <parameter name="BITS_PER_SYMBOL" value="8" />
@@ -537,7 +599,7 @@
   <parameter name="H_PHASES" value="16" />
   <parameter name="H_SIGNED" value="1" />
   <parameter name="H_SYMMETRIC" value="0" />
-  <parameter name="H_TAPS" value="8" />
+  <parameter name="H_TAPS" value="4" />
   <parameter name="IS_420" value="0" />
   <parameter name="IS_422" value="0" />
   <parameter name="LIMITED_READBACK" value="1" />
@@ -562,7 +624,7 @@
   <parameter name="V_PHASES" value="16" />
   <parameter name="V_SIGNED" value="1" />
   <parameter name="V_SYMMETRIC" value="0" />
-  <parameter name="V_TAPS" value="8" />
+  <parameter name="V_TAPS" value="5" />
  </module>
  <module
    name="nios2_gen2_0"
@@ -893,25 +955,7 @@
    kind="avalon"
    version="18.1"
    start="alt_vip_cl_vfb_0.mem_master_rd"
-   end="W9825G6KH_SDRAMController_125MHz_CL3_32bit_0.avalon_slave_0">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0000" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="18.1"
-   start="alt_vip_cl_vfb_0.mem_master_rd"
    end="W9825G6KH_SDRAMController_125MHz_CL3_0.avalon_slave_0">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0000" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="18.1"
-   start="alt_vip_cl_vfb_0.mem_master_wr"
-   end="W9825G6KH_SDRAMController_125MHz_CL3_32bit_0.avalon_slave_0">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
@@ -925,6 +969,11 @@
   <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
+ <connection
+   kind="avalon_streaming"
+   version="18.1"
+   start="VideoStreamTPG_0.avalon_streaming_source"
+   end="alt_vip_cl_2dfir_0.din" />
  <connection
    kind="avalon_streaming"
    version="18.1"
@@ -933,13 +982,13 @@
  <connection
    kind="avalon_streaming"
    version="18.1"
-   start="alt_vip_cl_tpg_0.dout"
-   end="main_scaler.din" />
+   start="main_scaler.dout"
+   end="alt_vip_cl_vfb_0.din" />
  <connection
    kind="avalon_streaming"
    version="18.1"
-   start="main_scaler.dout"
-   end="alt_vip_cl_vfb_0.din" />
+   start="alt_vip_cl_2dfir_0.dout"
+   end="main_scaler.din" />
  <connection
    kind="avalon_streaming"
    version="18.1"
@@ -962,12 +1011,12 @@
    kind="clock"
    version="18.1"
    start="clk_0.clk"
-   end="W9825G6KH_SDRAMController_125MHz_CL3_32bit_0.clock" />
+   end="W9825G6KH_SDRAMController_125MHz_CL3_0.clock" />
  <connection
    kind="clock"
    version="18.1"
    start="clk_0.clk"
-   end="W9825G6KH_SDRAMController_125MHz_CL3_0.clock" />
+   end="VideoStreamTPG_0.clock" />
  <connection
    kind="clock"
    version="18.1"
@@ -998,6 +1047,11 @@
    version="18.1"
    start="clk_0.clk"
    end="main_scaler.main_clock" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="clk_0.clk"
+   end="alt_vip_cl_2dfir_0.main_clock" />
  <connection
    kind="clock"
    version="18.1"
@@ -1051,6 +1105,11 @@
    kind="reset"
    version="18.1"
    start="clk_0.clk_reset"
+   end="alt_vip_cl_2dfir_0.main_reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="clk_0.clk_reset"
    end="alt_vip_cl_vfb_0.mem_reset" />
  <connection
    kind="reset"
@@ -1067,12 +1126,12 @@
    kind="reset"
    version="18.1"
    start="clk_0.clk_reset"
-   end="W9825G6KH_SDRAMController_125MHz_CL3_32bit_0.reset" />
+   end="W9825G6KH_SDRAMController_125MHz_CL3_0.reset" />
  <connection
    kind="reset"
    version="18.1"
    start="clk_0.clk_reset"
-   end="W9825G6KH_SDRAMController_125MHz_CL3_0.reset" />
+   end="VideoStreamTPG_0.reset" />
  <connection
    kind="reset"
    version="18.1"

@@ -37,21 +37,26 @@ module mySystem (
 		output wire        w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_we_n   //                                                .sdram_we_n
 	);
 
+	wire         videostreamtpg_0_avalon_streaming_source_valid;                                        // VideoStreamTPG_0:dout_valid -> alt_vip_cl_2dfir_0:din_valid
+	wire  [23:0] videostreamtpg_0_avalon_streaming_source_data;                                         // VideoStreamTPG_0:dout_data -> alt_vip_cl_2dfir_0:din_data
+	wire         videostreamtpg_0_avalon_streaming_source_ready;                                        // alt_vip_cl_2dfir_0:din_ready -> VideoStreamTPG_0:dout_ready
+	wire         videostreamtpg_0_avalon_streaming_source_startofpacket;                                // VideoStreamTPG_0:dout_startofpacket -> alt_vip_cl_2dfir_0:din_startofpacket
+	wire         videostreamtpg_0_avalon_streaming_source_endofpacket;                                  // VideoStreamTPG_0:dout_endofpacket -> alt_vip_cl_2dfir_0:din_endofpacket
 	wire         alt_vip_cl_mixer_0_dout_valid;                                                         // alt_vip_cl_mixer_0:dout_valid -> alt_vip_cl_cvo_0:din_valid
 	wire  [23:0] alt_vip_cl_mixer_0_dout_data;                                                          // alt_vip_cl_mixer_0:dout_data -> alt_vip_cl_cvo_0:din_data
 	wire         alt_vip_cl_mixer_0_dout_ready;                                                         // alt_vip_cl_cvo_0:din_ready -> alt_vip_cl_mixer_0:dout_ready
 	wire         alt_vip_cl_mixer_0_dout_startofpacket;                                                 // alt_vip_cl_mixer_0:dout_startofpacket -> alt_vip_cl_cvo_0:din_startofpacket
 	wire         alt_vip_cl_mixer_0_dout_endofpacket;                                                   // alt_vip_cl_mixer_0:dout_endofpacket -> alt_vip_cl_cvo_0:din_endofpacket
-	wire         alt_vip_cl_tpg_0_dout_valid;                                                           // alt_vip_cl_tpg_0:dout_valid -> main_scaler:din_valid
-	wire  [23:0] alt_vip_cl_tpg_0_dout_data;                                                            // alt_vip_cl_tpg_0:dout_data -> main_scaler:din_data
-	wire         alt_vip_cl_tpg_0_dout_ready;                                                           // main_scaler:din_ready -> alt_vip_cl_tpg_0:dout_ready
-	wire         alt_vip_cl_tpg_0_dout_startofpacket;                                                   // alt_vip_cl_tpg_0:dout_startofpacket -> main_scaler:din_startofpacket
-	wire         alt_vip_cl_tpg_0_dout_endofpacket;                                                     // alt_vip_cl_tpg_0:dout_endofpacket -> main_scaler:din_endofpacket
 	wire         main_scaler_dout_valid;                                                                // main_scaler:dout_valid -> alt_vip_cl_vfb_0:din_valid
 	wire  [23:0] main_scaler_dout_data;                                                                 // main_scaler:dout_data -> alt_vip_cl_vfb_0:din_data
 	wire         main_scaler_dout_ready;                                                                // alt_vip_cl_vfb_0:din_ready -> main_scaler:dout_ready
 	wire         main_scaler_dout_startofpacket;                                                        // main_scaler:dout_startofpacket -> alt_vip_cl_vfb_0:din_startofpacket
 	wire         main_scaler_dout_endofpacket;                                                          // main_scaler:dout_endofpacket -> alt_vip_cl_vfb_0:din_endofpacket
+	wire         alt_vip_cl_2dfir_0_dout_valid;                                                         // alt_vip_cl_2dfir_0:dout_valid -> main_scaler:din_valid
+	wire  [23:0] alt_vip_cl_2dfir_0_dout_data;                                                          // alt_vip_cl_2dfir_0:dout_data -> main_scaler:din_data
+	wire         alt_vip_cl_2dfir_0_dout_ready;                                                         // main_scaler:din_ready -> alt_vip_cl_2dfir_0:dout_ready
+	wire         alt_vip_cl_2dfir_0_dout_startofpacket;                                                 // alt_vip_cl_2dfir_0:dout_startofpacket -> main_scaler:din_startofpacket
+	wire         alt_vip_cl_2dfir_0_dout_endofpacket;                                                   // alt_vip_cl_2dfir_0:dout_endofpacket -> main_scaler:din_endofpacket
 	wire         alt_vip_cl_vfb_0_dout_valid;                                                           // alt_vip_cl_vfb_0:dout_valid -> alt_vip_cl_mixer_0:din0_valid
 	wire  [23:0] alt_vip_cl_vfb_0_dout_data;                                                            // alt_vip_cl_vfb_0:dout_data -> alt_vip_cl_mixer_0:din0_data
 	wire         alt_vip_cl_vfb_0_dout_ready;                                                           // alt_vip_cl_mixer_0:din0_ready -> alt_vip_cl_vfb_0:dout_ready
@@ -146,8 +151,21 @@ module mySystem (
 	wire         irq_mapper_receiver0_irq;                                                              // uart_0:irq -> irq_mapper:receiver0_irq
 	wire         irq_mapper_receiver1_irq;                                                              // alt_vip_cti_0:status_update_int -> irq_mapper:receiver1_irq
 	wire  [31:0] nios2_gen2_0_irq_irq;                                                                  // irq_mapper:sender_irq -> nios2_gen2_0:irq
-	wire         rst_controller_reset_out_reset;                                                        // rst_controller:reset_out -> [W9825G6KH_SDRAMController_125MHz_CL3_0:reset_n, alt_vip_cl_cvo_0:main_reset_reset, alt_vip_cl_mixer_0:main_reset_reset, alt_vip_cl_tpg_0:main_reset, alt_vip_cl_vfb_0:main_reset, alt_vip_cl_vfb_0:mem_reset, alt_vip_cti_0:rst, irq_mapper:reset, main_scaler:main_reset, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, mm_interconnect_1:alt_vip_cl_vfb_0_mem_reset_reset_bridge_in_reset_reset, nios2_gen2_0:reset_n, onchip_memory2_0:reset, pio_0:reset_n, rst_translator:in_reset, uart_0:reset_n]
+	wire         rst_controller_reset_out_reset;                                                        // rst_controller:reset_out -> [VideoStreamTPG_0:reset, W9825G6KH_SDRAMController_125MHz_CL3_0:reset_n, alt_vip_cl_2dfir_0:main_reset, alt_vip_cl_cvo_0:main_reset_reset, alt_vip_cl_mixer_0:main_reset_reset, alt_vip_cl_vfb_0:main_reset, alt_vip_cl_vfb_0:mem_reset, alt_vip_cti_0:rst, irq_mapper:reset, main_scaler:main_reset, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, mm_interconnect_1:alt_vip_cl_vfb_0_mem_reset_reset_bridge_in_reset_reset, nios2_gen2_0:reset_n, onchip_memory2_0:reset, pio_0:reset_n, rst_translator:in_reset, uart_0:reset_n]
 	wire         rst_controller_reset_out_reset_req;                                                    // rst_controller:reset_req -> [nios2_gen2_0:reset_req, onchip_memory2_0:reset_req, rst_translator:reset_req_in]
+
+	VideoStreamTPG #(
+		.OUTPUT_WIDTH  (1920),
+		.OUTPUT_HEIGHT (1080)
+	) videostreamtpg_0 (
+		.clk                (clk_clk),                                                //                   clock.clk
+		.reset              (rst_controller_reset_out_reset),                         //                   reset.reset
+		.dout_data          (videostreamtpg_0_avalon_streaming_source_data),          // avalon_streaming_source.data
+		.dout_ready         (videostreamtpg_0_avalon_streaming_source_ready),         //                        .ready
+		.dout_startofpacket (videostreamtpg_0_avalon_streaming_source_startofpacket), //                        .startofpacket
+		.dout_valid         (videostreamtpg_0_avalon_streaming_source_valid),         //                        .valid
+		.dout_endofpacket   (videostreamtpg_0_avalon_streaming_source_endofpacket)    //                        .endofpacket
+	);
 
 	W9825G6KH_SDRAMController_125MHz_CL3 w9825g6kh_sdramcontroller_125mhz_cl3_0 (
 		.az_addr        (mm_interconnect_1_w9825g6kh_sdramcontroller_125mhz_cl3_0_avalon_slave_0_address),       // avalon_slave_0.address
@@ -170,6 +188,21 @@ module mySystem (
 		.zs_dqm         (w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_dqm),                             //               .sdram_dqm
 		.zs_ras_n       (w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_ras_n),                           //               .sdram_ras_n
 		.zs_we_n        (w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_we_n)                             //               .sdram_we_n
+	);
+
+	mySystem_alt_vip_cl_2dfir_0 alt_vip_cl_2dfir_0 (
+		.main_clock         (clk_clk),                                                // main_clock.clk
+		.main_reset         (rst_controller_reset_out_reset),                         // main_reset.reset
+		.din_data           (videostreamtpg_0_avalon_streaming_source_data),          //        din.data
+		.din_valid          (videostreamtpg_0_avalon_streaming_source_valid),         //           .valid
+		.din_startofpacket  (videostreamtpg_0_avalon_streaming_source_startofpacket), //           .startofpacket
+		.din_endofpacket    (videostreamtpg_0_avalon_streaming_source_endofpacket),   //           .endofpacket
+		.din_ready          (videostreamtpg_0_avalon_streaming_source_ready),         //           .ready
+		.dout_data          (alt_vip_cl_2dfir_0_dout_data),                           //       dout.data
+		.dout_valid         (alt_vip_cl_2dfir_0_dout_valid),                          //           .valid
+		.dout_startofpacket (alt_vip_cl_2dfir_0_dout_startofpacket),                  //           .startofpacket
+		.dout_endofpacket   (alt_vip_cl_2dfir_0_dout_endofpacket),                    //           .endofpacket
+		.dout_ready         (alt_vip_cl_2dfir_0_dout_ready)                           //           .ready
 	);
 
 	mySystem_alt_vip_cl_cvo_0 #(
@@ -272,18 +305,6 @@ module mySystem (
 		.control_readdata      (mm_interconnect_0_alt_vip_cl_mixer_0_control_readdata),      //           .readdata
 		.control_readdatavalid (mm_interconnect_0_alt_vip_cl_mixer_0_control_readdatavalid), //           .readdatavalid
 		.control_waitrequest   (mm_interconnect_0_alt_vip_cl_mixer_0_control_waitrequest)    //           .waitrequest
-	);
-
-	mySystem_alt_vip_cl_tpg_0 #(
-		.PIXELS_IN_PARALLEL (1)
-	) alt_vip_cl_tpg_0 (
-		.main_clock         (clk_clk),                             // main_clock.clk
-		.main_reset         (rst_controller_reset_out_reset),      // main_reset.reset
-		.dout_data          (alt_vip_cl_tpg_0_dout_data),          //       dout.data
-		.dout_valid         (alt_vip_cl_tpg_0_dout_valid),         //           .valid
-		.dout_startofpacket (alt_vip_cl_tpg_0_dout_startofpacket), //           .startofpacket
-		.dout_endofpacket   (alt_vip_cl_tpg_0_dout_endofpacket),   //           .endofpacket
-		.dout_ready         (alt_vip_cl_tpg_0_dout_ready)          //           .ready
 	);
 
 	mySystem_alt_vip_cl_vfb_0 #(
@@ -395,11 +416,11 @@ module mySystem (
 	mySystem_main_scaler main_scaler (
 		.main_clock            (clk_clk),                                             // main_clock.clk
 		.main_reset            (rst_controller_reset_out_reset),                      // main_reset.reset
-		.din_data              (alt_vip_cl_tpg_0_dout_data),                          //        din.data
-		.din_valid             (alt_vip_cl_tpg_0_dout_valid),                         //           .valid
-		.din_startofpacket     (alt_vip_cl_tpg_0_dout_startofpacket),                 //           .startofpacket
-		.din_endofpacket       (alt_vip_cl_tpg_0_dout_endofpacket),                   //           .endofpacket
-		.din_ready             (alt_vip_cl_tpg_0_dout_ready),                         //           .ready
+		.din_data              (alt_vip_cl_2dfir_0_dout_data),                        //        din.data
+		.din_valid             (alt_vip_cl_2dfir_0_dout_valid),                       //           .valid
+		.din_startofpacket     (alt_vip_cl_2dfir_0_dout_startofpacket),               //           .startofpacket
+		.din_endofpacket       (alt_vip_cl_2dfir_0_dout_endofpacket),                 //           .endofpacket
+		.din_ready             (alt_vip_cl_2dfir_0_dout_ready),                       //           .ready
 		.dout_data             (main_scaler_dout_data),                               //       dout.data
 		.dout_valid            (main_scaler_dout_valid),                              //           .valid
 		.dout_startofpacket    (main_scaler_dout_startofpacket),                      //           .startofpacket
