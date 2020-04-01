@@ -14,7 +14,7 @@ module VideoStreamSizeHalver
    // Avalon ST sink IF
    input [23:0]      din_data,
    input             din_endofpacket,
-   output reg        din_ready,
+   output            din_ready,
    input             din_startofpacket,
    input             din_valid, 
    // Avalon ST source IF
@@ -35,6 +35,7 @@ localparam  INCNT_IDLE = 0,
 //reg [15:0] hinsize = 16'd300;
 //reg [15:0] vinsize = 16'd200;
 //reg [1:0] ctrlcount = 2'h0;
+reg flag_acknowledged;
 
 
 
@@ -185,7 +186,7 @@ begin
    if (reset)
    begin
       instate <= INSTATE_IDLE;
-      din_ready <= 1'b1;
+      flag_acknowledged <= 1'b0;
    end
    else
    begin
@@ -236,13 +237,14 @@ begin
       begin
          if (processeddataavailable || gotnewline)
             // output state machine did not acknowledge.
-            din_ready <= 1'b0;
+            flag_acknowledged <= 1'b0;
          else
-            din_ready <= 1'b1;
+            flag_acknowledged <= 1'b1;
       end
    end
 end
 
+assign din_ready = flag_acknowledged | ~hold_instatemachine;
 
 // hin counter
 wire hincnt_reset = ((instate == INSTATE_GATHEREVENPIXELS || instate == INSTATE_GATHERODDPIXELS) && (hincnt >= (INPUT_WIDTH - 1))) ? 1'b1 : 1'b0;
