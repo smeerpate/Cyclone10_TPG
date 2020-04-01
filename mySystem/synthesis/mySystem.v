@@ -37,21 +37,21 @@ module mySystem (
 		output wire        w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_we_n   //                                                .sdram_we_n
 	);
 
-	wire         videostreamtpg_0_avalon_streaming_source_valid;                                        // VideoStreamTPG_0:dout_valid -> alt_vip_cl_2dfir_0:din_valid
-	wire  [23:0] videostreamtpg_0_avalon_streaming_source_data;                                         // VideoStreamTPG_0:dout_data -> alt_vip_cl_2dfir_0:din_data
-	wire         videostreamtpg_0_avalon_streaming_source_ready;                                        // alt_vip_cl_2dfir_0:din_ready -> VideoStreamTPG_0:dout_ready
-	wire         videostreamtpg_0_avalon_streaming_source_startofpacket;                                // VideoStreamTPG_0:dout_startofpacket -> alt_vip_cl_2dfir_0:din_startofpacket
-	wire         videostreamtpg_0_avalon_streaming_source_endofpacket;                                  // VideoStreamTPG_0:dout_endofpacket -> alt_vip_cl_2dfir_0:din_endofpacket
+	wire         videostreamtpg_0_avalon_streaming_source_valid;                                        // VideoStreamTPG_0:dout_valid -> VideoStreamSizeHalver_0:din_valid
+	wire  [23:0] videostreamtpg_0_avalon_streaming_source_data;                                         // VideoStreamTPG_0:dout_data -> VideoStreamSizeHalver_0:din_data
+	wire         videostreamtpg_0_avalon_streaming_source_ready;                                        // VideoStreamSizeHalver_0:din_ready -> VideoStreamTPG_0:dout_ready
+	wire         videostreamtpg_0_avalon_streaming_source_startofpacket;                                // VideoStreamTPG_0:dout_startofpacket -> VideoStreamSizeHalver_0:din_startofpacket
+	wire         videostreamtpg_0_avalon_streaming_source_endofpacket;                                  // VideoStreamTPG_0:dout_endofpacket -> VideoStreamSizeHalver_0:din_endofpacket
+	wire         videostreamsizehalver_0_avalon_streaming_source_valid;                                 // VideoStreamSizeHalver_0:dout_valid -> main_scaler:din_valid
+	wire  [23:0] videostreamsizehalver_0_avalon_streaming_source_data;                                  // VideoStreamSizeHalver_0:dout_data -> main_scaler:din_data
+	wire         videostreamsizehalver_0_avalon_streaming_source_ready;                                 // main_scaler:din_ready -> VideoStreamSizeHalver_0:dout_ready
+	wire         videostreamsizehalver_0_avalon_streaming_source_startofpacket;                         // VideoStreamSizeHalver_0:dout_startofpacket -> main_scaler:din_startofpacket
+	wire         videostreamsizehalver_0_avalon_streaming_source_endofpacket;                           // VideoStreamSizeHalver_0:dout_endofpacket -> main_scaler:din_endofpacket
 	wire         main_scaler_dout_valid;                                                                // main_scaler:dout_valid -> alt_vip_cl_vfb_0:din_valid
 	wire  [23:0] main_scaler_dout_data;                                                                 // main_scaler:dout_data -> alt_vip_cl_vfb_0:din_data
 	wire         main_scaler_dout_ready;                                                                // alt_vip_cl_vfb_0:din_ready -> main_scaler:dout_ready
 	wire         main_scaler_dout_startofpacket;                                                        // main_scaler:dout_startofpacket -> alt_vip_cl_vfb_0:din_startofpacket
 	wire         main_scaler_dout_endofpacket;                                                          // main_scaler:dout_endofpacket -> alt_vip_cl_vfb_0:din_endofpacket
-	wire         alt_vip_cl_2dfir_0_dout_valid;                                                         // alt_vip_cl_2dfir_0:dout_valid -> main_scaler:din_valid
-	wire  [23:0] alt_vip_cl_2dfir_0_dout_data;                                                          // alt_vip_cl_2dfir_0:dout_data -> main_scaler:din_data
-	wire         alt_vip_cl_2dfir_0_dout_ready;                                                         // main_scaler:din_ready -> alt_vip_cl_2dfir_0:dout_ready
-	wire         alt_vip_cl_2dfir_0_dout_startofpacket;                                                 // alt_vip_cl_2dfir_0:dout_startofpacket -> main_scaler:din_startofpacket
-	wire         alt_vip_cl_2dfir_0_dout_endofpacket;                                                   // alt_vip_cl_2dfir_0:dout_endofpacket -> main_scaler:din_endofpacket
 	wire         alt_vip_cl_mixer_0_dout_valid;                                                         // alt_vip_cl_mixer_0:dout_valid -> alt_vip_cl_cvo_0_1:is_valid
 	wire  [23:0] alt_vip_cl_mixer_0_dout_data;                                                          // alt_vip_cl_mixer_0:dout_data -> alt_vip_cl_cvo_0_1:is_data
 	wire         alt_vip_cl_mixer_0_dout_ready;                                                         // alt_vip_cl_cvo_0_1:is_ready -> alt_vip_cl_mixer_0:dout_ready
@@ -151,8 +151,28 @@ module mySystem (
 	wire         irq_mapper_receiver0_irq;                                                              // uart_0:irq -> irq_mapper:receiver0_irq
 	wire         irq_mapper_receiver1_irq;                                                              // alt_vip_cti_0:status_update_int -> irq_mapper:receiver1_irq
 	wire  [31:0] nios2_gen2_0_irq_irq;                                                                  // irq_mapper:sender_irq -> nios2_gen2_0:irq
-	wire         rst_controller_reset_out_reset;                                                        // rst_controller:reset_out -> [VideoStreamTPG_0:reset, W9825G6KH_SDRAMController_125MHz_CL3_0:reset_n, alt_vip_cl_2dfir_0:main_reset, alt_vip_cl_cvo_0_1:rst, alt_vip_cl_mixer_0:main_reset_reset, alt_vip_cl_vfb_0:main_reset, alt_vip_cl_vfb_0:mem_reset, alt_vip_cti_0:rst, irq_mapper:reset, main_scaler:main_reset, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, mm_interconnect_1:alt_vip_cl_vfb_0_mem_reset_reset_bridge_in_reset_reset, nios2_gen2_0:reset_n, onchip_memory2_0:reset, pio_0:reset_n, rst_translator:in_reset, uart_0:reset_n]
+	wire         rst_controller_reset_out_reset;                                                        // rst_controller:reset_out -> [VideoStreamSizeHalver_0:reset, VideoStreamTPG_0:reset, W9825G6KH_SDRAMController_125MHz_CL3_0:reset_n, alt_vip_cl_cvo_0_1:rst, alt_vip_cl_mixer_0:main_reset_reset, alt_vip_cl_vfb_0:main_reset, alt_vip_cl_vfb_0:mem_reset, alt_vip_cti_0:rst, irq_mapper:reset, main_scaler:main_reset, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, mm_interconnect_1:alt_vip_cl_vfb_0_mem_reset_reset_bridge_in_reset_reset, nios2_gen2_0:reset_n, onchip_memory2_0:reset, pio_0:reset_n, rst_translator:in_reset, uart_0:reset_n]
 	wire         rst_controller_reset_out_reset_req;                                                    // rst_controller:reset_req -> [nios2_gen2_0:reset_req, onchip_memory2_0:reset_req, rst_translator:reset_req_in]
+
+	VideoStreamSizeHalver #(
+		.OUTPUT_WIDTH  (960),
+		.OUTPUT_HEIGHT (540),
+		.INPUT_WIDTH   (1920),
+		.INPUT_HEIGHT  (1080)
+	) videostreamsizehalver_0 (
+		.clk                (clk_clk),                                                       //                   clock.clk
+		.reset              (rst_controller_reset_out_reset),                                //                   reset.reset
+		.din_data           (videostreamtpg_0_avalon_streaming_source_data),                 //   avalon_streaming_sink.data
+		.din_endofpacket    (videostreamtpg_0_avalon_streaming_source_endofpacket),          //                        .endofpacket
+		.din_ready          (videostreamtpg_0_avalon_streaming_source_ready),                //                        .ready
+		.din_startofpacket  (videostreamtpg_0_avalon_streaming_source_startofpacket),        //                        .startofpacket
+		.din_valid          (videostreamtpg_0_avalon_streaming_source_valid),                //                        .valid
+		.dout_data          (videostreamsizehalver_0_avalon_streaming_source_data),          // avalon_streaming_source.data
+		.dout_ready         (videostreamsizehalver_0_avalon_streaming_source_ready),         //                        .ready
+		.dout_startofpacket (videostreamsizehalver_0_avalon_streaming_source_startofpacket), //                        .startofpacket
+		.dout_valid         (videostreamsizehalver_0_avalon_streaming_source_valid),         //                        .valid
+		.dout_endofpacket   (videostreamsizehalver_0_avalon_streaming_source_endofpacket)    //                        .endofpacket
+	);
 
 	VideoStreamTPG #(
 		.OUTPUT_WIDTH  (1920),
@@ -188,21 +208,6 @@ module mySystem (
 		.zs_dqm         (w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_dqm),                             //               .sdram_dqm
 		.zs_ras_n       (w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_ras_n),                           //               .sdram_ras_n
 		.zs_we_n        (w9825g6kh_sdramcontroller_125mhz_cl3_0_sdram_if_sdram_we_n)                             //               .sdram_we_n
-	);
-
-	mySystem_alt_vip_cl_2dfir_0 alt_vip_cl_2dfir_0 (
-		.main_clock         (clk_clk),                                                // main_clock.clk
-		.main_reset         (rst_controller_reset_out_reset),                         // main_reset.reset
-		.din_data           (videostreamtpg_0_avalon_streaming_source_data),          //        din.data
-		.din_valid          (videostreamtpg_0_avalon_streaming_source_valid),         //           .valid
-		.din_startofpacket  (videostreamtpg_0_avalon_streaming_source_startofpacket), //           .startofpacket
-		.din_endofpacket    (videostreamtpg_0_avalon_streaming_source_endofpacket),   //           .endofpacket
-		.din_ready          (videostreamtpg_0_avalon_streaming_source_ready),         //           .ready
-		.dout_data          (alt_vip_cl_2dfir_0_dout_data),                           //       dout.data
-		.dout_valid         (alt_vip_cl_2dfir_0_dout_valid),                          //           .valid
-		.dout_startofpacket (alt_vip_cl_2dfir_0_dout_startofpacket),                  //           .startofpacket
-		.dout_endofpacket   (alt_vip_cl_2dfir_0_dout_endofpacket),                    //           .endofpacket
-		.dout_ready         (alt_vip_cl_2dfir_0_dout_ready)                           //           .ready
 	);
 
 	alt_vipitc131_IS2Vid #(
@@ -406,26 +411,26 @@ module mySystem (
 	);
 
 	mySystem_main_scaler main_scaler (
-		.main_clock            (clk_clk),                                             // main_clock.clk
-		.main_reset            (rst_controller_reset_out_reset),                      // main_reset.reset
-		.din_data              (alt_vip_cl_2dfir_0_dout_data),                        //        din.data
-		.din_valid             (alt_vip_cl_2dfir_0_dout_valid),                       //           .valid
-		.din_startofpacket     (alt_vip_cl_2dfir_0_dout_startofpacket),               //           .startofpacket
-		.din_endofpacket       (alt_vip_cl_2dfir_0_dout_endofpacket),                 //           .endofpacket
-		.din_ready             (alt_vip_cl_2dfir_0_dout_ready),                       //           .ready
-		.dout_data             (main_scaler_dout_data),                               //       dout.data
-		.dout_valid            (main_scaler_dout_valid),                              //           .valid
-		.dout_startofpacket    (main_scaler_dout_startofpacket),                      //           .startofpacket
-		.dout_endofpacket      (main_scaler_dout_endofpacket),                        //           .endofpacket
-		.dout_ready            (main_scaler_dout_ready),                              //           .ready
-		.control_address       (mm_interconnect_0_main_scaler_control_address),       //    control.address
-		.control_byteenable    (mm_interconnect_0_main_scaler_control_byteenable),    //           .byteenable
-		.control_write         (mm_interconnect_0_main_scaler_control_write),         //           .write
-		.control_writedata     (mm_interconnect_0_main_scaler_control_writedata),     //           .writedata
-		.control_read          (mm_interconnect_0_main_scaler_control_read),          //           .read
-		.control_readdata      (mm_interconnect_0_main_scaler_control_readdata),      //           .readdata
-		.control_readdatavalid (mm_interconnect_0_main_scaler_control_readdatavalid), //           .readdatavalid
-		.control_waitrequest   (mm_interconnect_0_main_scaler_control_waitrequest)    //           .waitrequest
+		.main_clock            (clk_clk),                                                       // main_clock.clk
+		.main_reset            (rst_controller_reset_out_reset),                                // main_reset.reset
+		.din_data              (videostreamsizehalver_0_avalon_streaming_source_data),          //        din.data
+		.din_valid             (videostreamsizehalver_0_avalon_streaming_source_valid),         //           .valid
+		.din_startofpacket     (videostreamsizehalver_0_avalon_streaming_source_startofpacket), //           .startofpacket
+		.din_endofpacket       (videostreamsizehalver_0_avalon_streaming_source_endofpacket),   //           .endofpacket
+		.din_ready             (videostreamsizehalver_0_avalon_streaming_source_ready),         //           .ready
+		.dout_data             (main_scaler_dout_data),                                         //       dout.data
+		.dout_valid            (main_scaler_dout_valid),                                        //           .valid
+		.dout_startofpacket    (main_scaler_dout_startofpacket),                                //           .startofpacket
+		.dout_endofpacket      (main_scaler_dout_endofpacket),                                  //           .endofpacket
+		.dout_ready            (main_scaler_dout_ready),                                        //           .ready
+		.control_address       (mm_interconnect_0_main_scaler_control_address),                 //    control.address
+		.control_byteenable    (mm_interconnect_0_main_scaler_control_byteenable),              //           .byteenable
+		.control_write         (mm_interconnect_0_main_scaler_control_write),                   //           .write
+		.control_writedata     (mm_interconnect_0_main_scaler_control_writedata),               //           .writedata
+		.control_read          (mm_interconnect_0_main_scaler_control_read),                    //           .read
+		.control_readdata      (mm_interconnect_0_main_scaler_control_readdata),                //           .readdata
+		.control_readdatavalid (mm_interconnect_0_main_scaler_control_readdatavalid),           //           .readdatavalid
+		.control_waitrequest   (mm_interconnect_0_main_scaler_control_waitrequest)              //           .waitrequest
 	);
 
 	mySystem_nios2_gen2_0 nios2_gen2_0 (

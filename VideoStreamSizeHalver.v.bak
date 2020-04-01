@@ -1,8 +1,13 @@
 /*******************************************************************
 Module declaration
 *******************************************************************/
-module VideoStreamPadding
-#(parameter OUTPUT_WIDTH=1920, parameter OUTPUT_HEIGHT=1080)
+module VideoStreamSizeHalver
+#(
+   parameter OUTPUT_WIDTH = 960, 
+   parameter OUTPUT_HEIGHT = 540,
+   parameter INPUT_HEIGHT = 1920,
+   parameter INPUT_HEIGHT = 1080
+)
 (
    input             clk,
    input             reset,
@@ -29,7 +34,7 @@ reg [1:0] ctrlcount = 2'h0;
 wire writelinebuffer;
 
 
-reg [23:0] linebuffer[OUTPUT_WIDTH-1:0];
+reg [23:0] linebuffer[INPUT_WIDTH-1:0];
 
 wire startsourcing;
 wire lastpixelout;
@@ -117,7 +122,7 @@ Process incomming pixels
 //   end
 //   else
 //   begin
-//      if (din_startofpacket == 1'b1 && din_data == 24'h0000000) // current data is video data
+//      if (din_startofpacket == 1'b1 && din_data == 24'h0000000) // current data is video data. Packer ID = 0
 //      begin
 //         
 //      end

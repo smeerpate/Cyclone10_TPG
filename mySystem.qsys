@@ -9,6 +9,14 @@
    categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
+   element VideoStreamSizeHalver_0
+   {
+      datum _sortIndex
+      {
+         value = "13";
+         type = "int";
+      }
+   }
    element VideoStreamTPG_0
    {
       datum _sortIndex
@@ -42,6 +50,11 @@
          value = "11";
          type = "int";
       }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
+      }
    }
    element alt_vip_cl_cvo_0_1
    {
@@ -49,6 +62,11 @@
       {
          value = "12";
          type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "0";
+         type = "boolean";
       }
    }
    element alt_vip_cl_mixer_0
@@ -299,6 +317,16 @@
    type="conduit"
    dir="end" />
  <module
+   name="VideoStreamSizeHalver_0"
+   kind="VideoStreamSizeHalver"
+   version="1.0"
+   enabled="1">
+  <parameter name="INPUT_HEIGHT" value="1080" />
+  <parameter name="INPUT_WIDTH" value="1920" />
+  <parameter name="OUTPUT_HEIGHT" value="540" />
+  <parameter name="OUTPUT_WIDTH" value="960" />
+ </module>
+ <module
    name="VideoStreamTPG_0"
    kind="VideoStreamTPG"
    version="1.0"
@@ -315,7 +343,7 @@
    name="alt_vip_cl_2dfir_0"
    kind="alt_vip_cl_2dfir"
    version="18.1"
-   enabled="1">
+   enabled="0">
   <parameter name="ALGORITHM_NAME" value="STANDARD_FIR" />
   <parameter name="AUTO_DEVICE" value="10CL016YU484C8G" />
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="8" />
@@ -542,8 +570,8 @@
   <parameter name="IS_422" value="0" />
   <parameter name="LIMITED_READBACK" value="1" />
   <parameter name="LOAD_AT_RUNTIME" value="0" />
-  <parameter name="MAX_IN_HEIGHT" value="1080" />
-  <parameter name="MAX_IN_WIDTH" value="1920" />
+  <parameter name="MAX_IN_HEIGHT" value="540" />
+  <parameter name="MAX_IN_WIDTH" value="960" />
   <parameter name="MAX_OUT_HEIGHT" value="480" />
   <parameter name="MAX_OUT_WIDTH" value="640" />
   <parameter name="NO_BLANKING" value="0" />
@@ -911,17 +939,17 @@
    kind="avalon_streaming"
    version="18.1"
    start="VideoStreamTPG_0.avalon_streaming_source"
-   end="alt_vip_cl_2dfir_0.din" />
+   end="VideoStreamSizeHalver_0.avalon_streaming_sink" />
+ <connection
+   kind="avalon_streaming"
+   version="18.1"
+   start="VideoStreamSizeHalver_0.avalon_streaming_source"
+   end="main_scaler.din" />
  <connection
    kind="avalon_streaming"
    version="18.1"
    start="main_scaler.dout"
    end="alt_vip_cl_vfb_0.din" />
- <connection
-   kind="avalon_streaming"
-   version="18.1"
-   start="alt_vip_cl_2dfir_0.dout"
-   end="main_scaler.din" />
  <connection
    kind="avalon_streaming"
    version="18.1"
@@ -955,6 +983,11 @@
    version="18.1"
    start="clk_0.clk"
    end="VideoStreamTPG_0.clock" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="clk_0.clk"
+   end="VideoStreamSizeHalver_0.clock" />
  <connection
    kind="clock"
    version="18.1"
@@ -1060,6 +1093,11 @@
    version="18.1"
    start="clk_0.clk_reset"
    end="VideoStreamTPG_0.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="clk_0.clk_reset"
+   end="VideoStreamSizeHalver_0.reset" />
  <connection
    kind="reset"
    version="18.1"

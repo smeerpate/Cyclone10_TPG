@@ -67,7 +67,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   </table>
   <table class="blueBar">
    <tr>
-    <td class="l">2020.03.25.10:53:54</td>
+    <td class="l">2020.04.01.11:36:32</td>
     <td class="r">Datasheet</td>
    </tr>
   </table>
@@ -273,6 +273,98 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
     <td class="empty"></td>
    </tr>
   </table>
+  <a name="module_VideoStreamSizeHalver_0"> </a>
+  <div>
+   <hr/>
+   <h2>VideoStreamSizeHalver_0</h2>VideoStreamSizeHalver v1.0
+   <br/>
+   <div class="greydiv">
+    <table class="connectionboxes">
+     <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_VideoStreamTPG_0">VideoStreamTPG_0</a>
+      </td>
+      <td class="from">avalon_streaming_source&#160;&#160;</td>
+      <td class="main" rowspan="9">VideoStreamSizeHalver_0</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;avalon_streaming_sink</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="neighbor" rowspan="4">
+       <a href="#module_clk_0">clk_0</a>
+      </td>
+      <td class="from">clk&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;clock</td>
+     </tr>
+     <tr>
+      <td class="from">clk_reset&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;reset</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">avalon_streaming_source&#160;&#160;</td>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_main_scaler">main_scaler</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;din</td>
+     </tr>
+    </table>
+   </div>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">OUTPUT_WIDTH</td>
+        <td class="parametervalue">960</td>
+       </tr>
+       <tr>
+        <td class="parametername">OUTPUT_HEIGHT</td>
+        <td class="parametervalue">540</td>
+       </tr>
+       <tr>
+        <td class="parametername">INPUT_WIDTH</td>
+        <td class="parametervalue">1920</td>
+       </tr>
+       <tr>
+        <td class="parametername">INPUT_HEIGHT</td>
+        <td class="parametervalue">1080</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
   <a name="module_VideoStreamTPG_0"> </a>
   <div>
    <hr/>
@@ -301,13 +393,13 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <td></td>
       <td class="from">avalon_streaming_source&#160;&#160;</td>
       <td class="neighbor" rowspan="2">
-       <a href="#module_alt_vip_cl_2dfir_0">alt_vip_cl_2dfir_0</a>
+       <a href="#module_VideoStreamSizeHalver_0">VideoStreamSizeHalver_0</a>
       </td>
      </tr>
      <tr>
       <td></td>
       <td></td>
-      <td class="to">&#160;&#160;din</td>
+      <td class="to">&#160;&#160;avalon_streaming_sink</td>
      </tr>
     </table>
    </div>
@@ -395,234 +487,6 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
      <td class="parametersbox">
       <h2>Parameters</h2>
       <table>
-       <tr>
-        <td class="parametername">deviceFamily</td>
-        <td class="parametervalue">UNKNOWN</td>
-       </tr>
-       <tr>
-        <td class="parametername">generateLegacySim</td>
-        <td class="parametervalue">false</td>
-       </tr>
-      </table>
-     </td>
-    </tr>
-   </table>&#160;&#160;
-   <table class="flowbox">
-    <tr>
-     <td class="parametersbox">
-      <h2>Software Assignments</h2>(none)</td>
-    </tr>
-   </table>
-  </div>
-  <a name="module_alt_vip_cl_2dfir_0"> </a>
-  <div>
-   <hr/>
-   <h2>alt_vip_cl_2dfir_0</h2>alt_vip_cl_2dfir v18.1
-   <br/>
-   <div class="greydiv">
-    <table class="connectionboxes">
-     <tr>
-      <td class="neighbor" rowspan="2">
-       <a href="#module_VideoStreamTPG_0">VideoStreamTPG_0</a>
-      </td>
-      <td class="from">avalon_streaming_source&#160;&#160;</td>
-      <td class="main" rowspan="9">alt_vip_cl_2dfir_0</td>
-     </tr>
-     <tr>
-      <td class="to">&#160;&#160;din</td>
-     </tr>
-     <tr style="height:6px">
-      <td></td>
-     </tr>
-     <tr>
-      <td class="neighbor" rowspan="4">
-       <a href="#module_clk_0">clk_0</a>
-      </td>
-      <td class="from">clk&#160;&#160;</td>
-     </tr>
-     <tr>
-      <td class="to">&#160;&#160;main_clock</td>
-     </tr>
-     <tr>
-      <td class="from">clk_reset&#160;&#160;</td>
-     </tr>
-     <tr>
-      <td class="to">&#160;&#160;main_reset</td>
-     </tr>
-     <tr>
-      <td></td>
-      <td></td>
-      <td class="from">dout&#160;&#160;</td>
-      <td class="neighbor" rowspan="2">
-       <a href="#module_main_scaler">main_scaler</a>
-      </td>
-     </tr>
-     <tr>
-      <td></td>
-      <td></td>
-      <td class="to">&#160;&#160;din</td>
-     </tr>
-    </table>
-   </div>
-   <br/>
-   <br/>
-   <table class="flowbox">
-    <tr>
-     <td class="parametersbox">
-      <h2>Parameters</h2>
-      <table>
-       <tr>
-        <td class="parametername">NUMBER_OF_COLOR_PLANES</td>
-        <td class="parametervalue">3</td>
-       </tr>
-       <tr>
-        <td class="parametername">COLOR_PLANES_ARE_IN_PARALLEL</td>
-        <td class="parametervalue">1</td>
-       </tr>
-       <tr>
-        <td class="parametername">PIXELS_IN_PARALLEL</td>
-        <td class="parametervalue">1</td>
-       </tr>
-       <tr>
-        <td class="parametername">BITS_PER_SYMBOL_IN</td>
-        <td class="parametervalue">8</td>
-       </tr>
-       <tr>
-        <td class="parametername">BITS_PER_SYMBOL_OUT</td>
-        <td class="parametervalue">8</td>
-       </tr>
-       <tr>
-        <td class="parametername">IS_422</td>
-        <td class="parametervalue">0</td>
-       </tr>
-       <tr>
-        <td class="parametername">ALGORITHM_NAME</td>
-        <td class="parametervalue">STANDARD_FIR</td>
-       </tr>
-       <tr>
-        <td class="parametername">V_TAPS</td>
-        <td class="parametervalue">3</td>
-       </tr>
-       <tr>
-        <td class="parametername">H_TAPS</td>
-        <td class="parametervalue">3</td>
-       </tr>
-       <tr>
-        <td class="parametername">V_SYMMETRIC</td>
-        <td class="parametervalue">0</td>
-       </tr>
-       <tr>
-        <td class="parametername">H_SYMMETRIC</td>
-        <td class="parametervalue">0</td>
-       </tr>
-       <tr>
-        <td class="parametername">DIAG_SYMMETRIC</td>
-        <td class="parametervalue">0</td>
-       </tr>
-       <tr>
-        <td class="parametername">COEFF_SIGNED</td>
-        <td class="parametervalue">0</td>
-       </tr>
-       <tr>
-        <td class="parametername">COEFF_INTEGER_BITS</td>
-        <td class="parametervalue">1</td>
-       </tr>
-       <tr>
-        <td class="parametername">COEFF_FRACTION_BITS</td>
-        <td class="parametervalue">7</td>
-       </tr>
-       <tr>
-        <td class="parametername">MOVE_BINARY_POINT_RIGHT</td>
-        <td class="parametervalue">0</td>
-       </tr>
-       <tr>
-        <td class="parametername">ROUNDING_METHOD</td>
-        <td class="parametervalue">TRUNCATE</td>
-       </tr>
-       <tr>
-        <td class="parametername">ENABLE_WIDE_BLUR_SHARPEN</td>
-        <td class="parametervalue">1</td>
-       </tr>
-       <tr>
-        <td class="parametername">DEFAULT_UPPER_BLUR</td>
-        <td class="parametervalue">15</td>
-       </tr>
-       <tr>
-        <td class="parametername">DEFAULT_LOWER_BLUR</td>
-        <td class="parametervalue">0</td>
-       </tr>
-       <tr>
-        <td class="parametername">DO_MIRRORING</td>
-        <td class="parametervalue">0</td>
-       </tr>
-       <tr>
-        <td class="parametername">RUNTIME_CONTROL</td>
-        <td class="parametervalue">0</td>
-       </tr>
-       <tr>
-        <td class="parametername">LIMITED_READBACK</td>
-        <td class="parametervalue">0</td>
-       </tr>
-       <tr>
-        <td class="parametername">USER_PACKET_SUPPORT</td>
-        <td class="parametervalue">NONE_ALLOWED</td>
-       </tr>
-       <tr>
-        <td class="parametername">MAX_WIDTH</td>
-        <td class="parametervalue">1920</td>
-       </tr>
-       <tr>
-        <td class="parametername">MAX_HEIGHT</td>
-        <td class="parametervalue">1080</td>
-       </tr>
-       <tr>
-        <td class="parametername">OUTPUT_GUARD_BANDS_ENABLE</td>
-        <td class="parametervalue">0</td>
-       </tr>
-       <tr>
-        <td class="parametername">OUTPUT_GUARD_BAND_LOWER</td>
-        <td class="parametervalue">0</td>
-       </tr>
-       <tr>
-        <td class="parametername">OUTPUT_GUARD_BAND_UPPER</td>
-        <td class="parametervalue">255</td>
-       </tr>
-       <tr>
-        <td class="parametername">INPUT_GUARD_BANDS_ENABLE</td>
-        <td class="parametervalue">0</td>
-       </tr>
-       <tr>
-        <td class="parametername">INPUT_GUARD_BAND_LOWER</td>
-        <td class="parametervalue">0</td>
-       </tr>
-       <tr>
-        <td class="parametername">INPUT_GUARD_BAND_UPPER</td>
-        <td class="parametervalue">255</td>
-       </tr>
-       <tr>
-        <td class="parametername">EXTRA_PIPELINING</td>
-        <td class="parametervalue">0</td>
-       </tr>
-       <tr>
-        <td class="parametername">NO_BLANKING</td>
-        <td class="parametervalue">0</td>
-       </tr>
-       <tr>
-        <td class="parametername">FIXED_COEFF_FILE</td>
-        <td class="parametervalue">D:\Users\Frederic\IntelFPGA\Sources\Cyclone10_TPG_speel\4x4Kernel.csv</td>
-       </tr>
-       <tr>
-        <td class="parametername">FAMILY</td>
-        <td class="parametervalue">CYCLONE10LP</td>
-       </tr>
-       <tr>
-        <td class="parametername">AUTO_DEVICE</td>
-        <td class="parametervalue">10CL016YU484C8G</td>
-       </tr>
-       <tr>
-        <td class="parametername">AUTO_DEVICE_SPEEDGRADE</td>
-        <td class="parametervalue">8</td>
-       </tr>
        <tr>
         <td class="parametername">deviceFamily</td>
         <td class="parametervalue">UNKNOWN</td>
@@ -1626,9 +1490,9 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
      </tr>
      <tr>
       <td class="neighbor" rowspan="2">
-       <a href="#module_alt_vip_cl_2dfir_0">alt_vip_cl_2dfir_0</a>
+       <a href="#module_VideoStreamSizeHalver_0">VideoStreamSizeHalver_0</a>
       </td>
-      <td class="from">dout&#160;&#160;</td>
+      <td class="from">avalon_streaming_source&#160;&#160;</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;din</td>
@@ -1703,11 +1567,11 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">MAX_IN_WIDTH</td>
-        <td class="parametervalue">1920</td>
+        <td class="parametervalue">960</td>
        </tr>
        <tr>
         <td class="parametername">MAX_IN_HEIGHT</td>
-        <td class="parametervalue">1080</td>
+        <td class="parametervalue">540</td>
        </tr>
        <tr>
         <td class="parametername">MAX_OUT_WIDTH</td>
@@ -3594,7 +3458,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   <table class="blueBar">
    <tr>
     <td class="l">generation took 0,01 seconds</td>
-    <td class="r">rendering took 0,07 seconds</td>
+    <td class="r">rendering took 0,06 seconds</td>
    </tr>
   </table>
  </body>
